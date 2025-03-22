@@ -1,0 +1,195 @@
+[
+    {
+        "id": "P001",
+        "product_img": "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
+        "title": "Men's Classic Cotton T-Shirt",
+        "category": "Men",
+        "description": "This premium quality cotton T-shirt is designed for ultimate comfort and durability. Made with 100% organic ringspun combed cotton, it ensures a soft feel while maintaining shape after multiple washes. The fabric is mid-weight, making it perfect for everyday wear.",
+        "price": 799,
+        "size": ["S", "M", "L", "XL"],
+        "features": [
+            "Organic Ringspun Combed Compact Cotton",
+            "100% Cotton",
+            "Regular fit, Crew Neck",
+            "Mid-weight, 5.16 oz/yd2 (~175GSM)",
+            "Reactive Dye, enzyme and silicon washed",
+            "Preshrunk to minimize shrinkage"
+        ]
+    },
+    {
+        "id": "P002",
+        "product_img": "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
+        "title": "Women's Slim Fit T-Shirt",
+        "category": "Women",
+        "description": "This stylish slim-fit T-shirt is crafted from ultra-soft cotton fabric for a perfect blend of comfort and elegance. The enzyme-washed finish ensures a smooth texture and long-lasting quality.",
+        "price": 899,
+        "size": ["S", "M", "L"],
+        "features": [
+            "95% Cotton, 5% Spandex",
+            "Slim Fit, Round Neck",
+            "Mid-weight, 180 GSM",
+            "Enzyme washed for a soft feel",
+            "Durable stitching for longevity"
+        ]
+    },
+    {
+        "id": "P003",
+        "product_img": "https://i.postimg.cc/8k9PCWNV/m-4.jpg",
+        "title": "Men's Polo T-Shirt",
+        "category": "Men",
+        "description": "A premium polo T-shirt made from breathable cotton fabric with a pique texture. This polo offers a semi-formal look, making it ideal for both office wear and casual outings.",
+        "price": 1299,
+        "size": ["M", "L", "XL", "XXL"],
+        "features": [
+            "100% Pique Cotton",
+            "Regular Fit, Ribbed Collar",
+            "Breathable Fabric, 220 GSM",
+            "Reactive dye for color retention",
+            "Side slits for better movement"
+        ]
+    },
+    {
+        "id": "P004",
+        "product_img": "https://i.postimg.cc/7hFxQvmL/m-5.jpg",
+        "title": "Unisex Oversized T-Shirt",
+        "category": "Unisex",
+        "description": "A trendy oversized T-shirt crafted with high-quality fabric to provide an effortless, stylish look. The perfect choice for those who love relaxed fits.",
+        "price": 1099,
+        "size": ["M", "L", "XL"],
+        "features": [
+            "100% Organic Cotton",
+            "Oversized Fit, Drop Shoulder",
+            "Heavyweight, 250 GSM",
+            "Double-stitched hems for durability",
+            "Silicon washed for smooth finish"
+        ]
+    },
+    {
+        "id": "P005",
+        "product_img": "https://i.postimg.cc/dQrS7kyy/m-7.jpg",
+        "title": "Men's Denim Shirt",
+        "category": "Men",
+        "description": "This rugged yet stylish denim shirt is crafted from durable cotton fabric, offering a perfect balance of comfort and style. Features a button-up design with front pockets.",
+        "price": 1999,
+        "size": ["M", "L", "XL"],
+        "features": [
+            "100% Cotton Denim",
+            "Regular Fit, Full Sleeves",
+            "Button-up closure",
+            "Faded wash for vintage look",
+            "Reinforced stitching for durability"
+        ]
+    },
+    {
+        "id": "P006",
+        "product_img": "https://i.postimg.cc/26FhYD1V/m-10.jpg",
+        "title": "Women's Cotton Kurti",
+        "category": "Women",
+        "description": "An elegant kurti made from soft cotton fabric, perfect for casual and office wear. Comes with beautiful embroidery details for a classy look.",
+        "price": 1499,
+        "size": ["S", "M", "L", "XL"],
+        "features": [
+            "100% Cotton",
+            "Straight Cut, 3/4 Sleeves",
+            "Embroidery Detailing",
+            "Lightweight and breathable",
+            "Colorfast fabric"
+        ]
+    },
+    {
+        "id": "P007",
+        "product_img": "https://i.postimg.cc/CxVhGgRP/m-2.jpg",
+        "title": "Men's Hooded Sweatshirt",
+        "category": "Men",
+        "description": "Stay warm and stylish with this cozy hooded sweatshirt. Made with a blend of cotton and polyester for extra warmth and durability.",
+        "price": 2199,
+        "size": ["M", "L", "XL", "XXL"],
+        "features": [
+            "60% Cotton, 40% Polyester",
+            "Regular Fit, Kangaroo Pocket",
+            "Brushed Fleece Interior",
+            "Elastic Ribbed Cuffs and Hem",
+            "Pre-shrunk for minimal shrinkage"
+        ]
+    },
+    {
+        "id": "P008",
+        "product_img": "https://i.postimg.cc/2ybkwjdJ/k-1.jpg",
+        "title": "Women's High Waist Jeans",
+        "category": "Women",
+        "description": "A trendy pair of high-waisted jeans designed to give a flattering fit while ensuring maximum comfort throughout the day.",
+        "price": 2499,
+        "size": ["26", "28", "30", "32", "34"],
+        "features": [
+            "98% Cotton, 2% Elastane",
+            "Slim Fit, High Waist",
+            "Stretchable for comfortable fit",
+            "Classic 5-pocket design",
+            "Durable zipper and button closure"
+        ]
+    },
+    {
+        "id": "P009",
+        "product_img": "https://i.postimg.cc/J48YjrNd/m-9.jpg",
+        "title": "Men's Joggers",
+        "category": "Men",
+        "description": "Experience unmatched comfort with these stylish joggers. Crafted from premium quality fabric with an elastic waistband for a perfect fit.",
+        "price": 1799,
+        "size": ["M", "L", "XL"],
+        "features": [
+            "65% Cotton, 35% Polyester",
+            "Tapered Fit, Elastic Waistband",
+            "Side Pockets with Zip Closure",
+            "Breathable and sweat-wicking",
+            "Ribbed ankle cuffs"
+        ]
+    },
+    {
+        "id": "P010",
+        "product_img": "https://i.postimg.cc/wMXWnZpV/k-7.jpg",
+        "title": "Unisex Graphic Hoodie",
+        "category": "Unisex",
+        "description": "A fashionable graphic hoodie featuring high-quality prints and a cozy fleece lining. Ideal for winter wear.",
+        "price": 2499,
+        "size": ["M", "L", "XL", "XXL"],
+        "features": [
+            "80% Cotton, 20% Polyester",
+            "Relaxed Fit, Front Pouch Pocket",
+            "Premium Screen Print Design",
+            "Brushed Fleece for warmth",
+            "Durable Drawstrings and Hood Lining"
+        ]
+    },
+    {
+        "id": "P011",
+        "product_img": "https://i.postimg.cc/dQrS7kyy/m-7.jpg",
+        "title": "Men's Formal Shirt",
+        "category": "Men",
+        "description": "A sophisticated formal shirt designed for business and office wear. Made from premium cotton blend fabric for a crisp and polished look.",
+        "price": 1899,
+        "size": ["M", "L", "XL", "XXL"],
+        "features": [
+            "60% Cotton, 40% Polyester",
+            "Slim Fit, Full Sleeves",
+            "Breathable & Wrinkle-resistant",
+            "Classic Spread Collar",
+            "Double-stitched for durability"
+        ]
+    },
+    {
+        "id": "P012",
+        "product_img": "https://i.postimg.cc/1tz58r8y/w-1.jpg",
+        "title": "Women's Floral Maxi Dress",
+        "category": "Women",
+        "description": "An elegant floral maxi dress perfect for casual outings and summer vibes. Made with lightweight and breathable fabric for all-day comfort.",
+        "price": 2699,
+        "size": ["S", "M", "L", "XL"],
+        "features": [
+            "100% Rayon",
+            "Flowy and Comfortable Fit",
+            "V-neck with Adjustable Straps",
+            "Breathable and Soft Fabric",
+            "Machine Washable, Colorfast"
+        ]
+    }
+]

@@ -1,0 +1,29 @@
+import React from 'react';
+import Cetegory from './Components/Cetegories/Cetegory';
+import Display from './Pages/Products/Display';
+import Trendings from './Pages/Products/Trendings';
+import NewArrival from './Pages/Products/NewArrival';
+
+const App = () => {
+  return (
+    <div className='mt-2'>
+      {/* main banner */}
+      {/* <div><img src="https://fabrilife.com/image-gallery/67cffcca079a8.jpg" alt="" /></div> */}
+      <div>
+        <Display />
+      </div>
+      {/* Product cetegories */}
+      <Cetegory />
+      <div>
+        <p className='uppercase border-b border-gray-700 text-center p-3 md:p-5 text-xl md:text-3xl font-medium'>trending items</p>
+        <Trendings />
+      </div>
+      <div>
+        <p className='uppercase border-b border-gray-700 text-center p-3 md:p-5 text-xl md:text-3xl font-medium mb-2'>new arrivals</p>
+        <NewArrival />
+      </div>
+    </div>
+  );
+};
+
+export default App;
