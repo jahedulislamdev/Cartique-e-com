@@ -3,7 +3,7 @@ export const contextProvider = createContext();
 
 const DataProvider = ({ children }) => {
    //loading state
-   const [loading, setLoading] = useState(false);
+   const [loading, setLoading] = useState(true);
 
    // navdata
    const navData = [
@@ -59,12 +59,12 @@ const DataProvider = ({ children }) => {
 
    //prduct cetegories
    const productCategories = [
-      { id: 1, name: "T-shirt", path: "/category/tshirt" },
-      { id: 2, name: "Attar", path: "/category/attar" },
-      { id: 3, name: "Panjabi", path: "/category/panjabi" },
-      { id: 4, name: "Trousers", path: "/category/trousers" },
-      { id: 5, name: "Sneakers", path: "/category/sneakers" },
-      { id: 6, name: "Get 15% off", path: "/category/offers" }
+      { id: 1, name: "Men", path: "/category/tshirt" },
+      { id: 2, name: "wemen", path: "/category/attar" },
+      { id: 3, name: "Kids", path: "/category/panjabi" },
+      { id: 4, name: "Foods", path: "/category/trousers" },
+      { id: 5, name: "Men's 25", path: "/category/sneakers" },
+      { id: 6, name: "Wemen's 25", path: "/category/offers" }
    ];
    // product display img
    const displayImg = [
@@ -92,7 +92,7 @@ const DataProvider = ({ children }) => {
    }, [])
 
    // Provided data
-   const data = { navData, productCategories, products, displayImg, loading };
+   const data = { navData, productCategories, products, displayImg, loading, setLoading };
 
    return (
       <contextProvider.Provider value={data}>

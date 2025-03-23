@@ -5,3 +5,13 @@
 @theme {
     --font-display: "Parkinsans", sans-serif;
 }
+
+html.has-scroll-smooth {
+    overflow: scroll;
+}
+html.has-scroll-dragging {
+    user-select: none;
+}
+[data-scroll-container] {
+    min-height: 100vh;
+}

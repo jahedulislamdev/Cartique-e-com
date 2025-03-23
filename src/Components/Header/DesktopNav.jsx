@@ -10,7 +10,7 @@ const DesktopNav = () => {
          <ul className="hidden md:flex md:gap-x-7 md:justify-center md:items-center md:py-2">
             {navData.map((item) => (
                <li key={item.id} className="uppercase text-sm relative group flex items-center cursor-pointer md:border-e pe-1 border-gray-700">
-                  <Link to={item.direct_path && item.direct_path}>{item.title}</Link>
+                  <Link to={item.direct_path ? item.direct_path : ''}>{item.title}</Link>
                   {item.submenu && <MdOutlineKeyboardArrowDown className="ms-1" />}
                   {item.submenu && (
                      <ul className="absolute transition-all left-0 top-full hidden bg-base-100 shadow-lg rounded-md p-2 min-w-56 group-hover:block">
