@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import { useParams } from 'react-router-dom';
 import { CiHeart } from 'react-icons/ci';
+import { motion } from 'framer-motion'; // I don't know why it's happning err
 
 
 const Details = () => {
@@ -11,6 +12,7 @@ const Details = () => {
    const [selectedProduct, setSelectedProduct] = useState(null);
    const [showcaseImage, setShowcaseImage] = useState(null);
 
+   // find selected product (lazy load)
    useEffect(() => {
       const expectedProduct = products?.find(p => p.id === id);
       if (expectedProduct) {
@@ -18,7 +20,6 @@ const Details = () => {
          setShowcaseImage(expectedProduct.Product_showcase?.[0] || expectedProduct.product_img);
          setLoading(false);
       }
-
    }, [id, products, setLoading])
 
    if (loading) {
@@ -31,7 +32,7 @@ const Details = () => {
       </div>;
    }
    return (
-      <div className='container mx-auto md:grid grid-cols-2 space-x-5 my-7 p-5 rounded-lg'>
+      <div className='container mx-auto md:grid grid-cols-2 space-x-5 my-7 md:p-5 rounded-lg'>
          <div className='grid grid-cols-5'>
             {/* Thumbnail List */}
             <div className='col-span-1 p-0.5'>
@@ -46,9 +47,16 @@ const Details = () => {
 
             {/* Main Image */}
             <div className='col-span-4'>
-               <img className='w-full h-auto object-center object-cover rounded-lg shadow-md'
+               < motion.img
+                  key={showcaseImage}
                   src={showcaseImage}
-                  alt={''} />
+                  alt="Selected Product"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: 50, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className='w-full h-auto object-center object-cover rounded-lg shadow-md'
+               />
             </div>
          </div>
 
@@ -86,17 +94,17 @@ const Details = () => {
 
             {/* Quantity Selector */}
             <div className="join join-horizontal mt-3">
-               <button className="btn text-xl border-gray-50 cursor-default rounded-s join-item">0</button>
-               <button className="btn text-xl border-gray-50 rounded-e join-item">-</button>
+               <button className="btn text-xl border-gray-50 join-item">-</button>
+               <button className="btn text-xl border-gray-50 cursor-default join-item">0</button>
                <button className="btn text-xl border-gray-50 join-item">+</button>
             </div>
 
             {/* Add to Cart & Wishlist */}
             <div className='flex justify-start items-center space-x-3 mt-4'>
-               <button className='uppercase hover:bg-red-800 hover:text-white transition-colors w-full border p-2 cursor-pointer'>
+               <button className='uppercase font-display hover:bg-red-800 bg-red-700 hover:text-white transition-colors w-full p-2 cursor-pointer'>
                   Add to Bag
                </button>
-               <button className='hover:bg-red-800 p-2 hover:text-white rounded-full cursor-pointer transition-colors'>
+               <button className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
                   <CiHeart className='size-6 ' />
                </button>
             </div>

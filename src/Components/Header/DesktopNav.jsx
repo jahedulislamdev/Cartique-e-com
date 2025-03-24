@@ -7,7 +7,7 @@ const DesktopNav = () => {
    const { navData } = useContext(contextProvider);
    return (
       <div>
-         <ul className="hidden md:flex md:gap-x-7 md:justify-center md:items-center md:py-2">
+         <ul className="hidden md:flex md:gap-x-7 md:justify-center md:items-center md:py-3">
             {navData.map((item) => (
                <li key={item.id} className="uppercase text-sm relative group flex items-center cursor-pointer md:border-e pe-1 border-gray-700">
                   <Link to={item.direct_path ? item.direct_path : ''}>{item.title}</Link>

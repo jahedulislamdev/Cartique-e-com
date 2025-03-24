@@ -14,7 +14,7 @@ const NewArrival = () => {
    return (
       <div className='grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-20 py-4 px-3'>
          {
-            products.map((p) => (
+            products.slice(0, 10).map((p) => (
                <div id='productCard' key={p.id} className='h-56 cursor-pointer md:h-64 transition-all relative'>
                   <button className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
                      <CiHeart className='text-black hovr:bg-white size-5' />

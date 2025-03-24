@@ -5,10 +5,18 @@ import { IoIosSearch } from 'react-icons/io';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
+import { useRef } from "react";
 
 const Searchbar = () => {
+   const dialogColsingRef = useRef(null);
+   const closeModal = () => {
+      if (dialogColsingRef.current) {
+         dialogColsingRef.current.close();
+      }
+   }
+
    return (
-      <div className="sticky top-0 bg-base-100 z-1000">
+      <div className="sticky top-0 bg-base-100 border-b border-base-300 z-1000">
          <div className=" navbar border-b border-gray-500 space-x-2">
             {/* navbar start */}
             <div className="navbar-start">
@@ -18,20 +26,20 @@ const Searchbar = () => {
                   className="btn btn-ghost lg:hidden">
                   <HiOutlineMenuAlt3 className='size-5' />
                </button>
-               <dialog id="sidebarModal" className="modal flex modal-start">
+               <dialog id="sidebarModal" ref={dialogColsingRef} className="modal flex modal-start">
                   <div className="modal-box w-full">
                      <form method="dialog" className='mb-3 flex justify-between items-center'>
                         <p className="text-lg font-semibold uppercase">Chartique</p>
                         <button className="text-gray-400 cursor-pointer">ese</button>
                      </form>
-                     <MobileNav />
+                     <MobileNav closeModal={closeModal} />
                   </div>
                </dialog>
                {/* sidebar modal end*/}
                <Link to={'/'} className='text-lg md:text-2xl font-semibold uppercase'>Cartique</Link>
             </div>
             {/* navbar center */}
-            <div className="join w-full border border-gray-600 rounded hidden md:flex">
+            <div className="join w-full border border-gray-500 rounded hidden md:flex">
                <input type="text" className="bg-transparent input input-sm md:input-md border-0 w-full focus:outline-0 focus:border-0 join-item" placeholder="Search Your Products" />
                <button type='button' className='join-item p-2 cursor-pointer'><IoSearch className='size-4 lg:size-6' /></button>
             </div>
@@ -44,7 +52,7 @@ const Searchbar = () => {
                      <form method="dialog" className='mb-3 flex justify-end items-center'>
                         <button className="text-sm text-gray-400 hover:bg-base-100 rounded p-0.5">ese</button>
                      </form>
-                     <div className="join w-full border-gray-500 border rounded">
+                     <div className="join w-full border-base-300 border rounded">
                         <input type="text" className="input input-sm md:input-md border-0 w-full focus:outline-0 focus:border-0 join-item" placeholder="Search Your Products" />
                         <button type='button' className='join-item bg-indigo-400 p-2 cursor-pointer'><IoSearch className='size-4 lg:size-6' /></button>
                      </div>

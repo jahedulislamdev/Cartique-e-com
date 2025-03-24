@@ -7,64 +7,65 @@ const DataProvider = ({ children }) => {
 
    // navdata
    const navData = [
-      { id: 1, title: "Home", direct_path: "/" },
+      { id: 1, title: "Home" },
       {
          id: 2, title: "Attar",
          submenu: [
-            { name: "Combo & Gifts", path: "/attar/combo-gifts" },
-            { name: "Wholesale Attar", path: "/attar/wholesale" }
+            { name: "Combo & Gifts" },
+            { name: "Wholesale Attar" }
          ]
       },
       {
          id: 3, title: "Men’s Clothing",
          submenu: [
-            { name: "T-shirt", path: "/mens-clothing/tshirt" },
-            { name: "Trousers", path: "/mens-clothing/trousers" },
-            { name: "Denim pants", path: "/mens-clothing/denim-pants" },
-            { name: "Combo packs", path: "/mens-clothing/combo-packs" }
+            { name: "T-shirt" },
+            { name: "Trousers" },
+            { name: "Denim pants" },
+            { name: "Combo packs" }
          ]
       },
       {
          id: 4, title: "Panjabi",
          submenu: [
-            { name: "Platinum China Bamsilk", path: "/panjabi/platinum-china-bamsilk" },
-            { name: "Premium Chikankar", path: "/panjabi/premium-chikankar" },
-            { name: "Cotton Panjabi", path: "/panjabi/cotton" }
+            { name: "Platinum China Bamsilk" },
+            { name: "Premium Chikankar" },
+            { name: "Cotton Panjabi" }
          ]
       },
       {
          id: 5, title: "Winter 2024",
          submenu: [
-            { name: "Hooded Jacket", path: "/winter-2024/hooded-jacket" },
-            { name: "Double Part Jacket", path: "/winter-2024/double-part-jacket" },
-            { name: "Shawl", path: "/winter-2024/shawl" },
-            { name: "Sneakers", path: "/winter-2024/sneakers" }
+            { name: "Hooded Jacket" },
+            { name: "Double Part Jacket" },
+            { name: "Shawl" },
+            { name: "Sneakers" }
          ]
       },
       {
          id: 6, title: "Foods",
          submenu: [
-            { name: "Dates", path: "/foods/dates" },
-            { name: "Honey", path: "/foods/honey" }
+            { name: "Dates" },
+            { name: "Honey" }
          ]
       },
       {
          id: 7, title: "Others",
          submenu: [
-            { name: "Capes and Headwear", path: "/others/capes-headwear" },
-            { name: "Dawah Canvas", path: "/others/dawah-canvas" }
+            { name: "Capes and Headwear" },
+            { name: "Dawah Canvas" }
          ]
-      },
+      }
    ];
+
 
    //prduct cetegories
    const productCategories = [
-      { id: 1, name: "Men", path: "/category/tshirt" },
-      { id: 2, name: "wemen", path: "/category/attar" },
-      { id: 3, name: "Kids", path: "/category/panjabi" },
-      { id: 4, name: "Foods", path: "/category/trousers" },
-      { id: 5, name: "Men's 25", path: "/category/sneakers" },
-      { id: 6, name: "Wemen's 25", path: "/category/offers" }
+      { id: "M1", category: "Men", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
+      { id: "W1", category: "Women", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
+      { id: "K1", category: "Kids", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
+      { id: "F1", category: "Foods", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
+      { id: "M25", category: "Men's 25", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
+      { id: "W25", category: "Wemen's 25", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] }
    ];
    // product display img
    const displayImg = [

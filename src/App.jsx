@@ -7,8 +7,7 @@ import NewArrival from './Pages/Products/NewArrival';
 const App = () => {
   return (
     <div className='mt-2'>
-      {/* main banner */}
-      {/* <div><img src="https://fabrilife.com/image-gallery/67cffcca079a8.jpg" alt="" /></div> */}
+      {/* DISPLAY PRODUCT */}
       <div>
         <Display />
       </div>
