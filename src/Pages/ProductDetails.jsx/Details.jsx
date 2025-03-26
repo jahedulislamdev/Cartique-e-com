@@ -22,13 +22,9 @@ const Details = () => {
       }
    }, [id, products, setLoading])
 
-   if (loading) {
+   if (loading || !selectedProduct) {
       return <div className="flex items-center justify-center min-h-screen">
          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-600"></div>
-      </div>;
-   } else if (!selectedProduct) {
-      return <div role="alert" className="alert alert-warning alert-outline">
-         <span>Sorry! This Product Couldn't Be Found</span>
       </div>;
    }
    return (
@@ -95,7 +91,7 @@ const Details = () => {
             {/* Quantity Selector */}
             <div className="join join-horizontal mt-3">
                <button className="btn text-xl border-gray-50 join-item">-</button>
-               <button className="btn text-xl border-gray-50 cursor-default join-item">0</button>
+               <button type='' className="btn text-xl border-gray-50 cursor-default join-item">0</button>
                <button className="btn text-xl border-gray-50 join-item">+</button>
             </div>
 

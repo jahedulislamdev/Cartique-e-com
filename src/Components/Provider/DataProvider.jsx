@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useRef, useState } from 'react';
 export const contextProvider = createContext();
 
 const DataProvider = ({ children }) => {
@@ -91,8 +91,40 @@ const DataProvider = ({ children }) => {
       fetchProducts();
    }, [])
 
+   // modal smooth closing functions
+   const dialogColsingRef = useRef(null);
+   const closeModal = () => {
+      if (dialogColsingRef.current) {
+         dialogColsingRef.current.close();
+      }
+   }
+
+   const handleSubmenuClick = () => {
+      setTimeout(() => {
+         closeModal();
+      }, 300);
+   };
+
+   const handleMenuClick = (hasSubmenu) => {
+      if (!hasSubmenu) {
+         setTimeout(() => {
+            closeModal();
+         }, 500);
+      }
+   };
+
    // Provided data
-   const data = { navData, productCategories, products, displayImg, loading, setLoading };
+   const data = {
+      navData,
+      productCategories,
+      products,
+      displayImg,
+      loading,
+      setLoading,
+      handleSubmenuClick,
+      handleMenuClick,
+      dialogColsingRef
+   };
 
    return (
       <contextProvider.Provider value={data}>

@@ -5,16 +5,11 @@ import { IoIosSearch } from 'react-icons/io';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
-import { useRef } from "react";
+import { useContext } from "react";
+import { contextProvider } from "../Provider/DataProvider";
 
 const Searchbar = () => {
-   const dialogColsingRef = useRef(null);
-   const closeModal = () => {
-      if (dialogColsingRef.current) {
-         dialogColsingRef.current.close();
-      }
-   }
-
+   const { dialogColsingRef } = useContext(contextProvider);
    return (
       <div className="sticky top-0 bg-base-100 border-b border-base-300 z-1000">
          <div className=" navbar border-b border-gray-500 space-x-2">
@@ -32,7 +27,7 @@ const Searchbar = () => {
                         <p className="text-lg font-semibold uppercase">Chartique</p>
                         <button className="text-gray-400 cursor-pointer">ese</button>
                      </form>
-                     <MobileNav closeModal={closeModal} />
+                     <MobileNav />
                   </div>
                </dialog>
                {/* sidebar modal end*/}

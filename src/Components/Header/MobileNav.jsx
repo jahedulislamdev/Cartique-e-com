@@ -3,27 +3,12 @@ import { contextProvider } from "../Provider/DataProvider";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const MobileNav = ({ closeModal }) => {
-   const { navData } = useContext(contextProvider);
+const MobileNav = () => {
+   const { navData, handleMenuClick, handleSubmenuClick } = useContext(contextProvider);
    const [openMenu, setOpenMenu] = useState(null);
 
    const handleToggle = (idx) => {
       setOpenMenu(openMenu === idx ? null : idx);
-   };
-
-
-   const handleSubmenuClick = () => {
-      setTimeout(() => {
-         closeModal();
-      }, 300);
-   };
-
-   const handleMenuClick = (hasSubmenu) => {
-      if (!hasSubmenu) {
-         setTimeout(() => {
-            closeModal();
-         }, 500);
-      }
    };
 
    return (
