@@ -57,12 +57,11 @@ const DataProvider = ({ children }) => {
       }
    ];
 
-
    //prduct cetegories
    const productCategories = [
-      { id: "M1", category: "Men", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
-      { id: "W1", category: "Women", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
-      { id: "K1", category: "Kids", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
+      { id: "M1", category: "Men", sub_category: ["panjabi", "shirt", "t-shirt", "pajamas", "trousers", "jeans pant", " joggers", "keds", "formal shoes"] },
+      { id: "W1", category: "Women", sub_category: ["three-piece", "one-piece", "lehenga", "shorts", "mexi", "jeans", "t-shirt"] },
+      { id: "K1", category: "Kids", sub_category: ["t-shirts", "shirt", "sweaters", "hoodies", "Keds"] },
       { id: "F1", category: "Foods", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
       { id: "M25", category: "Men's 25", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
       { id: "W25", category: "Wemen's 25", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] }
