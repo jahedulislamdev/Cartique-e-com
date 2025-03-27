@@ -35,7 +35,7 @@ const Details = () => {
                {selectedProduct.Product_showcase?.map((img, idx) => (
                   <img key={idx} onClick={() => setShowcaseImage(img)}
                      className={`w-16 h-20 object-cover transition-all cursor-pointer p-1 border-2 rounded-md 
-                        ${showcaseImage === img ? "border-black" : "border-transparent"}`}
+                        ${showcaseImage === img ? "border-red-900" : "border-transparent"}`}
                      src={img} alt=''>
                   </img>
                ))}

@@ -59,11 +59,11 @@ const Searchbar = () => {
                      </div>
                   </div>
                </dialog>
-               <button type='button' className='cursor-pointer tooltip tooltip-bottom' data-tip="Login or Register"><CiUser className='size-5 md:size-6' /></button>
+               <Link to={'/login'} type='button' className='cursor-pointer tooltip tooltip-bottom' data-tip="Login or Register"><CiUser className='size-5 md:size-6' /></Link>
                <button type='button' className='cursor-pointer hidden md:block tooltip tooltip-bottom' data-tip="favourite"><CiHeart className='size-5 md:size-6' /></button>
-               <button type='button' className='cursor-pointer indicator me-1 md:me-2 tooltip tooltip-bottom' data-tip="cart"><CiShoppingCart className='size-5 md:size-6 text-yellow-800' />
+               <Link type='button' className='cursor-pointer indicator me-1 md:me-2 tooltip tooltip-bottom' data-tip="cart"><CiShoppingCart className='size-5 md:size-6 text-yellow-800' />
                   <span className="indicator-item badge bg-transparent border-0">8</span>
-               </button>
+               </Link>
             </div>
          </div>
          <DesktopNav />

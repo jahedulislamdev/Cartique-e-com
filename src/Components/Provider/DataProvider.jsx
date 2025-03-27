@@ -1,10 +1,10 @@
 import React, { createContext, useEffect, useRef, useState } from 'react';
 export const contextProvider = createContext();
-
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import app from './../../Firebase/Firebase.config';
 const DataProvider = ({ children }) => {
    //loading state
    const [loading, setLoading] = useState(true);
-
    // navdata
    const navData = [
       { id: 1, title: "Home" },
@@ -115,6 +115,19 @@ const DataProvider = ({ children }) => {
       }
    };
 
+   // registration with email and password
+   const auth = getAuth(app);
+
+   const registerUser = async (email, password) => {
+      setLoading(true);
+      return createUserWithEmailAndPassword(auth, email, password).finally(() => setLoading(false));
+   }
+   // login with email and password
+   const loginUser = async (email, password) => {
+      setLoading(true);
+      return signInWithEmailAndPassword(auth, email, password).finally(() => setLoading(false));
+   }
+
    // Provided data
    const data = {
       navData,
@@ -125,7 +138,9 @@ const DataProvider = ({ children }) => {
       setLoading,
       handleSubmenuClick,
       handleMenuClick,
-      dialogColsingRef
+      dialogColsingRef,
+      registerUser,
+      loginUser
    };
 
    return (
