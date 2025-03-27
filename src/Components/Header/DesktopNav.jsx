@@ -16,7 +16,7 @@ const DesktopNav = () => {
                      <ul className="absolute transition-all left-0 top-full hidden bg-base-100 shadow-lg rounded-md p-2 min-w-56 group-hover:block">
                         {item.submenu.map((subItem, subIndex) => (
                            <li key={subIndex} className="hover:text-red-300 transition-colors px-3 py-1 cursor-pointer">
-                              <Link to={subItem.path}>{subItem.name}</Link>
+                              <Link to={`/category/${subItem.name}`}>{subItem.name}</Link>
                            </li>
                         ))}
                      </ul>

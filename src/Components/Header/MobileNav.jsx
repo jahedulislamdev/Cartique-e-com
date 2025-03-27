@@ -45,7 +45,7 @@ const MobileNav = () => {
                      <ul className="mt-3">
                         {item.submenu.map((subItem, i) => (
                            <li key={i} className="border-t last:border-b-0 border-gray-700 px-4 py-2.5 hover:bg-gray-300">
-                              <Link to={subItem.path}
+                              <Link to={`/category/${subItem.name}`}
                                  className="uppercase text-sm"
                                  onClick={handleSubmenuClick}>
                                  {subItem.name}

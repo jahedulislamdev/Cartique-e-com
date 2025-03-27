@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { contextProvider } from '../Provider/DataProvider';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { CiHeart } from 'react-icons/ci';
 import { BsCartPlus, BsLayoutSidebarReverse } from 'react-icons/bs';
 import { IoEyeOutline } from 'react-icons/io5';
@@ -12,10 +12,11 @@ const CetegoryDetails = () => {
    const { category } = useParams();
    const [filteredCategory, setFilteredCategory] = useState([]);
    const [checkedCheckbox, setcheckedCheckbox] = useState([]);
+   const navigate = useNavigate()
 
    useEffect(() => {
       setLoading(true);
-      const matchingCategories = products.filter(product => product.category === category);
+      const matchingCategories = products.filter(product => product.category === category || product.sub_category === category);
       setFilteredCategory(matchingCategories);
       setLoading(false);
    }, [category, products, setLoading]);
@@ -28,17 +29,22 @@ const CetegoryDetails = () => {
    const filterByCategory = (sc) => {
       const filteredByCategory = products.filter(p => p.category === sc);
       setFilteredCategory(filteredByCategory);
+      navigate(`/category/${sc}`)
    }
    // load and filter data based on checkbox checking
    useEffect(() => {
       setLoading(true);
-      if (checkedCheckbox.length > 0) {
-         setFilteredCategory(products.filter(p => checkedCheckbox.includes(p.sub_category.toLowerCase())));
-      } else {
-         setFilteredCategory(products.filter(p => p.category === category));
-      }
-      setLoading(false);
-   }, [category, checkedCheckbox, products, setLoading]);
+      const matchingCategories = products.filter(
+         product => (product.category === category) || (product.sub_category === category)
+      );
+      setFilteredCategory(matchingCategories);
+
+      // gimme some time to update State
+      setTimeout(() => {
+         setLoading(false);
+      }, 300);
+   }, [category, products, setLoading]);
+
 
    //remove from checklist 
    const deleteFromChecklist = (idx) => {
@@ -133,7 +139,7 @@ const CetegoryDetails = () => {
             <div className={`${filteredCategory.length > 0 && "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-20 pb-3 px-2"}`}>
                {filteredCategory.length < 1 ?
                   <div className='flex justify-center items-center'>
-                     <span className='text-yellow-300 font-display antialiased'> No product found in this category!</span>
+                     <span className='text-yellow-300 font-display antialiased'> No products were found matching your selection. !</span>
                   </div> :
                   filteredCategory.map(p => (
                      <div id='productCard' key={p.id} className='h-56 cursor-pointer md:h-64 transition-all relative'>

@@ -17,7 +17,7 @@ const NewArrival = () => {
             products.slice(0, 10).map((p) => (
                <div id='productCard' key={p.id} className='h-56 cursor-pointer md:h-64 transition-all relative'>
                   <button className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
-                     <CiHeart className='text-black hovr:bg-white size-5' />
+                     <CiHeart className='text-black hovr:bg-white hover:text-red-500 size-5' />
                   </button>
                   <img className='h-full w-full object-cover object-center' src={p.product_img && p.product_img} alt={p.product_img} />
                   <div id='hoverElements' className='space-x-5'>

@@ -11,48 +11,50 @@ const DataProvider = ({ children }) => {
       {
          id: 2, title: "Attar",
          submenu: [
-            { name: "Combo & Gifts" },
-            { name: "Wholesale Attar" }
+            { name: "combo & gifts" },
+            { name: "wholesale attar" }
          ]
       },
       {
          id: 3, title: "Men’s Clothing",
          submenu: [
-            { name: "T-shirt" },
-            { name: "Trousers" },
-            { name: "Denim pants" },
-            { name: "Combo packs" }
+            { name: "t-shirt" },
+            { name: "trousers" },
+            { name: "sweatshirt" },
+            { name: "joggers" },
+            { name: "panjabi" },
+            { name: "combo packs" }
          ]
       },
       {
          id: 4, title: "Panjabi",
          submenu: [
-            { name: "Platinum China Bamsilk" },
-            { name: "Premium Chikankar" },
-            { name: "Cotton Panjabi" }
+            { name: "platinum china bamsilk" },
+            { name: "premium chikankar" },
+            { name: "cotton panjabi" }
          ]
       },
       {
          id: 5, title: "Winter 2024",
          submenu: [
-            { name: "Hooded Jacket" },
-            { name: "Double Part Jacket" },
-            { name: "Shawl" },
-            { name: "Sneakers" }
+            { name: "hoodie" },
+            { name: "shawl" },
+            { name: "sneakers" }
          ]
       },
       {
-         id: 6, title: "Foods",
+         id: 6, title: "Women's Clothing",
          submenu: [
-            { name: "Dates" },
-            { name: "Honey" }
+            { name: "kurti" },
+            { name: "mexi" },
+            { name: "lehenga" }
          ]
       },
       {
          id: 7, title: "Others",
          submenu: [
-            { name: "Capes and Headwear" },
-            { name: "Dawah Canvas" }
+            { name: "capes and headwear" },
+            { name: "dawah canvas" }
          ]
       }
    ];
