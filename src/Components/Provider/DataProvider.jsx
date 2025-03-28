@@ -1,10 +1,12 @@
 import React, { createContext, useEffect, useRef, useState } from 'react';
 export const contextProvider = createContext();
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from './../../Firebase/Firebase.config';
+import { toast } from 'react-toastify';
 const DataProvider = ({ children }) => {
    //loading state
    const [loading, setLoading] = useState(true);
+   const [user, setUser] = useState();
    // navdata
    const navData = [
       { id: 1, title: "Home" },
@@ -127,9 +129,22 @@ const DataProvider = ({ children }) => {
       setLoading(true);
       return signInWithEmailAndPassword(auth, email, password).finally(() => setLoading(false));
    }
-
+   // logout user
+   const logOutUser = async () => {
+      setLoading(true);
+      return signOut(auth)
+         .then(() => {
+            toast.success("Logout Successfull!", { autoClose: 1000 })
+            setUser(null);
+         })
+         .catch(() => toast.error("Logout Faild!", { autoClose: 1000 }))
+         .finally(setLoading(false));
+   }
    // Provided data
    const data = {
+      user,
+      setUser,
+      logOutUser,
       navData,
       productCategories,
       products,

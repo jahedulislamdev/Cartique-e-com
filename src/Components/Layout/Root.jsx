@@ -3,6 +3,7 @@ import Footer from '../Footer/Footer';
 import Searchbar from '../Header/Searchbar';
 import ScrollToTop from '../Utility/ScrollToTop';
 import { useEffect, useState } from 'react';
+import { Slide, ToastContainer } from 'react-toastify';
 
 const Root = () => {
    const [preloader, setPreloader] = useState(true);
@@ -22,6 +23,7 @@ const Root = () => {
          <Searchbar />
          <Outlet />
          <Footer />
+         <ToastContainer transition={Slide} />
       </div>
    );
 };

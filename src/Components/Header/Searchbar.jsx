@@ -1,5 +1,5 @@
 import { IoSearch } from "react-icons/io5";
-import { CiShoppingCart, CiUser, CiWarning, CiHeart } from "react-icons/ci";
+import { CiShoppingCart, CiUser, CiWarning, CiHeart, CiLogout } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import { IoIosSearch } from 'react-icons/io';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { contextProvider } from "../Provider/DataProvider";
 
 const Searchbar = () => {
-   const { dialogColsingRef } = useContext(contextProvider);
+   const { dialogColsingRef, user, logOutUser } = useContext(contextProvider);
    return (
       <div className="sticky top-0 bg-base-100 border-b border-base-300 z-1000">
          <div className=" navbar border-b border-gray-500 space-x-2">
@@ -59,7 +59,16 @@ const Searchbar = () => {
                      </div>
                   </div>
                </dialog>
-               <Link to={'/login'} type='button' className='cursor-pointer tooltip tooltip-bottom' data-tip="Login or Register"><CiUser className='size-5 md:size-6' /></Link>
+               {!user ? <Link to={'/login'} type='button' className='cursor-pointer tooltip tooltip-bottom' data-tip="Login or Register"><CiUser className='size-5 md:size-6' /></Link> :
+                  <div className="dropdown dropdown-hover dropdown-center">
+                     <img tabIndex={0} src={user?.photoURL && user.photoURL} alt="user" />
+                     <div className="dropdown-content text-center menu bg-base-100 rounded-box z-1 w-36 min-h-60 p-2 shadow-sm">
+                        <p>{user?.displayName ? user.displayName : "Jahedul Islam Jishan"}</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus exercitationem consequuntur ducimus sint ab ullam eligendi dolorum incidunt veniam illo.</p>
+                        <button onClick={logOutUser} className="btn"><CiLogout /> Logout</button>
+                     </div>
+                  </div>
+               }
                <button type='button' className='cursor-pointer hidden md:block tooltip tooltip-bottom' data-tip="favourite"><CiHeart className='size-5 md:size-6' /></button>
                <Link type='button' className='cursor-pointer indicator me-1 md:me-2 tooltip tooltip-bottom' data-tip="cart"><CiShoppingCart className='size-5 md:size-6 text-yellow-800' />
                   <span className="indicator-item badge bg-transparent border-0">8</span>
