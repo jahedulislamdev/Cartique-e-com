@@ -12,7 +12,7 @@ const NewArrival = () => {
       window.scrollTo(0, 0)
    }, [])
    return (
-      <div className='grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-20 py-4 px-3'>
+      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-20 py-4 px-3'>
          {
             products.slice(0, 10).map((p) => (
                <div id='productCard' key={p.id} className='h-56 cursor-pointer md:h-64 transition-all relative'>

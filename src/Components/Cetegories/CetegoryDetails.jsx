@@ -40,7 +40,7 @@ const CetegoryDetails = () => {
       // gimme some time to update State
       setTimeout(() => {
          setLoading(false);
-      }, 200);
+      }, 300);
    }, [category, products, setLoading, checkedCheckbox]);
 
 
@@ -128,7 +128,7 @@ const CetegoryDetails = () => {
          </div>
          <div className={`col-span-4`}>
             {/* show checked sub-categoy top start*/}
-            <div className='flex items-center space-x-3 p-2 transition-all opacity-80'>
+            <div className='flex items-center space-x-3 p-2 transition-all opacity-80 overflow-auto'>
                {
                   checkedCheckbox.map((ccb, idx) => <p className='btn uppercase text-xs' key={idx}>{ccb}
                      <button onClick={() => deleteFromChecklist(idx)} className='cursor-pointer'><FaCircleXmark className='size-4' /></button> </p>)
@@ -138,7 +138,7 @@ const CetegoryDetails = () => {
             <div className={`${filteredCategory.length > 0 && "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-20 pb-3 px-2"}`}>
                {filteredCategory.length < 1 ?
                   <div className='flex justify-center items-center'>
-                     <span className='text-base-800 font-display antialiased flex items-center'><RiErrorWarningFill className='me-1 size-5 text-yellow-700' /> No products were found matching your selection !</span>
+                     <span className='text-base-800 font-display antialiased flex items-center text-sm'><RiErrorWarningFill className='me-1 size-5 text-yellow-700' /> No products were found matching your selection !</span>
                   </div> :
                   filteredCategory.map(p => (
                      <div id='productCard' key={p.id} className='h-56 cursor-pointer md:h-64 transition-all relative'>

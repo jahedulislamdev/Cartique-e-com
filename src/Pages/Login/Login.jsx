@@ -7,7 +7,7 @@ import { contextProvider } from '../../Components/Provider/DataProvider';
 import { Slide, toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
-   const { loginUser, setUser } = useContext(contextProvider);
+   const { loginUser, setUser, loginWithGoogle } = useContext(contextProvider);
    const [showPass, setShowPass] = useState(false);
    const navigate = useNavigate()
    const handleFormSubmit = (e) => {
@@ -18,10 +18,10 @@ const Login = () => {
       loginUser(email, password)
          .then((res) => {
             setUser(res.user)
-            toast.success("Login successfull", { autoClose: 500 })
+            toast.success("Login successfull", { autoClose: 1000 })
             setTimeout(() => {
                navigate('/')
-            }, 300);
+            }, 400);
          })
          .catch(err => {
             if (err.code === "auth/invalid-credential") {
@@ -37,11 +37,11 @@ const Login = () => {
          <form onSubmit={handleFormSubmit} className="card-body">
             <p className='px-2 text-violet-300 text-2xl font-semibold'>Login</p>
             <div className="form-control border rounded border-gray-400">
-               <input name='email' type="email" placeholder="example@email.com" className="input w-full border-0 focus:outline-0" required />
+               <input name='email' type="email" placeholder="example@email.com" className="input sm:input-lg w-full border-0 focus:outline-0" required />
             </div>
             <div className="form-control mt-1.5">
                <div className="join items-center w-full border rounded border-gray-400">
-                  <input className="join-item w-full input focus:outline-none border-0" name='password' type={showPass ? "text" : "password"} placeholder="password" required />
+                  <input className="join-item sm:input-lg w-full input focus:outline-none border-0" name='password' type={showPass ? "text" : "password"} placeholder="password" required />
                   <button onClick={() => setShowPass(!showPass)} type='button' className='cursor-pointer join-item p-2 focus:border-violet-500'>{showPass ? <IoEye className='size-5' /> : <IoEyeOff className='size-5' />}</button>
                </div>
             </div>
@@ -52,18 +52,29 @@ const Login = () => {
                      <span className="label-text text-xs sm:text-md">Remember me</span>
                   </label>
                </div>
-               <Link className='opacity-60 text-xs sm:text-md'>Forget Password?</Link>
+               <button type='button' onClick={() => document.getElementById('showForgotPasswordModal').showModal()} className='opacity-60 text-xs sm:text-md cursor-pointer'>Forget Password?</button>
             </div>
             <div className="form-control">
-               <button className="btn btn-primary w-full shadow-none">Login</button>
+               <button className="btn bg-purple-700 w-full shadow-none">Login</button>
                <p className='text-sm font-light mt-2 ps-1'>Don&apos;t have an Account? <Link to={'/register'} className='font-medium text-violet-300'>Register</Link></p>
             </div>
          </form>
-         <div className=''>
+         {/* forget password modal enterd here because form cann't stay in a form (start)*/}
+         <dialog id="showForgotPasswordModal" className="modal">
+            <div className="modal-box">
+               <form method="dialog">
+                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+               </form>
+               <h3 className="font-bold text-lg">Hello!</h3>
+               <p className="py-4">Press ESC key or click on ✕ button to close</p>
+            </div>
+         </dialog>
+         {/* forget password modal enterd here because form cann't stay in a form  (end)*/}
+         <div>
             <div className="flex flex-col items-center px-9 mx-auto">
                <div className="divider opacity-50">Or Login with</div>
                <div className='flex w-full space-x-5'>
-                  <button className='flex rounded-sm cursor-pointer items-center justify-center border border-orange-400 py-2 w-full px-4'><FcGoogle className='size-5 me-1' /> Google</button>
+                  <button onClick={() => loginWithGoogle(navigate)} className='flex rounded-sm cursor-pointer items-center justify-center border border-orange-400 py-2 w-full px-4'><FcGoogle className='size-5 me-1' /> Google</button>
                   <button className='flex rounded-sm cursor-pointer items-center justify-center border border-blue-500 py-2 w-full px-4'><FaFacebook className='size-5 me-1 text-blue-400' /> Facebook</button>
                </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useRef, useState } from 'react';
 export const contextProvider = createContext();
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile, updateEmail, updatePhoneNumber, sendEmailVerification } from "firebase/auth";
 import app from './../../Firebase/Firebase.config';
 import { toast } from 'react-toastify';
 const DataProvider = ({ children }) => {
@@ -138,13 +138,71 @@ const DataProvider = ({ children }) => {
             setUser(null);
          })
          .catch(() => toast.error("Logout Faild!", { autoClose: 1000 }))
-         .finally(setLoading(false));
+         .finally(() => setLoading(false));
    }
+   //login with google 
+   const gProvider = new GoogleAuthProvider();
+   const loginWithGoogle = async (navigate) => {
+      if (user) {
+         return toast.warning("You are already Logged In", { autoClose: 1000 })
+      }
+      setLoading(true);
+      signInWithPopup(auth, gProvider)
+         .then((u) => {
+            setUser(u.user)
+            toast.success("Login Successfull!", { autoClose: 1000 });
+         })
+         .catch((err) => {
+            toast.error("Login Faild!");
+            console.error(err);
+         })
+         .finally(() => {
+            setLoading(false)
+            navigate('/')
+         });
+   }
+   // update user profile
+   const profileUpdate = async (userName, userEmail, number) => {
+      try {
+         await updateProfile(auth.currentUser, {
+            displayName: userName,
+         })
+         await updateEmail(auth.currentUser, userEmail);
+         await updatePhoneNumber(auth.currentUser, number);
+
+         setUser((prev) => ({
+            ...prev,
+            displayName: userName,
+            email: userEmail,
+            phonNumber: number
+         }))
+         console.log("Profile updated successfully!");
+      }
+      catch (err) {
+         console.error("Can't update profile", err)
+      }
+   }
+   //send email verificaion
+   const handleVarificationEmail = () => {
+      sendEmailVerification(auth.currentUser)
+   }
+   // auth observer 
+   useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+         setUser(currentUser);
+         setLoading(false);
+      })
+      return () => unsubscribe();
+   }, [auth]);
+
    // Provided data
    const data = {
       user,
       setUser,
       logOutUser,
+      handleVarificationEmail,
+      profileUpdate,
+      loginWithGoogle,
       navData,
       productCategories,
       products,
