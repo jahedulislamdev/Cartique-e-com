@@ -3,6 +3,7 @@ export const contextProvider = createContext();
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile, updateEmail, updatePhoneNumber, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import app from './../../Firebase/Firebase.config';
 import { toast } from 'react-toastify';
+import useCartCounter from '../Hooks/UseCartCounter';
 const DataProvider = ({ children }) => {
    //loading state
    const [loading, setLoading] = useState(true);
@@ -200,19 +201,23 @@ const DataProvider = ({ children }) => {
    }, [auth]);
 
    // handle shopping cart
-   const [itemCouter, setItemCouter] = useState(0);
-   const handleAddToCart = () => {
-      setItemCouter(itemCouter + 1);
-      console.log("items added to cart", itemCouter);
+   const [counter, setCounter] = useCartCounter();
+   const addToCart = (model) => {
+      const newCount = counter + 1;
+      setCounter(newCount);
+
+      // set cart model to local storage
+      const cartModels = localStorage.getItem("cartModels");
+      let cartModelsArray = cartModels ? JSON.parse(cartModels) : [];
+
+      const saveCartModels = cartModelsArray.find((item) => item === model);
+      if (!saveCartModels) { //WeWillFIxItLater
+         cartModelsArray.push(model);
+         localStorage.setItem("cartModels", JSON.stringify(cartModelsArray));
+      }
    }
-
-
-
-
-
    // Provided data
    const data = {
-      handleAddToCart,
       logOutUser,
       sendVerificationEmail,
       handleResetPassword,
@@ -224,9 +229,9 @@ const DataProvider = ({ children }) => {
       registerUser,
       loginUser,
       setUser,
-      setItemCouter,
-      itemCouter,
+      addToCart,
       user,
+      counter,
       dialogColsingRef,
       navData,
       productCategories,

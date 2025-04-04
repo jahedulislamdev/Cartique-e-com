@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Searchbar from '../Header/Searchbar';
-import ScrollToTop from '../Utility/ScrollToTop';
 import { useEffect, useState } from 'react';
+import UseScrollToTop from '../Hooks/UseScrollToTop';
 
 const Root = () => {
    const [preloader, setPreloader] = useState(true);
@@ -18,7 +18,7 @@ const Root = () => {
    }
    return (
       <div data-scroll-container>
-         <ScrollToTop />
+         <UseScrollToTop />
          <Searchbar />
          <Outlet />
          <Footer />

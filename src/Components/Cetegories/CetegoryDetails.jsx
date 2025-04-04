@@ -145,7 +145,7 @@ const CetegoryDetails = () => {
                         <button className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
                            <CiHeart className='text-black hovr:bg-white size-5' />
                         </button>
-                        <Link to={`/product_details/${p.id}`}><img className='h-full w-full object-cover object-center' src={p.product_img} alt={p.title} /></Link>
+                        <Link to={`/product_details/${p.id}`}><img className='h-full w-full object-cover object-top' src={p.product_img} alt={p.title} /></Link>
                         <div id='hoverElements' className='space-x-5'>
                            <button onClick={handleAddToCart} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
                               <BsCartPlus className='size-5 hover:opacity-50 transition-all' />
