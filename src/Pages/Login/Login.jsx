@@ -1,13 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { Link, useNavigate } from 'react-router-dom';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import { Slide, toast, ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-   const { loginUser, setUser, loginWithGoogle } = useContext(contextProvider);
+   const { loginUser, setUser, loginWithGoogle, handleResetPassword } = useContext(contextProvider);
    const [showPass, setShowPass] = useState(false);
    const navigate = useNavigate()
    const handleFormSubmit = (e) => {
@@ -17,6 +18,15 @@ const Login = () => {
       const password = userData.get("password");
       loginUser(email, password)
          .then((res) => {
+            if (res.user.emailVerified === false) {
+               return Swal.fire({
+                  title: "Email Not Verified",
+                  text: "Please verify your email before logging in.",
+                  icon: "warning",
+                  confirmButtonText: "Close",
+                  confirmButtonColor: "#f59e0b",
+               });
+            }
             setUser(res.user)
             toast.success("Login successfull", { autoClose: 1000 })
             setTimeout(() => {
@@ -30,6 +40,40 @@ const Login = () => {
                toast.error("Login Faild!", { autoClose: 500 })
             }
          });
+
+   }
+   // forget password functionality
+   const emailRef = useRef(null);
+   const [err, setErr] = useState(null);
+   const handleForgotPassword = (e) => {
+      e.preventDefault();
+      setErr(null);
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailRef.current.value)) {
+         setErr("Please enter valid email address")
+      } else {
+         handleResetPassword(emailRef.current.value)
+            .then(() => {
+               Swal.fire({
+                  text: "Password reset link sent to your email if you are a registered user.",
+                  icon: "warning",
+                  confirmButtonText: "GOT IT!",
+                  confirmButtonColor: "#2c2c54",
+               });
+
+               document.getElementById('showForgotPasswordModal').close();
+               emailRef.current.value = null;
+            })
+            .catch((err) => {
+               if (err.code === "auth/user-not-found") {
+                  setErr("User not found")
+               } else if (err.code === "auth/invalid-email") {
+                  setErr("Invalid email address")
+               } else {
+                  Swal.fire("Oops!", "Something went wrong!", "error");
+               }
+            })
+      }
 
    }
    return (
@@ -60,13 +104,18 @@ const Login = () => {
             </div>
          </form>
          {/* forget password modal enterd here because form cann't stay in a form (start)*/}
-         <dialog id="showForgotPasswordModal" className="modal">
+         <dialog id="showForgotPasswordModal" className="modal p-2">
             <div className="modal-box">
                <form method="dialog">
-                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                  <button className="btn btn-sm btn-circle btn-ghost hover:bg-red-700 absolute right-2 top-2">✕</button>
                </form>
-               <h3 className="font-bold text-lg">Hello!</h3>
-               <p className="py-4">Press ESC key or click on ✕ button to close</p>
+               <p className='text-xl'>Forget your Password?</p>
+               <form className="py-5">
+                  <label htmlFor="email" className='text-sm'>Enter your registered email address. We will send you a link that will allow you to change your password via email.</label>
+                  <input type="email" ref={emailRef} name='email' required placeholder="example@gmail.com" className="input mt-2 w-full focus:outline-0 focus:border-purple-700" />
+                  <p className='text-sm mt-2 text-red-600'>{err}</p>
+                  <button onClick={handleForgotPassword} className='btn bg-purple-950 w-full my-3'>Reset Password</button>
+               </form>
             </div>
          </dialog>
          {/* forget password modal enterd here because form cann't stay in a form  (end)*/}

@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useRef, useState } from 'react';
 export const contextProvider = createContext();
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile, updateEmail, updatePhoneNumber, sendEmailVerification } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile, updateEmail, updatePhoneNumber, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import app from './../../Firebase/Firebase.config';
 import { toast } from 'react-toastify';
 const DataProvider = ({ children }) => {
@@ -182,9 +182,13 @@ const DataProvider = ({ children }) => {
          console.error("Can't update profile", err)
       }
    }
-   //send email verificaion
-   const handleVarificationEmail = () => {
+   //send email verificaion (have to fix this )
+   const sendVarificationEmail = () => {
       sendEmailVerification(auth.currentUser)
+   }
+   // send reset password email
+   const handleResetPassword = async (email) => {
+      return await sendPasswordResetEmail(auth, email);
    }
    // auth observer 
    useEffect(() => {
@@ -197,23 +201,24 @@ const DataProvider = ({ children }) => {
 
    // Provided data
    const data = {
-      user,
-      setUser,
       logOutUser,
-      handleVarificationEmail,
+      sendVarificationEmail,
+      handleResetPassword,
       profileUpdate,
       loginWithGoogle,
+      setLoading,
+      handleSubmenuClick,
+      handleMenuClick,
+      registerUser,
+      loginUser,
+      setUser,
+      user,
+      dialogColsingRef,
       navData,
       productCategories,
       products,
       displayImg,
       loading,
-      setLoading,
-      handleSubmenuClick,
-      handleMenuClick,
-      dialogColsingRef,
-      registerUser,
-      loginUser
    };
 
    return (

@@ -65,7 +65,7 @@ const Searchbar = () => {
                      <button className="w-6 h-6 flex justify-center items-center rounded-full cursor-pointer border border-cyan-700">{user?.displayName ? user.displayName.slice(0, 1) : <CiUser className="size-6" />}</button>
                      <div className="dropdown-content space-y-3 text-center menu bg-base-300 font-display rounded-box z-1 min-w-60 sm:min-w-72 mt-5 min-h-32 p-2 shadow-sm">
                         <div className="flex justify-center items-center">
-                           <div className="w-8 h-8 flex justify-center items-center border bg-base-950 rounded-full">{user?.displayName ? user.displayName.slice(0, 1) : <CiUser className="size-5" />}</div>
+                           <div className="w-8 h-8 flex justify-center items-center bg-purple-950 rounded-full">{user?.displayName ? user.displayName.slice(0, 1) : <CiUser className="size-5" />}</div>
                         </div>
                         <p className="text-lg">{user?.displayName ? user.displayName : "Customer Name"}</p>
                         <div className="flex justify-around items-center">

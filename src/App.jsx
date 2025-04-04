@@ -3,6 +3,7 @@ import Cetegory from './Components/Cetegories/Cetegory';
 import Display from './Pages/Products/Display';
 import Trendings from './Pages/Products/Trendings';
 import NewArrival from './Pages/Products/NewArrival';
+import { Slide, ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <p className='uppercase border-b border-gray-700 text-center p-3 md:p-5 text-xl md:text-3xl font-medium mb-2'>new arrivals</p>
         <NewArrival />
       </div>
+      <ToastContainer transition={Slide} />
     </div>
   );
 };

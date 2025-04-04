@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import { Slide, toast, ToastContainer } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-   const { registerUser, handleVarificationEmail } = useContext(contextProvider);
+   const { registerUser, sendVarificationEmail } = useContext(contextProvider);
    const [err, setErr] = useState(null);
    const handleFormSubmit = (e) => {
       setErr(null);
@@ -18,7 +19,9 @@ const Register = () => {
       const terms = userData.get("terms")
       const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-      if (!passwordRegex.test(password)) {
+      if (number.length < 11) {
+         return setErr("Please Enter a valid Phone Number")
+      } else if (!passwordRegex.test(password)) {
          return setErr("Password must be at least 6 characters including at least one uppercase and one lowercase latter.")
       } else if (terms === null) {
          return setErr("Plese Accept our Terms and Conditions!")
@@ -28,16 +31,22 @@ const Register = () => {
             updateProfile(res.user, {
                displayName: userName,
             })
-            handleVarificationEmail()
-            toast.success("User Registration Successfull!", { autoClose: 1000 })
+            sendVarificationEmail()
+            Swal.fire({
+               text: "We send a varification link to your email.Please varify before login.",
+               icon: "success",
+               confirmButtonText: "GOT IT!",
+               confirmButtonColor: "#2c2c54",
+            });
             console.log(res.user)
-            // e.target.reset();
+            e.target.reset();
          })
          .catch((err) => {
             if (err.code === 'auth/email-already-in-use') {
                toast.error("Email Already In Use."), { autoClose: 1000, }
             } else {
                toast.error("Registration Faild! Please Try Again.",), { autoClose: 1000 }
+               // console.log(err)
             }
          });
    }
