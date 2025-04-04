@@ -6,9 +6,10 @@ import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-   const { registerUser, sendVarificationEmail } = useContext(contextProvider);
+   const { registerUser, sendVerificationEmail, setLoading, setUser } = useContext(contextProvider);
    const [err, setErr] = useState(null);
    const handleFormSubmit = (e) => {
+      setLoading(true);
       setErr(null);
       e.preventDefault();
       const userData = new FormData(e.currentTarget);
@@ -19,36 +20,43 @@ const Register = () => {
       const terms = userData.get("terms")
       const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-      if (number.length < 11) {
-         return setErr("Please Enter a valid Phone Number")
+      if (!number || number.length !== 11 || isNaN(number) || !number.startsWith("01")) {
+         setLoading(false);
+         return setErr("Please enter a valid 11-digit phone number starting with 01.");
       } else if (!passwordRegex.test(password)) {
-         return setErr("Password must be at least 6 characters including at least one uppercase and one lowercase latter.")
-      } else if (terms === null) {
+         setLoading(false);
+         return setErr("Password must be at least 6 characters with at least one uppercase and one lowercase letter.");
+      } else if (!terms) {
+         setLoading(false);
          return setErr("Plese Accept our Terms and Conditions!")
       }
       registerUser(email, password)
          .then((res) => {
-            updateProfile(res.user, {
-               displayName: userName,
-            })
-            sendVarificationEmail()
-            Swal.fire({
-               text: "We send a varification link to your email.Please varify before login.",
-               icon: "success",
-               confirmButtonText: "GOT IT!",
-               confirmButtonColor: "#2c2c54",
-            });
-            console.log(res.user)
-            e.target.reset();
+            updateProfile(res.user, { displayName: userName })
+               .then(() => sendVerificationEmail()) // send varification email
+               .then(() => {
+                  Swal.fire({
+                     text: "We send a varification link to your email.Please varify before login.",
+                     icon: "success",
+                     confirmButtonText: "GOT IT!",
+                     confirmButtonColor: "#2c2c54",
+                  });
+                  e.target.reset(); // reset form after registration
+                  // Don't set user in context immediately after registration.
+                  // User should login after verifying their email.
+                  setUser(null)
+                  // console.log(res.user)
+               })
          })
          .catch((err) => {
             if (err.code === 'auth/email-already-in-use') {
-               toast.error("Email Already In Use."), { autoClose: 1000, }
+               toast.error("Email Already In Use."), { autoClose: 2000, }
             } else {
-               toast.error("Registration Faild! Please Try Again.",), { autoClose: 1000 }
+               toast.error("Registration Faild! Please Try Again."), { autoClose: 2000 }
                // console.log(err)
             }
-         });
+         })
+         .finally(() => setLoading(false));
    }
    return (
       <div className='w-11/12 sm:w-1/2 md:w-2/4 xl:w-1/3 mx-auto border font-display border-[#354c74] shadow-md my-3 md:py-4 rounded-lg'>
@@ -65,7 +73,7 @@ const Register = () => {
             </div>
             <div className="form-control">
                <input name='password' type="password" placeholder="password" className="input focus:outline-0 w-full" required />
-               <p className='m-1 text-xs text-red-600'>{err}</p>
+               {err && <p className='m-1 text-xs text-red-600'>{err}</p>}
             </div>
             <div className="form-control">
                <label className="cursor-pointer justify-start label">

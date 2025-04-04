@@ -183,7 +183,7 @@ const DataProvider = ({ children }) => {
       }
    }
    //send email verificaion (have to fix this )
-   const sendVarificationEmail = () => {
+   const sendVerificationEmail = () => {
       sendEmailVerification(auth.currentUser)
    }
    // send reset password email
@@ -199,10 +199,22 @@ const DataProvider = ({ children }) => {
       return () => unsubscribe();
    }, [auth]);
 
+   // handle shopping cart
+   const [itemCouter, setItemCouter] = useState(0);
+   const handleAddToCart = () => {
+      setItemCouter(itemCouter + 1);
+      console.log("items added to cart", itemCouter);
+   }
+
+
+
+
+
    // Provided data
    const data = {
+      handleAddToCart,
       logOutUser,
-      sendVarificationEmail,
+      sendVerificationEmail,
       handleResetPassword,
       profileUpdate,
       loginWithGoogle,
@@ -212,6 +224,8 @@ const DataProvider = ({ children }) => {
       registerUser,
       loginUser,
       setUser,
+      setItemCouter,
+      itemCouter,
       user,
       dialogColsingRef,
       navData,

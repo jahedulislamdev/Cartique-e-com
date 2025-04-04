@@ -69,9 +69,10 @@ const Details = () => {
             </div>
 
             {/* Stock Status */}
-            <p className='font-medium text-lg'>
-               Availability: {selectedProduct.availability || 'Stock Out'}
-            </p>
+            <div className={`font-medium text-lg`}>
+               Availability: <span className={`${selectedProduct.stock_status === "in_stock" ? "text-purple-500" : "text-red-700"}`}>{selectedProduct.stock_status}</span>
+               <p className="badge badge-sm opacity-50">{selectedProduct.stock}</p>
+            </div>
 
             {/* Color */}
             <p className='font-medium text-lg'>
@@ -81,7 +82,7 @@ const Details = () => {
             {/* Size Options */}
             <div>
                <div className="join space-x-2.5">
-                  {["S", "M", "L", "XL", "XXL"].map(size => (
+                  {selectedProduct.size.map(size => (
                      <input key={size} className="join-item btn rounded-4xl border-0 checked:bg-red-700 checked:text-white"
                         type="radio" name="size" aria-label={size} />
                   ))}
@@ -151,7 +152,7 @@ const Details = () => {
                </div>
             </div>
          </div>
-      </div>
+      </div >
    );
 };
 

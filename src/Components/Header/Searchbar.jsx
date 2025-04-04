@@ -1,16 +1,14 @@
 import { IoSearch } from "react-icons/io5";
 import { CiShoppingCart, CiUser, CiWarning, CiHeart, CiLogout, CiSearch } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-import { IoIosSearch } from 'react-icons/io';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 import { useContext } from "react";
 import { contextProvider } from "../Provider/DataProvider";
-import { Slide, ToastContainer } from "react-toastify";
 
 const Searchbar = () => {
-   const { dialogColsingRef, user, logOutUser } = useContext(contextProvider);
+   const { dialogColsingRef, user, logOutUser, itemCouter } = useContext(contextProvider);
    return (
       <div className="sticky top-0 bg-base-100 border-b border-base-300 z-1000">
          <div className=" navbar border-b border-gray-500 space-x-2">
@@ -77,7 +75,7 @@ const Searchbar = () => {
                }
                <button type='button' className='cursor-pointer hidden md:block tooltip tooltip-bottom' data-tip="favourite"><CiHeart className='size-6' /></button>
                <Link to={'/cart'} type='button' className='cursor-pointer indicator me-1 md:me-2 tooltip tooltip-bottom' data-tip="cart"><CiShoppingCart className='size-6 text-yellow-800' />
-                  <span className="indicator-item badge bg-transparent border-0">8</span>
+                  <span className="indicator-item badge bg-transparent border-0">{itemCouter}</span>
                </Link>
             </div>
          </div>

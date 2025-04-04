@@ -1,370 +1,380 @@
 [
     {
         "id": "P001",
+        "model": "OY-FL59-GBFK-0241",
+        "sku": "TEE-MEN-BLK-001",
         "product_img": "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
         "title": "Men's Classic Cotton T-Shirt",
         "category": "Men",
         "sub_category": "t-shirt",
-        "description": "This premium quality cotton T-shirt is designed for ultimate comfort and durability.",
+        "description": "Premium quality cotton T-shirt for ultimate comfort.",
         "price": 799,
+        "discount": 15,
+        "stock": 50,
+        "stock_status": "in_stock",
         "size": ["S", "M", "L", "XL"],
-        "features": ["100% Cotton", "Regular fit, Crew Neck"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P0022",
-        "product_img": "https://i.postimg.cc/FRPhJJs2/W01.jpg",
-        "title": "Women's Slim Fit T-Shirt",
-        "category": "Women",
-        "sub_category": "trousers",
-        "description": "This stylish slim-fit T-shirt is crafted from ultra-soft cotton fabric.",
-        "price": 899,
-        "size": ["S", "M", "L"],
-        "features": ["95% Cotton, 5% Spandex", "Slim Fit, Round Neck"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P003",
-        "product_img": "https://i.postimg.cc/8k9PCWNV/m-4.jpg",
-        "title": "Men's Polo T-Shirt",
-        "sub_category": "t-shirt",
-        "category": "Men",
-        "description": "A premium polo T-shirt made from breathable cotton fabric.",
-        "price": 1299,
-        "size": ["M", "L", "XL", "XXL"],
-        "features": ["100% Pique Cotton", "Regular Fit, Ribbed Collar"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P004",
-        "product_img": "https://i.postimg.cc/9Q3CT2CF/KF3.jpg",
-        "title": "Unisex Oversized T-Shirt",
-        "category": "Kids",
-        "sub_category": "t-shirt",
-        "description": "A trendy oversized T-shirt crafted with high-quality fabric.",
-        "price": 1099,
-        "size": ["M", "L", "XL"],
-        "features": ["100% Organic Cotton", "Oversized Fit, Drop Shoulder"],
-        "Product_showcase": [
-            "https://i.postimg.cc/9Q3CT2CF/KF3.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P005",
-        "product_img": "https://i.postimg.cc/26FhYD1V/m-10.jpg",
-        "title": "Men's Denim Shirt",
-        "sub_category": "shirt",
-        "category": "Men's 25",
-        "description": "This rugged yet stylish denim shirt is crafted from durable cotton fabric.",
-        "price": 1999,
-        "size": ["M", "L", "XL"],
-        "features": ["100% Cotton Denim", "Regular Fit, Full Sleeves"],
-        "Product_showcase": [
-            "https://i.postimg.cc/26FhYD1V/m-10.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P006",
-        "product_img": "https://i.postimg.cc/90KVL59b/W02.jpg",
-        "title": "Women's Cotton Kurti",
-        "sub_category": "kurti",
-        "category": "Women's 25",
-        "description": "An elegant kurti made from soft cotton fabric.",
-        "price": 1499,
-        "size": ["S", "M", "L", "XL"],
-        "features": ["100% Cotton", "Straight Cut, 3/4 Sleeves"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P0077",
-        "product_img": "https://i.postimg.cc/CxVhGgRP/m-2.jpg",
-        "title": "Men's Hooded Sweatshirt",
-        "category": "Men",
-        "sub_category": "sweatshirt",
-        "description": "Stay warm and stylish with this cozy hooded sweatshirt.",
-        "price": 2199,
-        "size": ["M", "L", "XL", "XXL"],
-        "features": ["60% Cotton, 40% Polyester", "Brushed Fleece Interior"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P009",
-        "product_img": "https://i.postimg.cc/J48YjrNd/m-9.jpg",
-        "title": "Men's Joggers",
-        "category": "Men",
-        "sub_category": "joggers",
-        "description": "Experience unmatched comfort with these stylish joggers.",
-        "price": 1799,
-        "size": ["M", "L", "XL"],
-        "features": [
-            "65% Cotton, 35% Polyester",
-            "Tapered Fit, Elastic Waistband"
+        "color": ["Black", "Navy Blue", "White"],
+        "variant": [
+            {
+                "name": "Black-S",
+                "sku": "TEE-MEN-BLK-S",
+                "price": 799,
+                "stock": 20
+            },
+            {
+                "name": "Navy Blue-M",
+                "sku": "TEE-MEN-NAVY-M",
+                "price": 799,
+                "stock": 15
+            }
         ],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P0111",
-        "product_img": "https://i.postimg.cc/wMXWnZpV/k-7.jpg",
-        "title": "Unisex Graphic Hoodie",
-        "category": "Kids",
-        "sub_category": "hoodie",
-        "description": "A fashionable graphic hoodie featuring high-quality prints.",
-        "price": 2499,
-        "size": ["M", "L", "XL", "XXL"],
-        "features": [
-            "80% Cotton, 20% Polyester",
-            "Premium Screen Print Design"
-        ],
-        "Product_showcase": [
-            "https://i.postimg.cc/wMXWnZpV/k-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P011",
-        "product_img": "https://i.postimg.cc/7hFxQvmL/m-5.jpg",
-        "title": "Men's Formal Shirt",
-        "category": "Men's 25",
-        "sub_category": "shirt",
-        "description": "A sophisticated formal shirt designed for business and office wear.",
-        "price": 1899,
-        "size": ["M", "L", "XL", "XXL"],
-        "features": [
-            "60% Cotton, 40% Polyester",
-            "Breathable & Wrinkle-resistant"
-        ],
-        "Product_showcase": [
-            "https://i.postimg.cc/7hFxQvmL/m-5.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P012",
-        "product_img": "https://i.postimg.cc/gjnmykxr/W04.jpg",
-        "title": "Women's Floral Maxi Dress",
-        "category": "Women's 25",
-        "sub_category": "mexi",
-        "description": "An elegant floral maxi dress perfect for casual outings.",
-        "price": 2699,
-        "size": ["S", "M", "L", "XL"],
-        "features": ["100% Rayon", "Flowy and Comfortable Fit"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P013",
-        "product_img": "https://i.postimg.cc/76LkDYMX/KM1.jpg",
-        "title": "Kid's Cartoon Printed T-Shirt",
-        "category": "Kids",
-        "sub_category": "t-shirt",
-        "description": "A fun and vibrant cartoon-printed T-shirt for kids.",
-        "price": 599,
-        "size": ["S", "M", "L"],
-        "features": ["100% Cotton", "Comfortable Fit, Breathable Fabric"],
-        "Product_showcase": [
-            "https://i.postimg.cc/76LkDYMX/KM1.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-
-    {
-        "id": "P0011",
-        "product_img": "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-        "title": "Men's Classic Cotton T-Shirt",
-        "category": "Men",
-        "sub_category": "t-shirt",
-        "description": "This premium quality cotton T-shirt is designed for ultimate comfort and durability.",
-        "price": 799,
-        "size": ["S", "M", "L", "XL"],
-        "features": ["100% Cotton", "Regular fit, Crew Neck"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
+        "features": ["100% Cotton", "Regular fit"],
+        "tags": ["casual", "summer"],
+        "Product_showcase": ["https://i.postimg.cc/KYxY22Fk/m-7.jpg"]
     },
     {
         "id": "P002",
+        "model": "W-TEE-SLIM-2024",
+        "sku": "TEE-WOM-SLIM-002",
         "product_img": "https://i.postimg.cc/FRPhJJs2/W01.jpg",
         "title": "Women's Slim Fit T-Shirt",
         "category": "Women",
         "sub_category": "t-shirt",
-        "description": "This stylish slim-fit T-shirt is crafted from ultra-soft cotton fabric.",
+        "description": "Ultra-soft slim-fit T-shirt with stretch comfort.",
         "price": 899,
+        "stock": 35,
+        "stock_status": "in_stock",
         "size": ["S", "M", "L"],
-        "features": ["95% Cotton, 5% Spandex", "Slim Fit, Round Neck"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
+        "color": ["Wine Red", "Dusty Ash", "Teal"],
+        "variant": [
+            {
+                "name": "Wine Red-S",
+                "sku": "TEE-WOM-WINE-S",
+                "price": 899,
+                "stock": 10
+            },
+            {
+                "name": "Teal-M",
+                "sku": "TEE-WOM-TEAL-M",
+                "price": 899,
+                "stock": 12
+            }
+        ],
+        "features": ["95% Cotton, 5% Spandex", "Slim Fit"],
+        "tags": ["fitted", "casual"]
     },
     {
-        "id": "P0033",
+        "id": "P003",
+        "model": "KT-PRINT-2024",
+        "sku": "TEE-KIDS-CARTOON-003",
+        "product_img": "https://i.postimg.cc/76LkDYMX/KM1.jpg",
+        "title": "Kid's Cartoon T-Shirt",
+        "category": "Kids",
+        "sub_category": "t-shirt",
+        "description": "Fun cartoon print for playful kids.",
+        "price": 599,
+        "stock": 40,
+        "stock_status": "in_stock",
+        "size": ["2y", "4y", "6y", "8y"],
+        "color": ["Red", "Blue", "Yellow"],
+        "variant": [
+            {
+                "name": "Blue-4y",
+                "sku": "TEE-KIDS-BLUE-4Y",
+                "price": 599,
+                "stock": 15
+            }
+        ],
+        "tags": ["kids", "playwear"]
+    },
+    {
+        "id": "P004",
+        "model": "MN-POLO-2024",
+        "sku": "POLO-MEN-NAVY-004",
         "product_img": "https://i.postimg.cc/8k9PCWNV/m-4.jpg",
         "title": "Men's Polo T-Shirt",
-        "sub_category": "t-shirt",
         "category": "Men",
-        "description": "A premium polo T-shirt made from breathable cotton fabric.",
+        "sub_category": "polo",
+        "description": "Breathable pique cotton polo.",
         "price": 1299,
-        "size": ["M", "L", "XL", "XXL"],
-        "features": ["100% Pique Cotton", "Regular Fit, Ribbed Collar"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
+        "discount": 10,
+        "stock": 25,
+        "stock_status": "in_stock",
+        "size": ["M", "L", "XL"],
+        "color": ["Navy Blue", "Black"],
+        "variant": [
+            {
+                "name": "Navy Blue-L",
+                "sku": "POLO-MEN-NAVY-L",
+                "price": 1299,
+                "stock": 8
+            }
+        ],
+        "features": ["Ribbed Collar", "Moisture-wicking"]
     },
     {
-        "id": "P014",
-        "product_img": "https://i.postimg.cc/3rcK8pqG/KM3.jpg",
-        "title": "Unisex Oversized T-Shirt",
-        "category": "Kids",
-        "sub_category": "lehenga",
-        "description": "A trendy oversized T-shirt crafted with high-quality fabric.",
-        "price": 1099,
-        "size": ["M", "L", "XL"],
-        "features": ["100% Organic Cotton", "Oversized Fit, Drop Shoulder"],
-        "Product_showcase": [
-            "https://i.postimg.cc/3rcK8pqG/KM3.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P0005",
-        "product_img": "https://i.postimg.cc/J48YjrNd/m-9.jpg",
-        "title": "Cotton t-shirt",
-        "category": "Men's 25",
-        "sub_category": "panjabi",
-        "description": "This rugged yet stylish denim shirt is crafted from durable cotton fabric.",
-        "price": 1999,
-        "size": ["M", "L", "XL"],
-        "features": ["100% Cotton Denim", "Regular Fit, Full Sleeves"],
-        "Product_showcase": [
-            "https://i.postimg.cc/J48YjrNd/m-9.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
+        "id": "P005",
+        "model": "WM-KURTI-2024",
+        "sku": "KURTI-WOM-TEAL-005",
+        "product_img": "https://i.postimg.cc/90KVL59b/W02.jpg",
+        "title": "Women's Cotton Kurti",
+        "category": "Women",
+        "sub_category": "kurti",
+        "description": "Handblock-printed elegant kurti.",
+        "price": 1499,
+        "stock": 0,
+        "stock_status": "out_of_stock",
+        "size": ["S", "M", "L"],
+        "color": ["Teal", "Purple"],
+        "variant": [
+            {
+                "name": "Teal-M",
+                "sku": "KURTI-WOM-TEAL-M",
+                "price": 1499,
+                "stock": 0
+            }
+        ],
+        "tags": ["ethnic", "comfort"]
     },
     {
         "id": "P006",
-        "product_img": "https://i.postimg.cc/90KVL59b/W02.jpg",
-        "title": "Women's Cotton Kurti",
-        "category": "Women's 25",
-        "sub_category": "kurti",
-        "description": "An elegant kurti made from soft cotton fabric.",
-        "price": 1499,
-        "size": ["S", "M", "L", "XL"],
-        "features": ["100% Cotton", "Straight Cut, 3/4 Sleeves"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
+        "model": "MN-DENIM-2024",
+        "sku": "SHIRT-MEN-DENIM-006",
+        "product_img": "https://i.postimg.cc/26FhYD1V/m-10.jpg",
+        "title": "Men's Denim Shirt",
+        "category": "Men",
+        "sub_category": "shirt",
+        "description": "Rugged yet stylish denim shirt.",
+        "price": 1999,
+        "stock": 18,
+        "stock_status": "in_stock",
+        "size": ["M", "L", "XL"],
+        "color": ["Blue", "Black"],
+        "variant": [
+            {
+                "name": "Blue-L",
+                "sku": "SHIRT-MEN-BLUE-L",
+                "price": 1999,
+                "stock": 5
+            }
+        ],
+        "features": ["Full Sleeves", "Durable Cotton"]
     },
     {
         "id": "P007",
-        "product_img": "https://i.postimg.cc/CxVhGgRP/m-2.jpg",
-        "title": "Men's Hooded Sweatshirt",
-        "category": "Men",
-        "sub_category": "shirt",
-        "description": "Stay warm and stylish with this cozy hooded sweatshirt.",
-        "price": 2199,
-        "size": ["M", "L", "XL", "XXL"],
-        "features": ["60% Cotton, 40% Polyester", "Brushed Fleece Interior"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
-    },
-    {
-        "id": "P008",
+        "model": "WM-JEANS-2024",
+        "sku": "JEANS-WOM-HIGH-007",
         "product_img": "https://i.postimg.cc/dV8vjfVR/W03.jpg",
         "title": "Women's High Waist Jeans",
         "category": "Women",
         "sub_category": "jeans",
-        "description": "A trendy pair of high-waisted jeans.",
+        "description": "Slim-fit high-waisted jeans.",
         "price": 2499,
-        "size": ["26", "28", "30", "32", "34"],
-        "features": ["98% Cotton, 2% Elastane", "Slim Fit, High Waist"],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
+        "stock": 22,
+        "stock_status": "in_stock",
+        "size": ["26", "28", "30"],
+        "color": ["Black", "Light Blue"],
+        "variant": [
+            {
+                "name": "Black-28",
+                "sku": "JEANS-WOM-BLK-28",
+                "price": 2499,
+                "stock": 7
+            }
+        ],
+        "features": ["2% Elastane", "Stretchable"]
     },
     {
-        "id": "P0099",
+        "id": "P008",
+        "model": "WM-DRESS-2024",
+        "sku": "DRESS-WOM-FLORAL-008",
+        "product_img": "https://i.postimg.cc/gjnmykxr/W04.jpg",
+        "title": "Women's Floral Maxi Dress",
+        "category": "Women",
+        "sub_category": "dress",
+        "description": "Flowy rayon maxi dress.",
+        "price": 2699,
+        "discount": 20,
+        "stock": 10,
+        "stock_status": "in_stock",
+        "size": ["S", "M", "L"],
+        "color": ["Red Floral", "Blue Floral"],
+        "variant": [
+            {
+                "name": "Red Floral-M",
+                "sku": "DRESS-WOM-RED-M",
+                "price": 2699,
+                "stock": 3
+            }
+        ],
+        "tags": ["summer", "boho"]
+    },
+    {
+        "id": "P009",
+        "model": "MN-HOODIE-2024",
+        "sku": "HOODIE-MEN-BLK-009",
+        "product_img": "https://i.postimg.cc/CxVhGgRP/m-2.jpg",
+        "title": "Men's Hooded Sweatshirt",
+        "category": "Men",
+        "sub_category": "sweatshirt",
+        "description": "Cozy fleece-lined hoodie.",
+        "price": 2199,
+        "stock": 15,
+        "stock_status": "in_stock",
+        "size": ["M", "L", "XL"],
+        "color": ["Black", "Gray"],
+        "variant": [
+            {
+                "name": "Black-XL",
+                "sku": "HOODIE-MEN-BLK-XL",
+                "price": 2199,
+                "stock": 4
+            }
+        ],
+        "features": ["Brushed Interior", "Kangaroo Pocket"]
+    },
+    {
+        "id": "P010",
+        "model": "KT-HOODIE-2024",
+        "sku": "HOODIE-KIDS-GRPH-010",
+        "product_img": "https://i.postimg.cc/V6HcNQKw/KM2.jpg",
+        "title": "Kid's Graphic Hoodie",
+        "category": "Kids",
+        "sub_category": "hoodie",
+        "description": "Fun graphic print hoodie.",
+        "price": 1599,
+        "stock": 20,
+        "stock_status": "in_stock",
+        "size": ["3y", "5y", "7y"],
+        "color": ["Blue", "Pink"],
+        "variant": [
+            {
+                "name": "Pink-5y",
+                "sku": "HOODIE-KIDS-PINK-5Y",
+                "price": 1599,
+                "stock": 8
+            }
+        ],
+        "tags": ["winter", "unisex"]
+    },
+    {
+        "id": "P011",
+        "model": "MN-JOGGER-2024",
+        "sku": "JOGGER-MEN-GRY-011",
         "product_img": "https://i.postimg.cc/J48YjrNd/m-9.jpg",
         "title": "Men's Joggers",
         "category": "Men",
         "sub_category": "joggers",
-        "description": "Experience unmatched comfort with these stylish joggers.",
+        "description": "Tapered-fit joggers with elastic waist.",
         "price": 1799,
+        "stock": 12,
+        "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
-        "features": [
-            "65% Cotton, 35% Polyester",
-            "Tapered Fit, Elastic Waistband"
+        "color": ["Gray", "Black"],
+        "variant": [
+            {
+                "name": "Gray-L",
+                "sku": "JOGGER-MEN-GRY-L",
+                "price": 1799,
+                "stock": 5
+            }
         ],
-        "Product_showcase": [
-            "https://i.postimg.cc/KYxY22Fk/m-7.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
+        "features": ["65% Cotton", "Drawstring Waist"]
     },
     {
-        "id": "P010",
-        "product_img": "https://i.postimg.cc/V6HcNQKw/KM2.jpg",
-        "title": "Unisex Graphic Hoodie",
-        "category": "Kids",
-        "sub_category": "hoodie",
-        "description": "A fashionable graphic hoodie featuring high-quality prints.",
-        "price": 2499,
-        "size": ["M", "L", "XL", "XXL"],
-        "features": [
-            "80% Cotton, 20% Polyester",
-            "Premium Screen Print Design"
+        "id": "P012",
+        "model": "MN-SHIRT-2024",
+        "sku": "SHIRT-MEN-FORM-012",
+        "product_img": "https://i.postimg.cc/7hFxQvmL/m-5.jpg",
+        "title": "Men's Formal Shirt",
+        "category": "Men",
+        "sub_category": "shirt",
+        "description": "Wrinkle-resistant office shirt.",
+        "price": 1899,
+        "stock": 30,
+        "stock_status": "in_stock",
+        "size": ["M", "L", "XL"],
+        "color": ["White", "Light Blue"],
+        "variant": [
+            {
+                "name": "White-M",
+                "sku": "SHIRT-MEN-WHT-M",
+                "price": 1899,
+                "stock": 10
+            }
         ],
-        "Product_showcase": [
-            "https://i.postimg.cc/V6HcNQKw/KM2.jpg",
-            "https://i.postimg.cc/V6Hsn0tn/k-2.jpg",
-            "https://i.postimg.cc/8k9PCWNV/m-4.jpg"
-        ]
+        "tags": ["office", "formal"]
+    },
+    {
+        "id": "P013",
+        "model": "WM-LEHENGA-2024",
+        "sku": "LEHENGA-WOM-PURP-013",
+        "product_img": "https://i.postimg.cc/3rcK8pqG/KM3.jpg",
+        "title": "Women's Lehenga",
+        "category": "Women",
+        "sub_category": "lehenga",
+        "description": "Traditional embroidered lehenga.",
+        "price": 4999,
+        "stock": 8,
+        "stock_status": "in_stock",
+        "size": ["S", "M", "L"],
+        "color": ["Purple", "Pink"],
+        "variant": [
+            {
+                "name": "Purple-M",
+                "sku": "LEHENGA-WOM-PURP-M",
+                "price": 4999,
+                "stock": 3
+            }
+        ],
+        "tags": ["ethnic", "festive"]
+    },
+    {
+        "id": "P014",
+        "model": "KT-TRACK-2024",
+        "sku": "TRACK-KIDS-BLUE-014",
+        "product_img": "https://i.postimg.cc/wMXWnZpV/k-7.jpg",
+        "title": "Kid's Track Pants",
+        "category": "Kids",
+        "sub_category": "pants",
+        "description": "Comfy track pants for active kids.",
+        "price": 899,
+        "stock": 25,
+        "stock_status": "in_stock",
+        "size": ["3y", "5y", "7y"],
+        "color": ["Blue", "Black"],
+        "variant": [
+            {
+                "name": "Blue-5y",
+                "sku": "TRACK-KIDS-BLUE-5Y",
+                "price": 899,
+                "stock": 10
+            }
+        ],
+        "features": ["Elastic Waist", "Breathable Fabric"]
+    },
+    {
+        "id": "P015",
+        "model": "MN-SWEATER-2024",
+        "sku": "SWEATER-MEN-CRM-015",
+        "product_img": "https://i.postimg.cc/26FhYD1V/m-10.jpg",
+        "title": "Men's Crewneck Sweater",
+        "category": "Men",
+        "sub_category": "sweater",
+        "description": "Warm acrylic-blend sweater.",
+        "price": 2299,
+        "stock": 10,
+        "stock_status": "in_stock",
+        "size": ["M", "L", "XL"],
+        "color": ["Cream", "Navy"],
+        "variant": [
+            {
+                "name": "Cream-L",
+                "sku": "SWEATER-MEN-CRM-L",
+                "price": 2299,
+                "stock": 4
+            }
+        ],
+        "tags": ["winter", "casual"]
     }
 ]

@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from 'react';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import { CiHeart } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
-import './product.css'
+import './product.css';
 import { BsCartPlus } from 'react-icons/bs';
 import { IoEyeOutline } from 'react-icons/io5';
 
 const NewArrival = () => {
-   const { products } = useContext(contextProvider);
+   const { products, handleAddToCart } = useContext(contextProvider);
    useEffect(() => {
       window.scrollTo(0, 0)
    }, [])
@@ -19,9 +19,9 @@ const NewArrival = () => {
                   <button className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
                      <CiHeart className='text-black hovr:bg-white hover:text-red-500 size-5' />
                   </button>
-                  <img className='h-full w-full object-cover object-center' src={p.product_img && p.product_img} alt={p.product_img} />
+                  <Link to={`/product_details/${p.id}`}><img className='h-full w-full object-cover object-center' src={p.product_img && p.product_img} alt={p.product_img} /></Link>
                   <div id='hoverElements' className='space-x-5'>
-                     <button className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'><BsCartPlus className='size-5 hover:opacity-50 transition-all' /></button>
+                     <button onClick={handleAddToCart} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'><BsCartPlus className='size-5 hover:opacity-50 transition-all' /></button>
                      <Link to={`/product_details/${p.id}`} className='w-8 h-8 flex justify-center items-center rounded-sm text-white cursor-pointer bg-gray-600'><IoEyeOutline className='size-5 hover:opacity-50 transition-all' /></Link>
                   </div>
                   <div>

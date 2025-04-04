@@ -8,7 +8,7 @@ import { FaCircleXmark } from 'react-icons/fa6';
 import { RiErrorWarningFill } from 'react-icons/ri';
 
 const CetegoryDetails = () => {
-   const { productCategories, products, loading, setLoading } = useContext(contextProvider);
+   const { productCategories, products, loading, setLoading, handleAddToCart } = useContext(contextProvider);
    const [openCategory, setOpenCategory] = useState(null);
    const { category } = useParams();
    const [filteredCategory, setFilteredCategory] = useState([]);
@@ -145,9 +145,9 @@ const CetegoryDetails = () => {
                         <button className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
                            <CiHeart className='text-black hovr:bg-white size-5' />
                         </button>
-                        <img className='h-full w-full object-cover object-center' src={p.product_img} alt={p.title} />
+                        <Link to={`/product_details/${p.id}`}><img className='h-full w-full object-cover object-center' src={p.product_img} alt={p.title} /></Link>
                         <div id='hoverElements' className='space-x-5'>
-                           <button className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
+                           <button onClick={handleAddToCart} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
                               <BsCartPlus className='size-5 hover:opacity-50 transition-all' />
                            </button>
                            <Link to={`/product_details/${p.id}`} className='w-8 h-8 flex justify-center items-center rounded-sm text-white cursor-pointer bg-gray-600'>

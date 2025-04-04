@@ -109,7 +109,7 @@ const Login = () => {
                <form method="dialog">
                   <button className="btn btn-sm btn-circle btn-ghost hover:bg-red-700 absolute right-2 top-2">✕</button>
                </form>
-               <p className='text-xl'>Forget your Password?</p>
+               <p className='text-xl'>Loss your Password?</p>
                <form className="py-5">
                   <label htmlFor="email" className='text-sm'>Enter your registered email address. We will send you a link that will allow you to change your password via email.</label>
                   <input type="email" ref={emailRef} name='email' required placeholder="example@gmail.com" className="input mt-2 w-full focus:outline-0 focus:border-purple-700" />
