@@ -3,11 +3,12 @@ export const contextProvider = createContext();
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile, updateEmail, updatePhoneNumber, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import app from './../../Firebase/Firebase.config';
 import { toast } from 'react-toastify';
-import useCartCounter from '../Hooks/UseCartCounter';
+import { getItemFromLocalStorage, setItemToLocalStorage } from '../Hooks/SaveCartModels';
 const DataProvider = ({ children }) => {
    //loading state
    const [loading, setLoading] = useState(true);
    const [user, setUser] = useState();
+   const [quantity, setQuantity] = useState(1);
    // navdata
    const navData = [
       { id: 1, title: "Home" },
@@ -125,11 +126,13 @@ const DataProvider = ({ children }) => {
       setLoading(true);
       return createUserWithEmailAndPassword(auth, email, password).finally(() => setLoading(false));
    }
+
    // login with email and password
    const loginUser = async (email, password) => {
       setLoading(true);
       return signInWithEmailAndPassword(auth, email, password).finally(() => setLoading(false));
    }
+
    // logout user
    const logOutUser = async () => {
       setLoading(true);
@@ -141,6 +144,7 @@ const DataProvider = ({ children }) => {
          .catch(() => toast.error("Logout Faild!", { autoClose: 1000 }))
          .finally(() => setLoading(false));
    }
+
    //login with google 
    const gProvider = new GoogleAuthProvider();
    const loginWithGoogle = async (navigate) => {
@@ -162,6 +166,7 @@ const DataProvider = ({ children }) => {
             navigate('/')
          });
    }
+
    // update user profile
    const profileUpdate = async (userName, userEmail, number) => {
       try {
@@ -183,14 +188,17 @@ const DataProvider = ({ children }) => {
          console.error("Can't update profile", err)
       }
    }
+
    //send email verificaion (have to fix this )
    const sendVerificationEmail = () => {
       sendEmailVerification(auth.currentUser)
    }
+
    // send reset password email
    const handleResetPassword = async (email) => {
       return await sendPasswordResetEmail(auth, email);
    }
+
    // auth observer 
    useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -200,22 +208,21 @@ const DataProvider = ({ children }) => {
       return () => unsubscribe();
    }, [auth]);
 
-   // handle shopping cart
-   const [counter, setCounter] = useCartCounter();
+   // add to cart function
+   const [cartItems, setCartItems] = useState([]);
+   // load initially 
+   useEffect(() => {
+      const savedItems = getItemFromLocalStorage();
+      setCartItems(savedItems);
+   }, []);
+
    const addToCart = (model) => {
-      const newCount = counter + 1;
-      setCounter(newCount);
-
-      // set cart model to local storage
-      const cartModels = localStorage.getItem("cartModels");
-      let cartModelsArray = cartModels ? JSON.parse(cartModels) : [];
-
-      const saveCartModels = cartModelsArray.find((item) => item === model);
-      if (!saveCartModels) { //WeWillFIxItLater
-         cartModelsArray.push(model);
-         localStorage.setItem("cartModels", JSON.stringify(cartModelsArray));
-      }
+      setItemToLocalStorage(model); // set model to local storage
+      toast.success("Item added to cart", { autoClose: 1000 });
+      const savedItems = getItemFromLocalStorage();
+      setCartItems(savedItems);
    }
+
    // Provided data
    const data = {
       logOutUser,
@@ -230,8 +237,11 @@ const DataProvider = ({ children }) => {
       loginUser,
       setUser,
       addToCart,
+      setQuantity,
+      setCartItems,
+      cartItems,
+      quantity,
       user,
-      counter,
       dialogColsingRef,
       navData,
       productCategories,

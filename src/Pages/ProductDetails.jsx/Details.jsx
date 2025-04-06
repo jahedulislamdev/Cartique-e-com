@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import { useParams } from 'react-router-dom';
 import { CiHeart } from 'react-icons/ci';
-import { motion } from 'framer-motion'; // I don't know why it's happning err
+import { motion } from 'framer-motion'; // I don't know why it's happning 
+import { Slide, ToastContainer } from 'react-toastify';
 
 
 const Details = () => {
-   const { products, loading, setLoading } = useContext(contextProvider);
+   const { products, loading, setLoading, setQuantity, quantity, addToCart } = useContext(contextProvider);
    const { id } = useParams();
 
    const [selectedProduct, setSelectedProduct] = useState(null);
@@ -91,14 +92,14 @@ const Details = () => {
 
             {/* Quantity Selector */}
             <div className="join join-horizontal mt-3">
-               <button className="btn text-xl border-gray-50 join-item">-</button>
-               <button type='' className="btn text-xl border-gray-50 cursor-default join-item">0</button>
-               <button className="btn text-xl border-gray-50 join-item">+</button>
+               <button onClick={() => quantity > 1 && setQuantity(quantity - 1)} className="btn text-xl border-gray-50 join-item">-</button>
+               <button type='' className="btn text-xl border-gray-50 cursor-default join-item">{quantity}</button>
+               <button onClick={() => setQuantity(quantity + 1)} className="btn text-xl border-gray-50 join-item">+</button>
             </div>
 
             {/* Add to Cart & Wishlist */}
             <div className='flex justify-start items-center space-x-3 mt-4'>
-               <button className='uppercase font-display hover:bg-red-800 bg-red-700 hover:text-white transition-colors w-full p-2 cursor-pointer'>
+               <button onClick={() => addToCart(selectedProduct.model)} className='uppercase font-display hover:bg-red-800 bg-red-700 hover:text-white transition-colors w-full p-2 cursor-pointer'>
                   Add to Bag
                </button>
                <button className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
@@ -152,6 +153,7 @@ const Details = () => {
                </div>
             </div>
          </div>
+         <ToastContainer transition={Slide} />
       </div >
    );
 };

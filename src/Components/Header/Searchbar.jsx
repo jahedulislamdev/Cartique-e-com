@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
-import { useContext } from "react";
+import { useContext, } from "react";
 import { contextProvider } from "../Provider/DataProvider";
 
 const Searchbar = () => {
-   const { dialogColsingRef, user, logOutUser, counter } = useContext(contextProvider);
+   const { dialogColsingRef, user, logOutUser, cartItems } = useContext(contextProvider);
    return (
       <div className="sticky top-0 bg-base-100 border-b border-base-300 z-1000">
          <div className=" navbar border-b border-gray-500 space-x-2">
@@ -75,7 +75,7 @@ const Searchbar = () => {
                }
                <button type='button' className='cursor-pointer hidden md:block tooltip tooltip-bottom' data-tip="favourite"><CiHeart className='size-6' /></button>
                <Link to={'/cart'} type='button' className='cursor-pointer indicator me-1 md:me-2 tooltip tooltip-bottom' data-tip="cart"><CiShoppingCart className='size-6 text-yellow-800' />
-                  <span className="indicator-item badge bg-transparent border-0">{counter}</span>
+                  <span className="indicator-item badge bg-transparent border-0">{cartItems?.length}</span>
                </Link>
             </div>
          </div>

@@ -13,7 +13,7 @@
         "stock": 50,
         "stock_status": "in_stock",
         "size": ["S", "M", "L", "XL"],
-        "color": ["Black", "Navy Blue", "White"],
+        "color": "White",
         "variant": [
             {
                 "name": "Black-S",
@@ -45,7 +45,7 @@
         "stock": 35,
         "stock_status": "in_stock",
         "size": ["S", "M", "L"],
-        "color": ["Wine Red", "Dusty Ash", "Teal"],
+        "color": "Wine Red",
         "variant": [
             {
                 "name": "Wine Red-S",
@@ -76,7 +76,7 @@
         "stock": 40,
         "stock_status": "in_stock",
         "size": ["2y", "4y", "6y", "8y"],
-        "color": ["Red", "Blue", "Yellow"],
+        "color": "Yellow",
         "variant": [
             {
                 "name": "Blue-4y",
@@ -101,7 +101,7 @@
         "stock": 25,
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
-        "color": ["Navy Blue", "Black"],
+        "color": "Dusty Ash",
         "variant": [
             {
                 "name": "Navy Blue-L",
@@ -125,7 +125,7 @@
         "stock": 0,
         "stock_status": "out_of_stock",
         "size": ["S", "M", "L"],
-        "color": ["Teal", "Purple"],
+        "color": "Teal",
         "variant": [
             {
                 "name": "Teal-M",
@@ -149,7 +149,7 @@
         "stock": 18,
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
-        "color": ["Blue", "Black"],
+        "color": "Blue",
         "variant": [
             {
                 "name": "Blue-L",
@@ -173,7 +173,7 @@
         "stock": 22,
         "stock_status": "in_stock",
         "size": ["26", "28", "30"],
-        "color": ["Black", "Light Blue"],
+        "color": "Light Blue",
         "variant": [
             {
                 "name": "Black-28",
@@ -198,7 +198,7 @@
         "stock": 10,
         "stock_status": "in_stock",
         "size": ["S", "M", "L"],
-        "color": ["Red Floral", "Blue Floral"],
+        "color": "Red Floral",
         "variant": [
             {
                 "name": "Red Floral-M",
@@ -222,7 +222,7 @@
         "stock": 15,
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
-        "color": ["Black", "Gray"],
+        "color": "Black",
         "variant": [
             {
                 "name": "Black-XL",
@@ -246,7 +246,7 @@
         "stock": 20,
         "stock_status": "in_stock",
         "size": ["3y", "5y", "7y"],
-        "color": ["Blue", "Pink"],
+        "color": "Pink",
         "variant": [
             {
                 "name": "Pink-5y",
@@ -270,7 +270,7 @@
         "stock": 12,
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
-        "color": ["Gray", "Black"],
+        "color": "Gray",
         "variant": [
             {
                 "name": "Gray-L",
@@ -294,7 +294,7 @@
         "stock": 30,
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
-        "color": ["White", "Light Blue"],
+        "color": "Light Blue",
         "variant": [
             {
                 "name": "White-M",
@@ -318,7 +318,7 @@
         "stock": 8,
         "stock_status": "in_stock",
         "size": ["S", "M", "L"],
-        "color": ["Purple", "Pink"],
+        "color": "Pink",
         "variant": [
             {
                 "name": "Purple-M",
@@ -342,7 +342,7 @@
         "stock": 25,
         "stock_status": "in_stock",
         "size": ["3y", "5y", "7y"],
-        "color": ["Blue", "Black"],
+        "color": "Blue",
         "variant": [
             {
                 "name": "Blue-5y",
@@ -366,7 +366,7 @@
         "stock": 10,
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
-        "color": ["Cream", "Navy"],
+        "color": "Cream",
         "variant": [
             {
                 "name": "Cream-L",

@@ -6,9 +6,10 @@ import { BsCartPlus, BsLayoutSidebarReverse } from 'react-icons/bs';
 import { IoEyeOutline } from 'react-icons/io5';
 import { FaCircleXmark } from 'react-icons/fa6';
 import { RiErrorWarningFill } from 'react-icons/ri';
+import { Slide, ToastContainer } from 'react-toastify';
 
 const CetegoryDetails = () => {
-   const { productCategories, products, loading, setLoading, handleAddToCart } = useContext(contextProvider);
+   const { productCategories, products, loading, setLoading, addToCart } = useContext(contextProvider);
    const [openCategory, setOpenCategory] = useState(null);
    const { category } = useParams();
    const [filteredCategory, setFilteredCategory] = useState([]);
@@ -147,7 +148,7 @@ const CetegoryDetails = () => {
                         </button>
                         <Link to={`/product_details/${p.id}`}><img className='h-full w-full object-cover object-top' src={p.product_img} alt={p.title} /></Link>
                         <div id='hoverElements' className='space-x-5'>
-                           <button onClick={handleAddToCart} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
+                           <button onClick={() => addToCart(p.model)} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
                               <BsCartPlus className='size-5 hover:opacity-50 transition-all' />
                            </button>
                            <Link to={`/product_details/${p.id}`} className='w-8 h-8 flex justify-center items-center rounded-sm text-white cursor-pointer bg-gray-600'>
@@ -163,6 +164,7 @@ const CetegoryDetails = () => {
                }
             </div>
          </div>
+         <ToastContainer transition={Slide} />
       </div>
    );
 };
