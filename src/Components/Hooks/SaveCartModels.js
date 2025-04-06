@@ -20,19 +20,3 @@ const setItemToLocalStorage = (model, quantity = 1) => {
 // REMOVE ITEM FROM LOCAL STORAGE
 
 export { getItemFromLocalStorage, setItemToLocalStorage };
-
-// ✅ Update quantity of a specific model
-// const updateModelQuantity = (model, quantity) => {
-//     const savedItems = getItemFromLocalStorage();
-//     const updatedItems = savedItems.map((item) =>
-//         item.model === model ? { ...item, quantity } : item,
-//     );
-//     localStorage.setItem("cartModels", JSON.stringify(updatedItems));
-// };
-
-// export {
-//     getItemFromLocalStorage,
-//     setModelToLocalStorage,
-//     removeModelFromLocalStorage,
-//     updateModelQuantity,
-// };
