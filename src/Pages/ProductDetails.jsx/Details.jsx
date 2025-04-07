@@ -7,7 +7,7 @@ import { Slide, ToastContainer } from 'react-toastify';
 
 
 const Details = () => {
-   const { products, loading, setLoading, setQuantity, quantity, addToCart } = useContext(contextProvider);
+   const { products, loading, setLoading, addToCart } = useContext(contextProvider);
    const { id } = useParams();
 
    const [selectedProduct, setSelectedProduct] = useState(null);
@@ -92,14 +92,14 @@ const Details = () => {
 
             {/* Quantity Selector */}
             <div className="join join-horizontal mt-3">
-               <button onClick={() => quantity > 1 && setQuantity(quantity - 1)} className="btn text-xl border-gray-50 join-item">-</button>
-               <button type='' className="btn text-xl border-gray-50 cursor-default join-item">{quantity}</button>
-               <button onClick={() => setQuantity(quantity + 1)} className="btn text-xl border-gray-50 join-item">+</button>
+               <button className="btn text-xl border-gray-50 join-item">-</button>
+               <button type='' className="btn text-xl border-gray-50 cursor-default join-item">1</button>
+               <button className="btn text-xl border-gray-50 join-item">+</button>
             </div>
 
             {/* Add to Cart & Wishlist */}
             <div className='flex justify-start items-center space-x-3 mt-4'>
-               <button onClick={() => addToCart(selectedProduct.model)} className='uppercase font-display hover:bg-red-800 bg-red-700 hover:text-white transition-colors w-full p-2 cursor-pointer'>
+               <button onClick={() => addToCart(selectedProduct.model)} className='uppercase font-display hover:bg-red-950 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
                   Add to Bag
                </button>
                <button className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
@@ -109,8 +109,8 @@ const Details = () => {
 
             {/* Divider */}
             <div className='flex justify-center items-center space-x-3 mt-5'>
-               <p className='h-4 w-full bg-gray-700'></p>
-               <p className='h-4 w-full bg-gray-700'></p>
+               <p className='h-4 w-full bg-base-300'></p>
+               <p className='h-4 w-full bg-base-300'></p>
             </div>
 
             {/* Measurement Guide */}
@@ -137,7 +137,49 @@ const Details = () => {
                   <input type="checkbox" />
                   <div className="collapse-title font-semibold text-lg">Shipping and Returns</div>
                   <div className="collapse-content text-md">
-                     You can include Your Shipping and Return policy here
+                     <p><strong>🚚 Shipping & Return Policy</strong></p>
+                     <p> <strong>📦 Shipping Policy</strong></p>
+                     <p><strong>Shipping Time:</strong></p>
+                     All orders are processed within 1–2 business days. Orders placed on weekends or holidays will be processed the next business day.
+
+                     <p><strong>Delivery Estimates:</strong></p>
+                     <ul>
+                        <li>📍 Local Delivery (within city): 2–4 business days</li>
+                        <li>🚚 Nationwide Delivery: 4–7 business days</li>
+                        <li>🌐 International Orders: 7–14 business days</li>
+                     </ul>
+                     <p><strong>Shipping Charges:</strong></p>
+                     <ul>
+                        <li>Orders over $50 qualify for Free Shipping</li>
+                        <li>Orders below $50 will incur a flat shipping fee of $4.99</li>
+                     </ul>
+                     <p><strong>Order Tracking:</strong></p>
+                     Once your order is shipped, you'll receive an email with the tracking number and a link to track your package in real-time.
+                     <p><strong>🔄 Return & Exchange Policy</strong></p>
+                     <p><strong>Return Window:</strong></p>
+                     We accept returns within 7 days of delivery.
+                     <p><strong> Eligibility:</strong></p>
+                     <ul>
+                        <li>Items must be unused, unwashed, and in original packaging.</li>
+                        <li>Products marked as Final Sale are not eligible for return or exchange.</li>
+                     </ul>
+                     <p><strong> Process:</strong></p>
+                     <ol>
+                        <li>Go to the Returns section on our website.</li>
+                        <li>Enter your order number and email address.</li>
+                        <li>Choose the item(s) you wish to return and follow the steps.</li>
+                     </ol>
+                     <p><strong> Refunds:</strong></p>
+                     <p>Refunds are processed to the original payment method within 5–7 business days after we receive the returned item.
+                     </p>
+                     <p><strong> Return Shipping:</strong></p>
+                     <ul>
+                        <li>If the return is due to our error (wrong/damaged item), we cover return shipping.</li>
+                        <li> For all other returns, customers are responsible for shipping costs.</li>
+                     </ul>
+                     <p><strong>  Need Help❓</strong></p>
+                     <p>Contact our support team at 📧 <a href="support@example.com">support@example.com</a> or call us at ☎️ +1 (234) 567-8901.
+                        We’re here to help Monday–Friday, 9 AM – 6 PM.</p>
                   </div>
                </div>
                <div className="collapse collapse-arrow join-item border-base-300 border">

@@ -8,7 +8,6 @@ const DataProvider = ({ children }) => {
    //loading state
    const [loading, setLoading] = useState(true);
    const [user, setUser] = useState();
-   const [quantity, setQuantity] = useState(1);
    // navdata
    const navData = [
       { id: 1, title: "Home" },
@@ -237,10 +236,8 @@ const DataProvider = ({ children }) => {
       loginUser,
       setUser,
       addToCart,
-      setQuantity,
       setCartItems,
       cartItems,
-      quantity,
       user,
       dialogColsingRef,
       navData,

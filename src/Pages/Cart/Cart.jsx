@@ -31,7 +31,7 @@ const Cart = () => {
       setCartItems(prev => prev.filter(i => i.model !== model));
       setTimeout(() => {
          setLoading(false);
-      }, 300);
+      }, 400);
    }
 
    // update specipic quantity 
@@ -49,12 +49,13 @@ const Cart = () => {
       setCartItems(prev => prev.map(item => item.model === model ? { ...item, quantity } : item));
    }
    // calculate amount
-   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
+   const subtotal = parseFloat(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2));
    const gift = 0;
+   const shipping = 0;
    const coupon = 0
-   const discout = gift + coupon;
-   const vat = subtotal * 0.15;
-   const total = subtotal - (discout + gift) + vat;
+   const discout = (gift + coupon);
+   const vat = parseFloat((subtotal * 0.15).toFixed(2));
+   const total = parseFloat(subtotal - discout + vat + shipping);
 
    if (loading || products.length === 0) {
       return (
@@ -69,15 +70,14 @@ const Cart = () => {
          <div className='flex items-center justify-center h-screen md:h-96'>
             <div className='space-y-3 font-display text-center'>
                <div className='flex justify-center opacity-25'><BsCartX className='size-15' /></div>
-               <h1 className=' text-3xl'> Your cart is currently empty.</h1>
-               <Link to={'/'} className='w-full flex justify-center btn bg-base-900 text-base mt-4 uppercase'>Return to Shop</Link>
+               <h1 className=' text'>You haven't added anything yet. <Link to={'/'} className='text-violet-800 underline'>Browse products</Link> and start shopping!</h1>
             </div>
          </div >
       );
    }
 
    return (
-      <div>
+      <div className='font-display'>
          <h1 className='text-2xl font-semibold mb-4'>🛒 Cart Items ({cartItems?.length})</h1>
          <div className='sm:grid grid-cols-6 sm:px-5 px-2 gap-x-2'>
             <div className='sm:col-span-3 md:col-span-4 overflow-x-auto border border-base-content/5 bg-base-100'>
@@ -110,17 +110,17 @@ const Cart = () => {
                            <td>
                               <div className="join join-horizontal mt-3">
                                  <button onClick={() => updateModelQuantity(item.model, item.quantity - 1)} className="btn py-0.5 px-2.5 text-sm border-base-500 join-item">-</button>
-                                 <button type='' className="btn py-0.5 px-2.5  text-sm border-base-500 cursor-default join-item">{item.quantity}</button>
+                                 <button className="btn py-0.5 px-2.5  text-sm border-base-500 cursor-default join-item">{item.quantity}</button>
                                  <button onClick={() => updateModelQuantity(item.model, item.quantity + 1)} className="btn py-0.5 px-2.5 text-sm border-base-500 join-item">+</button>
                               </div>
                            </td>
                            <td>
-                              <p className="font-bold">{item.price * item.quantity}</p>
+                              <p className="font-bold">  {parseFloat(item.price) * parseInt(item.quantity)}</p>
                            </td>
                            <th>
                               <button onClick={() => removeFromLoaclStorage(item.model)}
-                                 className='bg-red-800 hover:bg-red-600 transition-colors text-white cursor-pointer p-1 rounded'>
-                                 <MdOutlineDelete className='size-5 ' />
+                                 className='bg-red-600 hover:bg-red-800 transition-colors text-white cursor-pointer p-1 rounded'>
+                                 <MdOutlineDelete className='size-5' />
                               </button>
                            </th>
                         </tr>
@@ -143,19 +143,19 @@ const Cart = () => {
                   <div className="collapse-title font-medium uppercase text-xs m-0">Estimate shipping and taxes</div>
                   <div className="collapse-content text-sm space-y-4">
                      <p className=' mb-1'>Country <span className='text-red-700'>*</span></p>
-                     <select name='country' required className="select focus:outline-0">
-                        <option selected>Bangladesh</option>
+                     <select defaultValue="Bangladesh" name='country' required className="select focus:outline-0">
+                        <option>Bangladesh</option>
                      </select>
                      <p className=' mb-1'>Region/State<span className='text-red-700'>*</span></p>
-                     <select className="select focus:outline-0">
-                        <option disabled={true}>Please Select</option>
+                     <select defaultValue="Please Select" className="select focus:outline-0">
+                        <option>Please Select</option>
                         <option>Crimson</option>
                         <option>Amber</option>
                         <option>Velvet</option>
                      </select>
                      <p className='mb-1'>City<span className='text-red-700'>*</span></p>
-                     <select className="select focus:outline-0">
-                        <option disabled={true}>Please Select</option>
+                     <select defaultValue="Please Select" className="select focus:outline-0">
+                        <option>Please Select</option>
                         <option>Crimson</option>
                         <option>Amber</option>
                         <option>Velvet</option>
@@ -170,12 +170,12 @@ const Cart = () => {
                      <button className="btn bg-base-700 uppercase join-item border rounded-e-sm border-s-0 border-base-700">Apply</button>
                   </div>
                </div>
-               <div className="border-2 border-base-300 rounded p-3 bg-base-300">
-                  <table className='ps-5 table w-full border border-base-300 table-sm'>
+               <div className="border-2 mt-2 border-base-300 rounded p-3 bg-base-200">
+                  <table className='ps-5 table w-full table-sm'>
                      <tbody className='text-sm'>
-                        <tr className='uppercase'>
+                        <tr className='uppercase bg-base-200 '>
                            <th>subtotal</th>
-                           <td>{subtotal} BDT</td>
+                           <td className='font-medium'>{subtotal} BDT</td>
                         </tr>
                         <tr className='uppercase'>
                            <th>Discount</th>
@@ -186,8 +186,12 @@ const Cart = () => {
                            <td>{vat} BDT</td>
                         </tr>
                         <tr className='uppercase'>
+                           <th>Shipping</th>
+                           <td>{shipping} BDT</td>
+                        </tr>
+                        <tr className='uppercase bg-base-200'>
                            <th>Total</th>
-                           <td>{total} BDT</td>
+                           <td className='font-medium'>{total} BDT</td>
                         </tr>
                      </tbody>
                   </table>
