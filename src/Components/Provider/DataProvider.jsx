@@ -218,6 +218,8 @@ const DataProvider = ({ children }) => {
    const [overviewProduct, setOverviewProduct] = useState(null);
 
    const addToCart = (model, qty, selectedSize) => {
+      console.log(model, qty, selectedSize);
+
       if (!selectedSize) {
          toast.error("Please select size", { autoClose: 3000 });
          return;

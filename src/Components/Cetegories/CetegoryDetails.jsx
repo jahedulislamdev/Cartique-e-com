@@ -158,13 +158,13 @@ const CetegoryDetails = () => {
                         </button>
                         <Link to={`/product_details/${p.id}`}><img className='h-full w-full object-cover object-top' src={p.product_img} alt={p.title} /></Link>
                         <div id='hoverElements' className='space-x-5'>
-                           <Link to={`/product_details/${p.id}`} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
+                           <button onClick={() => showProductOverview(p.id)} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
                               <BsCartPlus className='size-5 hover:opacity-50 transition-all' />
-                           </Link>
-                           <button onClick={() => showProductOverview(p.id)}
+                           </button>
+                           <Link to={`/product_details/${p.id}`}
                               className='w-8 h-8 flex justify-center items-center rounded-sm text-white cursor-pointer bg-gray-600'>
                               <IoEyeOutline className='size-5 hover:opacity-50 transition-all' />
-                           </button>
+                           </Link>
                            {/* modal content (product overview) */}
                            <dialog id="overView" className="modal modal-lg">
                               <OverviewModal overviewProduct={overviewProduct} />

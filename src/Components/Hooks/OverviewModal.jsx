@@ -1,9 +1,18 @@
+import { useContext, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoShareSocial } from "react-icons/io5";
+import { contextProvider } from "../Provider/DataProvider";
 
 const OverviewModal = ({ overviewProduct }) => {
+    const [size, setSize] = useState(null);
+    const { addToCart } = useContext(contextProvider);
+    const handleSelectedSize = (e) => {
+        const selectedSize = e.target.ariaLabel;
+        console.log(selectedSize); // Log the selected size
+        setSize(selectedSize); // Update the state with the selected size
+    }
     return (
-        <div className="indicator w-full flex justify-center">
+        <div className="indicator w-full flex justify-center m-5">
             <form method="dialog">
                 <button className="cursor-pointer w-8 h-8 rounded-full indicator-item indicator-center badge bg-red-900 border-0 text-white">✕</button>
             </form>
@@ -28,13 +37,13 @@ const OverviewModal = ({ overviewProduct }) => {
                             Size :
                             <div className="join space-x-2.5 ms-1">
                                 {overviewProduct?.size.map(size => (
-                                    <input key={size} className="join-item btn w-8 h-8 rounded-4xl border-0 checked:bg-red-700 checked:text-white"
+                                    <input onChange={handleSelectedSize} key={size} className="join-item btn w-8 h-8 rounded-4xl border-0 checked:bg-red-700 checked:text-white"
                                         type="radio" name="size" aria-label={size} />
                                 ))}
                             </div>
                         </div>
                         {/* Add to Cart & Wishlist */}
-                        <div className='flex justify-start items-center space-x-3 mt-4'>
+                        <div onClick={() => addToCart(overviewProduct?.model, overviewProduct?.quantity, size)} className='flex justify-start items-center space-x-3 mt-4'>
                             <button className='uppercase font-display hover:bg-red-900 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
                                 Add to Bag
                             </button>

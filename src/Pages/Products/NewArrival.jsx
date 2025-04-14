@@ -28,9 +28,9 @@ const NewArrival = () => {
                   </button>
                   <Link to={`/product_details/${p.id}`}><img className='h-[250px] w-full object-cover object-top' src={p.product_img && p.product_img} alt={p.product_img} /></Link>
                   <div id='hoverElements' className='space-x-5'>
-                     <Link to={`/product_details/${p.id}`} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'><BsCartPlus className='size-5 hover:opacity-50 transition-all' /></Link>
-                     <button onClick={() => showOverviewProduct(p.id)}
-                        className='w-8 h-8 flex justify-center items-center rounded-sm text-white cursor-pointer bg-gray-600'><IoEyeOutline className='size-5 hover:opacity-50 transition-all' /></button>
+                     <button onClick={() => showOverviewProduct(p.id)} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'><BsCartPlus className='size-5 hover:opacity-50 transition-all' /></button>
+                     <Link to={`/product_details/${p.id}`}
+                        className='w-8 h-8 flex justify-center items-center rounded-sm text-white cursor-pointer bg-gray-600'><IoEyeOutline className='size-5 hover:opacity-50 transition-all' /></Link>
                      {/* modal content (product overview) */}
                      <dialog id="overView" className="modal modal-lg">
                         <OverviewModal overviewProduct={overviewProduct} />

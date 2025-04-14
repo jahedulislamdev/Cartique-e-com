@@ -129,7 +129,7 @@ const Cart = () => {
                   </tbody>
                </table>
             </div>
-            <div className="sm:col-span-3 md:col-span-2 border-s-base-content shadow-sm p-2">
+            <div className="sm:col-span-3 md:col-span-2 border-s-base-content shadow-sm p-2 mt-7 sm:mt-0">
                <p className='opacity-70 font-semibold uppercase'>What would you like to do next?</p>
                <div className=" collapse collapse-plus bg-base-100 border border-base-300">
                   <input type="checkbox" name="cartiquePaymentStatus" defaultChecked />
