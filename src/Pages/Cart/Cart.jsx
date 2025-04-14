@@ -94,10 +94,10 @@ const Cart = () => {
                   </thead>
                   <tbody>
                      {cartItems?.map((item) => (
-                        <tr key={item.model}>
-                           <td>
-                              <div className="flex items-center gap-2">
-                                 <img className='w-20 h-20 rounded object-cover object-top' src={item.product_img} alt='img' />
+                        <tr key={item.model} className='align-top'>
+                           <td className="w-[300px] min-w-[200px] max-w-[350px]">
+                              <div className="flex items-center gap-2 ">
+                                 <img className='w-17 h-20 rounded object-cover object-top' src={item.product_img} alt='img' />
                                  <div>
                                     <p className="font-semibold sm:font-bold text-xs sm:text-md">{item.title}</p>
                                     <p className="text-sm opacity-50">Size: {item.selectedSize || "Not selected"}</p>

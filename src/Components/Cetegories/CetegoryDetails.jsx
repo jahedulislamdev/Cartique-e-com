@@ -3,13 +3,14 @@ import { contextProvider } from '../Provider/DataProvider';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { CiHeart } from 'react-icons/ci';
 import { BsCartPlus, BsLayoutSidebarReverse } from 'react-icons/bs';
-import { IoEyeOutline } from 'react-icons/io5';
+import { IoEyeOutline, IoShareSocial } from 'react-icons/io5';
 import { FaCircleXmark } from 'react-icons/fa6';
 import { RiErrorWarningFill } from 'react-icons/ri';
 import { Slide, ToastContainer } from 'react-toastify';
+import OverviewModal from '../Hooks/OverviewModal';
 
 const CetegoryDetails = () => {
-   const { productCategories, products, loading, setLoading } = useContext(contextProvider);
+   const { productCategories, products, loading, setLoading, overviewProduct, setOverviewProduct } = useContext(contextProvider);
    const [openCategory, setOpenCategory] = useState(null);
    const { category } = useParams();
    const [filteredCategory, setFilteredCategory] = useState([]);
@@ -50,7 +51,6 @@ const CetegoryDetails = () => {
       setcheckedCheckbox((prev) => prev.filter((_, i) => i !== idx));
    }
    // show product overview modal
-   const [overviewProduct, setOverviewProduct] = useState(null);
    const showProductOverview = (id) => {
       setLoading(true);
       const checkdProduct = products.find(p => p.id === id);
@@ -166,16 +166,8 @@ const CetegoryDetails = () => {
                               <IoEyeOutline className='size-5 hover:opacity-50 transition-all' />
                            </button>
                            {/* modal content (product overview) */}
-                           <dialog id="overView" className="modal">
-                              <div className="modal-box font-display">
-                                 <h3 className="font-bold text-lg">{overviewProduct?.id}</h3>
-                                 <p className="py-4">Press ESC key or click the button below to close</p>
-                                 <div className="modal-action">
-                                    <form method="dialog">
-                                       <button className="btn">Close</button>
-                                    </form>
-                                 </div>
-                              </div>
+                           <dialog id="overView" className="modal modal-lg">
+                              <OverviewModal overviewProduct={overviewProduct} />
                            </dialog>
                         </div>
                         <div>

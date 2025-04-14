@@ -1,4 +1,4 @@
-import React, { use, useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import { useParams } from 'react-router-dom';
 import { CiHeart } from 'react-icons/ci';
@@ -49,7 +49,7 @@ const Details = () => {
       </div>;
    }
    return (
-      <div className='container mx-auto md:grid grid-cols-2 space-x-5 my-7 md:p-5 rounded-lg'>
+      <div className='container mx-auto md:grid grid-cols-2 space-x-5 mb-7 mt-2 md:p-5 rounded-lg'>
          <div className='grid grid-cols-5'>
             {/* Thumbnail List */}
             <div className='col-span-1 p-0.5'>

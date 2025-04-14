@@ -16,7 +16,7 @@ const Trendings = () => {
    const duplicatedProducts = [...products, ...products];
 
    return (
-      <div className="py-5 px-2">
+      <div className="pt-5 px-2">
          <Swiper
             slidesPerView={1}
             spaceBetween={10}
@@ -35,12 +35,12 @@ const Trendings = () => {
          >
             {
                duplicatedProducts.map((slide, index) => (
-                  <SwiperSlide key={`${slide.id}-${index}`} className="h-24 sm:h-56 md:h-64">
+                  <SwiperSlide key={`${slide.id}-${index}`}>
                      <Link to={`/product_details/${slide.id}`} className='transition-all relative'>
                         {/* <button className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
                            <CiHeart className='text-black size-5' />
                         </button> */}
-                        <img className='h-full w-full object-cover object-center' src={slide.product_img} alt={slide.title} />
+                        <img className='h-full w-full object-cover object-top' src={slide.product_img} alt={slide.title} />
                         <div>
                            <p className='text-sm md:text-md mt-1 md:uppercase hover:opacity-50 transition-colors'>{slide.title}</p>
                            <p className='md:text-md '>৳ {slide.price}</p>

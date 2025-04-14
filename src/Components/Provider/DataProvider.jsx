@@ -1,9 +1,9 @@
 import React, { createContext, useEffect, useRef, useState } from 'react';
 export const contextProvider = createContext();
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile, updateEmail, updatePhoneNumber, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
-import app from './../../Firebase/Firebase.config';
 import { toast } from 'react-toastify';
-import { getItemFromLocalStorage, setItemToLocalStorage } from '../Hooks/SaveCartModels';
+import { getItemFromLocalStorage, setItemToLocalStorage } from './../Hooks/SaveCartModels';
+import app from './../../Firebase/Firebase.config';
 const DataProvider = ({ children }) => {
    //loading state
    const [loading, setLoading] = useState(true);
@@ -214,10 +214,12 @@ const DataProvider = ({ children }) => {
       const savedItems = getItemFromLocalStorage();
       setCartItems(savedItems);
    }, []);
+   // overview product 
+   const [overviewProduct, setOverviewProduct] = useState(null);
 
    const addToCart = (model, qty, selectedSize) => {
       if (!selectedSize) {
-         toast.error("Please select size", { autoClose: 2000 });
+         toast.error("Please select size", { autoClose: 3000 });
          return;
       }
       setItemToLocalStorage(model, qty, selectedSize); // set model to local storage
@@ -229,6 +231,8 @@ const DataProvider = ({ children }) => {
 
    // Provided data
    const data = {
+      overviewProduct,
+      setOverviewProduct,
       logOutUser,
       sendVerificationEmail,
       handleResetPassword,
