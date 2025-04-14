@@ -78,8 +78,8 @@ const Login = () => {
    }
    return (
       <div className='w-11/12 sm:w-1/2 md:w-2/3 lg:w-1/3 mx-auto border font-display border-[#354c74] shadow-md my-3 py-4 rounded-lg'>
-         <form onSubmit={handleFormSubmit} className="card-body">
-            <p className='px-2 text-violet-300 text-2xl font-semibold'>Login</p>
+         <form onSubmit={handleFormSubmit} className='space-y-5 px-5'>
+            <p className='px-2 text-violet-300 text-2xl font-semibold card-title'>Login</p>
             <div className="form-control border rounded border-gray-400">
                <input name='email' type="email" placeholder="example@email.com" className="input sm:input-lg w-full border-0 focus:outline-0" required />
             </div>

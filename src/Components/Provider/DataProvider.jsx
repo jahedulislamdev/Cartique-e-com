@@ -215,11 +215,16 @@ const DataProvider = ({ children }) => {
       setCartItems(savedItems);
    }, []);
 
-   const addToCart = (model) => {
-      setItemToLocalStorage(model); // set model to local storage
+   const addToCart = (model, qty, selectedSize) => {
+      if (!selectedSize) {
+         toast.error("Please select size", { autoClose: 2000 });
+         return;
+      }
+      setItemToLocalStorage(model, qty, selectedSize); // set model to local storage
       toast.success("Item added to cart", { autoClose: 1000 });
       const savedItems = getItemFromLocalStorage();
       setCartItems(savedItems);
+      console.log(model, qty, selectedSize);
    }
 
    // Provided data

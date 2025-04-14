@@ -9,7 +9,7 @@ import { RiErrorWarningFill } from 'react-icons/ri';
 import { Slide, ToastContainer } from 'react-toastify';
 
 const CetegoryDetails = () => {
-   const { productCategories, products, loading, setLoading, addToCart } = useContext(contextProvider);
+   const { productCategories, products, loading, setLoading } = useContext(contextProvider);
    const [openCategory, setOpenCategory] = useState(null);
    const { category } = useParams();
    const [filteredCategory, setFilteredCategory] = useState([]);
@@ -49,7 +49,17 @@ const CetegoryDetails = () => {
    const deleteFromChecklist = (idx) => {
       setcheckedCheckbox((prev) => prev.filter((_, i) => i !== idx));
    }
-
+   // show product overview modal
+   const [overviewProduct, setOverviewProduct] = useState(null);
+   const showProductOverview = (id) => {
+      setLoading(true);
+      const checkdProduct = products.find(p => p.id === id);
+      if (checkdProduct) {
+         setOverviewProduct(checkdProduct);
+         document.getElementById('overView').showModal();
+      }
+      setLoading(false);
+   }
    // loading spinner
    if (loading) {
       return (
@@ -60,7 +70,7 @@ const CetegoryDetails = () => {
    }
 
    return (
-      <div className='sm:grid grid-cols-5 mt-6 justify-center'>
+      <div className='sm:grid grid-cols-5 mt-6 justify-center '>
          <button
             onClick={() => { document.getElementById('openCategory').showModal() }} role="button"
             className="btn btn-ghost sm:hidden">
@@ -148,12 +158,25 @@ const CetegoryDetails = () => {
                         </button>
                         <Link to={`/product_details/${p.id}`}><img className='h-full w-full object-cover object-top' src={p.product_img} alt={p.title} /></Link>
                         <div id='hoverElements' className='space-x-5'>
-                           <button onClick={() => addToCart(p.model)} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
+                           <Link to={`/product_details/${p.id}`} className='w-8 h-8 flex justify-center items-center rounded-sm cursor-pointer bg-gray-600 text-white'>
                               <BsCartPlus className='size-5 hover:opacity-50 transition-all' />
-                           </button>
-                           <Link to={`/product_details/${p.id}`} className='w-8 h-8 flex justify-center items-center rounded-sm text-white cursor-pointer bg-gray-600'>
-                              <IoEyeOutline className='size-5 hover:opacity-50 transition-all' />
                            </Link>
+                           <button onClick={() => showProductOverview(p.id)}
+                              className='w-8 h-8 flex justify-center items-center rounded-sm text-white cursor-pointer bg-gray-600'>
+                              <IoEyeOutline className='size-5 hover:opacity-50 transition-all' />
+                           </button>
+                           {/* modal content (product overview) */}
+                           <dialog id="overView" className="modal">
+                              <div className="modal-box font-display">
+                                 <h3 className="font-bold text-lg">{overviewProduct?.id}</h3>
+                                 <p className="py-4">Press ESC key or click the button below to close</p>
+                                 <div className="modal-action">
+                                    <form method="dialog">
+                                       <button className="btn">Close</button>
+                                    </form>
+                                 </div>
+                              </div>
+                           </dialog>
                         </div>
                         <div>
                            <p className='text-xs mt-1 md:uppercase hover:opacity-50 transition-colors'>{p.title}</p>

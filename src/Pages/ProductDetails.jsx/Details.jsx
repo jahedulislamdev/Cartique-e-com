@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { use, useContext, useEffect, useRef, useState } from 'react';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import { useParams } from 'react-router-dom';
 import { CiHeart } from 'react-icons/ci';
@@ -22,7 +22,27 @@ const Details = () => {
          setLoading(false);
       }
    }, [id, products, setLoading])
-
+   const quantity = useRef();
+   const handleQuantityChange = (sign) => {
+      const value = sign.target.innerText;
+      if (value === "+") {
+         quantity.current.innerText = parseInt(quantity.current.innerText) + 1;
+      } else if (value === "-") {
+         if (parseInt(quantity.current.innerText) > 1) {
+            quantity.current.innerText = parseInt(quantity.current.innerText) - 1
+         }
+      }
+   }
+   // select product size 
+   const [size, setSize] = useState(null);
+   const handleSelectedSize = (s) => {
+      const selectedSize = s.target.ariaLabel;
+      const sizeOptions = document.querySelectorAll("input[name='size']");
+      sizeOptions.forEach((option) => {
+         option.checked = option.ariaLabel === selectedSize;
+      });
+      setSize(selectedSize);
+   }
    if (loading || !selectedProduct) {
       return <div className="flex items-center justify-center min-h-screen">
          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-600"></div>
@@ -84,7 +104,7 @@ const Details = () => {
             <div>
                <div className="join space-x-2.5">
                   {selectedProduct.size.map(size => (
-                     <input key={size} className="join-item btn rounded-4xl border-0 checked:bg-red-700 checked:text-white"
+                     <input onChange={handleSelectedSize} key={size} className="join-item btn rounded-4xl border-0 checked:bg-red-700 checked:text-white"
                         type="radio" name="size" aria-label={size} />
                   ))}
                </div>
@@ -92,14 +112,14 @@ const Details = () => {
 
             {/* Quantity Selector */}
             <div className="join join-horizontal mt-3">
-               <button className="btn text-xl border-gray-50 join-item">-</button>
-               <button type='' className="btn text-xl border-gray-50 cursor-default join-item">1</button>
-               <button className="btn text-xl border-gray-50 join-item">+</button>
+               <button onClick={handleQuantityChange} className="btn text-xl border-gray-50 join-item">-</button>
+               <button ref={quantity} className="btn text-xl border-gray-50 cursor-default join-item">1</button>
+               <button onClick={handleQuantityChange} className="btn text-xl border-gray-50 join-item">+</button>
             </div>
 
             {/* Add to Cart & Wishlist */}
             <div className='flex justify-start items-center space-x-3 mt-4'>
-               <button onClick={() => addToCart(selectedProduct.model)} className='uppercase font-display hover:bg-red-950 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
+               <button onClick={() => addToCart(selectedProduct.model, quantity.current?.innerText, size && size)} className='uppercase font-display hover:bg-red-950 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
                   Add to Bag
                </button>
                <button className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>

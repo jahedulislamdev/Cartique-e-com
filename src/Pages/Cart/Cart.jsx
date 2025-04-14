@@ -14,7 +14,7 @@ const Cart = () => {
       const matchedProducts = cartData.map(o => {
          const fullProduct = products.find(p => p.model === o.model);
          if (fullProduct) {
-            return { ...fullProduct, quantity: o.quantity }
+            return { ...fullProduct, quantity: o.quantity, selectedSize: o.selectedSize }
          }
          return null;
       }).filter(Boolean);
@@ -54,7 +54,7 @@ const Cart = () => {
    const shipping = 0;
    const coupon = 0
    const discout = (gift + coupon);
-   const vat = parseFloat((subtotal * 0.15).toFixed(2));
+   const vat = parseFloat((subtotal * 0.1).toFixed(2));
    const total = parseFloat(subtotal - discout + vat + shipping);
 
    if (loading || products.length === 0) {
@@ -79,6 +79,7 @@ const Cart = () => {
    return (
       <div className='font-display'>
          <h1 className='text-2xl font-semibold mb-4'>🛒 Cart Items ({cartItems?.length})</h1>
+
          <div className='sm:grid grid-cols-6 sm:px-5 px-2 gap-x-2'>
             <div className='sm:col-span-3 md:col-span-4 overflow-x-auto border border-base-content/5 bg-base-100'>
                <table className='table'>
@@ -99,8 +100,8 @@ const Cart = () => {
                                  <img className='w-20 h-20 rounded object-cover object-top' src={item.product_img} alt='img' />
                                  <div>
                                     <p className="font-semibold sm:font-bold text-xs sm:text-md">{item.title}</p>
-                                    <p className="text-sm opacity-50">Size</p>
-                                    <p className="text-sm opacity-50">{item.color}</p>
+                                    <p className="text-sm opacity-50">Size: {item.selectedSize || "Not selected"}</p>
+                                    <p className="text-sm opacity-50">Color: {item.color}</p>
                                  </div>
                               </div>
                            </td>
