@@ -4,13 +4,15 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+// console.log(import.meta.env.VITE_PASS);
 const firebaseConfig = {
-    apiKey: "AIzaSyCqwfItxMBXev2Dh13gER63m61dKlx4i34",
-    authDomain: "cartique-auth.firebaseapp.com",
-    projectId: "cartique-auth",
-    storageBucket: "cartique-auth.firebasestorage.app",
-    messagingSenderId: "822631708645",
-    appId: "1:822631708645:web:ff3f9bc00555f92282210c",
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

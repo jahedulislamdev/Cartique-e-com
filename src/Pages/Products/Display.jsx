@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 const Display = () => {
    const { displayImg } = useContext(contextProvider)
    return (
-      <>
-         <Swiper
+      <div>
+         <Swiper id="displaySwiper"
             slidesPerView={1}
             spaceBetween={10}
             speed={2000}
@@ -19,16 +19,16 @@ const Display = () => {
             autoplay={{ delay: 7000, disableOnInteraction: false, pauseOnMouseEnter: true }}
             navigation={true}
             modules={[Autoplay, Navigation]}
-            className="mySwiper"
+            className="mySwiper h-[200px] md:h-[400px] xl:h-[700px] 2xl:h-[800px]"
          >
             {
                displayImg.map((d, idx) =>
                (<SwiperSlide key={idx}>
-                  <Link to={'/'}><img src={d} /></Link>
+                  <Link to={'/'}><img className="object-cover object-center h-full w-full" src={d} /></Link>
                </SwiperSlide>))
             }
          </Swiper>
-      </>
+      </div>
    );
 };
 

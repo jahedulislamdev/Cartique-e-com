@@ -70,7 +70,7 @@ const CetegoryDetails = () => {
    }
 
    return (
-      <div className='sm:grid grid-cols-5 mt-6 justify-center '>
+      <div className='sm:grid grid-cols-5 mt-2 justify-center '>
          <button
             onClick={() => { document.getElementById('openCategory').showModal() }} role="button"
             className="btn btn-ghost sm:hidden">
@@ -137,7 +137,7 @@ const CetegoryDetails = () => {
                </div>
             )}
          </div>
-         <div className={`col-span-4`}>
+         <div className="col-span-4 scrollbar-none overflow-auto h-screen">
             {/* show checked sub-categoy top start*/}
             <div className='flex items-center space-x-3 p-2 transition-all opacity-80 overflow-auto'>
                {

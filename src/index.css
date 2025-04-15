@@ -5,3 +5,8 @@
 @theme {
     --font-display: "Parkinsans", sans-serif;
 }
+
+/* utitily clases */
+.scrollbar-none {
+    scrollbar-width: none;
+}

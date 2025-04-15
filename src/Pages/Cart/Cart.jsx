@@ -56,7 +56,6 @@ const Cart = () => {
    const discout = (gift + coupon);
    const vat = parseFloat((subtotal * 0.1).toFixed(2));
    const total = parseFloat(subtotal - discout + vat + shipping);
-
    if (loading || products.length === 0) {
       return (
          <div className='flex items-center justify-center h-screen opacity-80'>
@@ -78,8 +77,7 @@ const Cart = () => {
 
    return (
       <div className='font-display'>
-         <h1 className='text-2xl font-semibold mb-4'>🛒 Cart Items ({cartItems?.length})</h1>
-
+         <h1 className='font-semibold px-2'>🛒 Cart Items ({cartItems?.length})</h1>
          <div className='sm:grid grid-cols-6 sm:px-5 px-2 gap-x-2'>
             <div className='sm:col-span-3 md:col-span-4 overflow-x-auto border border-base-content/5 bg-base-100'>
                <table className='table'>
@@ -196,6 +194,10 @@ const Cart = () => {
                         </tr>
                      </tbody>
                   </table>
+               </div>
+               <div className='sm:grid grid-cols-2 gap-2 my-2 uppercase '>
+                  <Link to={'/shop/products'} className='btn text-xs w-full'>continue shopping</Link>
+                  <Link to={'/checkout'} className='btn text-xs w-full mt-2 sm:mt-0'>Checkout</Link>
                </div>
             </div>
          </div >

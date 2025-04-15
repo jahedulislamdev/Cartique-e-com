@@ -5,7 +5,6 @@ import { CiHeart } from 'react-icons/ci';
 import { motion } from 'framer-motion'; // I don't know why it's happning 
 import { Slide, ToastContainer } from 'react-toastify';
 
-
 const Details = () => {
    const { products, loading, setLoading, addToCart } = useContext(contextProvider);
    const { id } = useParams();
@@ -49,7 +48,7 @@ const Details = () => {
       </div>;
    }
    return (
-      <div className='container mx-auto md:grid grid-cols-2 space-x-5 mb-7 mt-2 md:p-5 rounded-lg'>
+      <div className='container mx-auto md:grid grid-cols-2 space-x-5 mb-4 md:p-5 rounded-lg'>
          <div className='grid grid-cols-5'>
             {/* Thumbnail List */}
             <div className='col-span-1 p-0.5'>
@@ -78,7 +77,7 @@ const Details = () => {
          </div>
 
          {/* Product Details */}
-         <div className='space-y-2 p-2'>
+         <div className='space-y-2 p-2 h-dvh overflow-auto scrollbar-none'>
             <p className='font-medium text-2xl md:text-3xl'>{selectedProduct.title}</p>
 
             {/* Price */}

@@ -19,7 +19,7 @@ const App = () => {
         <Trendings />
       </div>
       <div>
-        <p className='uppercase border-b border-gray-700 text-center p-3 md:p-5 text-xl md:text-3xl font-medium mb-2'>new arrivals</p>
+        <p className='uppercase border-b border-gray-700 text-center p-3 md:p-5 text-xl md:text-3xl font-medium my-2'>new arrivals</p>
         <NewArrival />
       </div>
       <ToastContainer transition={Slide} />

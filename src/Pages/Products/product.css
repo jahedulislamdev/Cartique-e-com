@@ -13,8 +13,8 @@
 .swiper-button-prev:hover::after {
     opacity: 1;
 }
-.swiper {
-    height: 350px !important;
+#trendingSlide {
+    height: 300px !important;
 }
 
 #hoverElements {
@@ -35,7 +35,7 @@
 }
 
 @media screen and (max-width: 500px) {
-    .swiper {
+    #trendingSlide {
         height: 260px !important;
     }
     #productCard {

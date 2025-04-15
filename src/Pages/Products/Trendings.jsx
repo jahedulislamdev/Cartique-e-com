@@ -35,7 +35,7 @@ const Trendings = () => {
          >
             {
                duplicatedProducts.map((slide, index) => (
-                  <SwiperSlide key={`${slide.id}-${index}`}>
+                  <SwiperSlide key={`${slide.id}-${index}`} id="trendingSlide">
                      <Link to={`/product_details/${slide.id}`} className='transition-all relative'>
                         {/* <button className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
                            <CiHeart className='text-black size-5' />
