@@ -16,7 +16,7 @@ const OverviewModal = ({ overviewProduct }) => {
             <form method="dialog">
                 <button className="cursor-pointer w-8 h-8 rounded-full indicator-item indicator-center badge bg-red-900 border-0 text-white">✕</button>
             </form>
-            <div className="modal-box p-0 font-display sm:max-w-2xl sm:w-full">
+            <div className="modal-box p-0 font-display sm:max-w-2xl sm:w-full scrollbar-none">
                 <div className='sm:grid grid-cols-2 gap-x-3 '>
                     <div>
                         <img className='sm:w-full' src={overviewProduct?.product_img} alt="" />
@@ -43,7 +43,7 @@ const OverviewModal = ({ overviewProduct }) => {
                             </div>
                         </div>
                         {/* Add to Cart & Wishlist */}
-                        <div onClick={() => addToCart(overviewProduct?.model, overviewProduct?.quantity, size)} className='flex justify-start items-center space-x-3 mt-4'>
+                        <div onClick={() => addToCart(overviewProduct?.model, overviewProduct?.quantity, size)} className='flex justify-start items-center space-x-3 my-4'>
                             <button className='uppercase font-display hover:bg-red-900 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
                                 Add to Bag
                             </button>

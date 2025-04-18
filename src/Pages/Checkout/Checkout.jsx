@@ -31,9 +31,9 @@ const Checkout = () => {
    // const subtotal = parseFloat(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2));
    const navigate = useNavigate()
    const handleOrder = () => {
+      toast.success("order Pleased successfull!")
       localStorage.setItem("cartItems", JSON.stringify([]));
       setCartItems([]);
-      toast.success("order Pleased successfull!")
       setTimeout(() => {
          navigate('/order/compleate');
       }, 800);
