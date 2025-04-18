@@ -66,14 +66,22 @@ const Cart = () => {
 
    if (!cartItems?.length) {
       return (
-         <div className='flex items-center justify-center h-screen md:h-96'>
-            <div className='space-y-3 font-display text-center'>
-               <div className='flex justify-center opacity-25'><BsCartX className='size-15' /></div>
-               <h1 className=' text'>You haven't added anything yet. <Link to={'/'} className='text-violet-800 underline'>Browse products</Link> and start shopping!</h1>
+         <div className="flex items-center justify-center h-screen md:h-96">
+            <div className="space-y-4 text-center font-display">
+               <div className="flex justify-center text-gray-400">
+                  <BsCartX className="w-16 h-16" />
+               </div>
+               <h1 className="text-lg text-gray-700"> Your cart is empty.{" "}
+                  <Link to="/" className="text-violet-800 underline hover:text-violet-600 transition">
+                     Browse products
+                  </Link>{" "}
+                  and find something you love!
+               </h1>
             </div>
-         </div >
+         </div>
       );
    }
+
 
    return (
       <div className='font-display'>

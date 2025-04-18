@@ -5,11 +5,17 @@ import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 import { contextProvider } from "../Provider/DataProvider";
-import { useContext } from "react";
+import { useContext, useState, } from "react";
 
 const Searchbar = () => {
-   const { dialogColsingRef, user, logOutUser, cartItems } = useContext(contextProvider);
-
+   const { dialogColsingRef, user, logOutUser, cartItems, products } = useContext(contextProvider);
+   const [query, setQuery] = useState([]);
+   const handleSearch = (e) => {
+      const query = e.target.value;
+      const filterdElem = products.filter(p => p.category.toLowerCase().includes(query.toLowerCase()));
+      if (!query.trim()) return setQuery(null);
+      setQuery(filterdElem);
+   }
    return (
       <div className={`sticky top-0 left-0 w-full z-50 bg-base-100 shadow transition-all duration-300 ease-in-out`}>
          <div className="navbar border-b border-gray-300 px-2 md:px-4 lg:px-8">
@@ -32,16 +38,24 @@ const Searchbar = () => {
                      <MobileNav />
                   </div>
                </dialog>
-
                <Link to="/" className="text-lg md:text-2xl font-semibold uppercase">Cartique</Link>
             </div>
-
             {/* Navbar Center */}
-            <div className="hidden md:flex join w-full border border-gray-300 rounded">
-               <input type="text" className="input input-sm md:input-md border-0 bg-transparent w-full focus:outline-none join-item" placeholder="Search Your Products" />
-               <button className="join-item p-2 cursor-pointer">
-                  <IoSearch className="size-4 lg:size-6" />
-               </button>
+            <div className="w-full relative">
+               <div className="hidden md:flex join w-full border border-gray-300 rounded">
+                  <input onChange={handleSearch} name="searchbox" type="text" className="input input-sm md:input-md border-0 bg-transparent w-full focus:outline-none join-item" placeholder="Search Your Products" />
+                  <button className="join-item p-2 cursor-pointer">
+                     <IoSearch className="size-4 lg:size-6" />
+                  </button>
+               </div>
+               {/* search result  */}
+               <div className="absolute w-full max-h-80 overflow-scroll bg-[#000000d1] z-1000 rounded scrollbar-none">
+                  <div className={`${query && "p-4"} space-y-1`}>
+                     {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
+                        : query?.map(r => <Link to={`/product_details/${r.id}`} key={r.model} className="alert alert-info alert-soft">{r.title}</Link>)
+                     }
+                  </div>
+               </div>
             </div>
 
             {/* Navbar End */}
@@ -109,7 +123,7 @@ const Searchbar = () => {
             </div>
          </div>
          <DesktopNav />
-      </div>
+      </div >
    );
 };
 
