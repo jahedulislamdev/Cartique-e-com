@@ -6,15 +6,30 @@ import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 import { contextProvider } from "../Provider/DataProvider";
 import { useContext, useState, } from "react";
+import Fuse from "fuse.js";
 
 const Searchbar = () => {
    const { dialogColsingRef, user, logOutUser, cartItems, products } = useContext(contextProvider);
    const [query, setQuery] = useState([]);
    const handleSearch = (e) => {
-      const query = e.target.value;
-      const filterdElem = products.filter(p => p.category.toLowerCase().includes(query.toLowerCase()));
-      if (!query.trim()) return setQuery(null);
-      setQuery(filterdElem);
+      const input = e.target.value.trim().toLowerCase(); // trim() remove the extra space 
+      if (!input) return setQuery(null);
+
+      const options = {
+         keys: ["title", "category", "sub_category"],
+         threshold: 0.6,
+      }
+      const fuse = new Fuse(products, options)
+      const result = fuse.search(input).map(i => i.item)
+      setQuery(result);
+
+      // const filterdElem = products.filter(p =>
+      //    p.category.toLowerCase().includes(input) ||
+      //    p.sub_category.toLowerCase().includes(input) ||
+      //    p.title.toLowerCase().includes(input)
+      // );
+
+      // setQuery(filterdElem);
    }
    return (
       <div className={`sticky top-0 left-0 w-full z-50 bg-base-100 shadow transition-all duration-300 ease-in-out`}>
@@ -50,9 +65,9 @@ const Searchbar = () => {
                </div>
                {/* search result  */}
                <div className="absolute w-full max-h-80 overflow-scroll bg-[#000000d1] z-1000 rounded scrollbar-none">
-                  <div className={`${query && "p-4"} space-y-1`}>
+                  <div className={`${query && "p-2"} space-y-1`}>
                      {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
-                        : query?.map(r => <Link to={`/product_details/${r.id}`} key={r.model} className="alert alert-info alert-soft">{r.title}</Link>)
+                        : query?.map(r => <Link onClick={() => setQuery(null)} to={`/product_details/${r.id}`} key={r.model} className="alert alert-info alert-soft">{r.title}</Link>)
                      }
                   </div>
                </div>
