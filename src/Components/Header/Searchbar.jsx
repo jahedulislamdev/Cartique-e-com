@@ -10,7 +10,7 @@ import Fuse from "fuse.js";
 
 const Searchbar = () => {
    const { dialogColsingRef, user, logOutUser, cartItems, products } = useContext(contextProvider);
-   const [query, setQuery] = useState([]);
+   const [query, setQuery] = useState(null);
    const handleSearch = (e) => {
       const input = e.target.value.trim().toLowerCase(); // trim() remove the extra space 
       if (!input) return setQuery(null);
@@ -101,7 +101,7 @@ const Searchbar = () => {
                </dialog>
 
                {!user ? (
-                  <Link to="/login" className="tooltip tooltip-bottom" data-tip="Login or Register">
+                  <Link to="/login">
                      <CiUser className="size-6" />
                   </Link>
                ) : (
@@ -128,10 +128,10 @@ const Searchbar = () => {
                   </div>
                )}
 
-               <button className="hidden md:block tooltip tooltip-bottom" data-tip="Favourite">
+               <Link to={'/favourite'} className="hidden md:block cursor-pointer">
                   <CiHeart className="size-6" />
-               </button>
-               <Link to="/cart" className="indicator tooltip tooltip-bottom" data-tip="Cart">
+               </Link>
+               <Link to="/cart" className="indicator">
                   <CiShoppingCart className="size-6 text-yellow-800" />
                   <span className="indicator-item badge bg-transparent border-0">{cartItems?.length}</span>
                </Link>

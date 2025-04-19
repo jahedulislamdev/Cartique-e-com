@@ -4,6 +4,7 @@ import { getItemFromLocalStorage } from '../../Components/Hooks/SaveCartModels';
 import { Link } from 'react-router-dom';
 import { BsCartX } from 'react-icons/bs';
 import { MdOutlineDelete } from 'react-icons/md';
+import Spin from '../../Components/Loader/Spin';
 
 const Cart = () => {
    const { cartItems, setCartItems, products, loading, setLoading } = useContext(contextProvider);
@@ -31,7 +32,7 @@ const Cart = () => {
       setCartItems(prev => prev.filter(i => i.model !== model));
       setTimeout(() => {
          setLoading(false);
-      }, 400);
+      }, 700);
    }
 
    // update specipic quantity 
@@ -56,13 +57,6 @@ const Cart = () => {
    const discout = (gift + coupon);
    const vat = parseFloat((subtotal * 0.1).toFixed(2));
    const total = parseFloat(subtotal - discout + vat + shipping);
-   if (loading || products.length === 0) {
-      return (
-         <div className='flex items-center justify-center h-screen opacity-80'>
-            <button btn className='text-xl text-gray-500'><span className="loading loading-spinner text-xs font-light text-red-700"></span> Updating.. </button>
-         </div>
-      );
-   }
 
    if (!cartItems?.length) {
       return (
@@ -82,58 +76,58 @@ const Cart = () => {
       );
    }
 
-
    return (
       <div className='font-display'>
          <h1 className='font-semibold px-2'>🛒 Cart Items ({cartItems?.length})</h1>
          <div className='sm:grid grid-cols-6 sm:px-5 px-2 gap-x-2'>
             <div className='sm:col-span-3 md:col-span-4 overflow-x-auto border border-base-content/5 bg-base-100'>
-               <table className='table'>
-                  <thead>
-                     <tr className='uppercase '>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th></th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     {cartItems?.map((item) => (
-                        <tr key={item.model} className='align-top'>
-                           <td className="w-[300px] min-w-[200px] max-w-[350px]">
-                              <div className="flex items-center gap-2 ">
-                                 <img className='w-17 h-20 rounded object-cover object-top' src={item.product_img} alt='img' />
-                                 <div>
-                                    <p className="font-semibold sm:font-bold text-xs sm:text-md">{item.title}</p>
-                                    <p className="text-sm opacity-50">Size: {item.selectedSize || "Not selected"}</p>
-                                    <p className="text-sm opacity-50">Color: {item.color}</p>
-                                 </div>
-                              </div>
-                           </td>
-                           <td>
-                              <p className="font-bold">{item.price}</p>
-                           </td>
-                           <td>
-                              <div className="join join-horizontal mt-3">
-                                 <button onClick={() => updateModelQuantity(item.model, item.quantity - 1)} className="btn py-0.5 px-2.5 text-sm border-base-500 join-item">-</button>
-                                 <button className="btn py-0.5 px-2.5  text-sm border-base-500 cursor-default join-item">{item.quantity}</button>
-                                 <button onClick={() => updateModelQuantity(item.model, item.quantity + 1)} className="btn py-0.5 px-2.5 text-sm border-base-500 join-item">+</button>
-                              </div>
-                           </td>
-                           <td>
-                              <p className="font-bold">  {parseFloat(item.price) * parseInt(item.quantity)}</p>
-                           </td>
-                           <th>
-                              <button onClick={() => removeFromLoaclStorage(item.model)}
-                                 className='bg-red-600 hover:bg-red-800 transition-colors text-white cursor-pointer p-1 rounded'>
-                                 <MdOutlineDelete className='size-5' />
-                              </button>
-                           </th>
+               {loading || products.length === 0 ? <Spin /> :
+                  <table className='table'>
+                     <thead>
+                        <tr className='uppercase '>
+                           <th>Product Name</th>
+                           <th>Price</th>
+                           <th>Quantity</th>
+                           <th>Total</th>
+                           <th></th>
                         </tr>
-                     ))}
-                  </tbody>
-               </table>
+                     </thead>
+                     <tbody>
+                        {cartItems?.map((item) => (
+                           <tr key={item.model} className='align-top'>
+                              <td className="w-[300px] min-w-[200px] max-w-[350px]">
+                                 <div className="flex items-center gap-2 ">
+                                    <img className='w-17 h-20 rounded object-cover object-top' src={item.product_img} alt='img' />
+                                    <div>
+                                       <p className="font-semibold sm:font-bold text-xs sm:text-md">{item.title}</p>
+                                       <p className="text-sm opacity-50">Size: {item.selectedSize || "Not selected"}</p>
+                                       <p className="text-sm opacity-50">Color: {item.color}</p>
+                                    </div>
+                                 </div>
+                              </td>
+                              <td>
+                                 <p className="font-bold">{item.price}</p>
+                              </td>
+                              <td>
+                                 <div className="join join-horizontal mt-3">
+                                    <button onClick={() => updateModelQuantity(item.model, item.quantity - 1)} className="btn py-0.5 px-2.5 text-sm border-base-500 join-item">-</button>
+                                    <button className="btn py-0.5 px-2.5  text-sm border-base-500 cursor-default join-item">{item.quantity}</button>
+                                    <button onClick={() => updateModelQuantity(item.model, item.quantity + 1)} className="btn py-0.5 px-2.5 text-sm border-base-500 join-item">+</button>
+                                 </div>
+                              </td>
+                              <td>
+                                 <p className="font-bold">  {parseFloat(item.price) * parseInt(item.quantity)}</p>
+                              </td>
+                              <th>
+                                 <button onClick={() => removeFromLoaclStorage(item.model)}
+                                    className='bg-red-600 hover:bg-red-800 transition-colors text-white cursor-pointer p-1 rounded'>
+                                    <MdOutlineDelete className='size-5' />
+                                 </button>
+                              </th>
+                           </tr>
+                        ))}
+                     </tbody>
+                  </table>}
             </div>
             <div className="sm:col-span-3 md:col-span-2 border-s-base-content shadow-sm p-2 mt-7 sm:mt-0">
                <p className='opacity-70 font-semibold uppercase'>What would you like to do next?</p>

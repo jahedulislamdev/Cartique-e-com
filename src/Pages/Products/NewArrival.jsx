@@ -6,9 +6,14 @@ import { BsCartPlus } from 'react-icons/bs';
 import { IoEyeOutline } from 'react-icons/io5';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import OverviewModal from '../../Components/Hooks/OverviewModal';
+import { saveFavouriteItems } from '../../Components/Hooks/SaveCartModels';
 
 const NewArrival = () => {
    const { products, overviewProduct, setOverviewProduct, setLoading } = useContext(contextProvider);
+   // load favourite items form local storage 
+
+
+
    const showOverviewProduct = (id) => {
       setLoading(true);
       const checkedProduct = products.find(p => p.id === id);
@@ -23,7 +28,7 @@ const NewArrival = () => {
          {
             products.slice(0, 10).map((p) => (
                <div id='productCard' key={p.id} className='h-54 cursor-pointer md:h-64 transition-all relative mb-10 sm:mb-0'>
-                  <button className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
+                  <button onClick={() => saveFavouriteItems(p.model)} className='rounded-full absolute top-1.5 right-1.5 cursor-pointer hover:bg-white p-0.5 transition-colors'>
                      <CiHeart className='text-black hovr:bg-white hover:text-red-500 size-5' />
                   </button>
                   <Link to={`/product_details/${p.id}`}><img className='h-[250px] w-full object-cover object-top' src={p.product_img && p.product_img} alt={p.product_img} /></Link>

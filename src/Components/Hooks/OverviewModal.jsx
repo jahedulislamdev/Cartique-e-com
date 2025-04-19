@@ -2,15 +2,26 @@ import { useContext, useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { IoShareSocial } from "react-icons/io5";
 import { contextProvider } from "../Provider/DataProvider";
+import { saveFavouriteItems } from "./SaveCartModels";
+import { toast } from "react-toastify";
 
 const OverviewModal = ({ overviewProduct }) => {
     const [size, setSize] = useState(null);
     const { addToCart } = useContext(contextProvider);
     const handleSelectedSize = (e) => {
         const selectedSize = e.target.ariaLabel;
-        console.log(selectedSize); // Log the selected size
         setSize(selectedSize); // Update the state with the selected size
     }
+    const handleAddToCart = () => {
+        if (!size) {
+            toast.error("Please select a size before adding!", { position: "bottom-right" });
+            return;
+        }
+        addToCart(overviewProduct?.model, overviewProduct?.quantity, size);
+        setSize(null);
+    };
+
+
     return (
         <div className="indicator w-full flex justify-center m-5">
             <form method="dialog">
@@ -43,11 +54,11 @@ const OverviewModal = ({ overviewProduct }) => {
                             </div>
                         </div>
                         {/* Add to Cart & Wishlist */}
-                        <div onClick={() => addToCart(overviewProduct?.model, overviewProduct?.quantity, size)} className='flex justify-start items-center space-x-3 my-4'>
-                            <button className='uppercase font-display hover:bg-red-900 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
+                        <div className='flex justify-start items-center space-x-3 my-4'>
+                            <button onClick={handleAddToCart} className='uppercase font-display hover:bg-red-900 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
                                 Add to Bag
                             </button>
-                            <button className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
+                            <button onClick={() => saveFavouriteItems(overviewProduct?.model)} className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
                                 <CiHeart className='size-6 ' />
                             </button>
                         </div>

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { CiHeart } from 'react-icons/ci';
 import { motion } from 'framer-motion'; // I don't know why it's happning 
 import { Slide, ToastContainer } from 'react-toastify';
+import { saveFavouriteItems } from '../../Components/Hooks/SaveCartModels';
 
 const Details = () => {
    const { products, loading, setLoading, addToCart } = useContext(contextProvider);
@@ -48,7 +49,7 @@ const Details = () => {
       </div>;
    }
    return (
-      <div className='container mx-auto md:grid grid-cols-2 space-x-5 mb-4 md:p-5 rounded-lg'>
+      <div className='container mt-2 md:mt-0 mx-auto md:grid grid-cols-2 space-x-5 mb-4 md:p-5 rounded-lg'>
          <div className='grid grid-cols-5'>
             {/* Thumbnail List */}
             <div className='col-span-1 p-0.5'>
@@ -77,7 +78,7 @@ const Details = () => {
          </div>
 
          {/* Product Details */}
-         <div className='space-y-2 p-2 h-dvh overflow-auto scrollbar-none'>
+         <div className='space-y-2 p-2 sm:h-dvh sm:overflow-auto scrollbar-none'>
             <p className='font-medium text-2xl md:text-3xl'>{selectedProduct.title}</p>
 
             {/* Price */}
@@ -121,7 +122,7 @@ const Details = () => {
                <button onClick={() => addToCart(selectedProduct.model, quantity.current?.innerText, size && size)} className='uppercase font-display hover:bg-red-950 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
                   Add to Bag
                </button>
-               <button className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
+               <button onClick={() => { saveFavouriteItems(selectedProduct.model) }} className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
                   <CiHeart className='size-6 ' />
                </button>
             </div>

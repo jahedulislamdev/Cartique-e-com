@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 // GET ITEMS FROM LOCAL STORAGE
 const getItemFromLocalStorage = () => {
     const saveItems = localStorage.getItem("cartItems");
@@ -21,6 +23,36 @@ const setItemToLocalStorage = (model, quantity, selectedSize) => {
     }
     localStorage.setItem("cartItems", JSON.stringify(savedItems));
 };
-// REMOVE ITEM FROM LOCAL STORAGE
+// ADD TO FAVOURITE
+const getFavouriteItmes = () => {
+    const saveItems = localStorage.getItem("favouriteItem");
+    if (!saveItems) return [];
+    return JSON.parse(saveItems);
+};
 
-export { getItemFromLocalStorage, setItemToLocalStorage };
+const saveFavouriteItems = (model) => {
+    const savedItems = getFavouriteItmes();
+    const checker = savedItems.includes(model);
+    if (checker) {
+        toast.error("Item Already Added", {
+            autoClose: 2000,
+            position: "bottom-right",
+        });
+        return;
+    } else {
+        savedItems.push(model);
+        toast("Add to Favourite successfull!", {
+            autoClose: 500,
+            position: "bottom-right",
+            theme: "light",
+        });
+    }
+    localStorage.setItem("favouriteItem", JSON.stringify(savedItems));
+};
+
+export {
+    getItemFromLocalStorage,
+    setItemToLocalStorage,
+    getFavouriteItmes,
+    saveFavouriteItems,
+};

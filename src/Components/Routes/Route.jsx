@@ -10,6 +10,7 @@ import Cart from "../../Pages/Cart/Cart";
 import Products from "../../Pages/Shop/Products";
 import Checkout from "../../Pages/Checkout/Checkout";
 import Compleate from "../../Pages/OrderCompleate/Compleate";
+import FavouriteItmes from "../../Pages/Favourite/FavouriteItmes";
 
 
 const route = createBrowserRouter([
@@ -27,7 +28,8 @@ const route = createBrowserRouter([
          { path: '/cart', element: <Cart /> },
          { path: '/shop/products', element: <Products /> },
          { path: '/checkout', element: <Checkout /> },
-         { path: '/order/compleate', element: <Compleate /> }
+         { path: '/order/compleate', element: <Compleate /> },
+         { path: '/favourite', element: <FavouriteItmes /> }
       ]
    }
 ])

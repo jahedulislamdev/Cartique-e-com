@@ -139,7 +139,7 @@ const CetegoryDetails = () => {
          </div>
          <div className="col-span-4 scrollbar-none overflow-auto h-screen">
             {/* show checked sub-categoy top start*/}
-            <div className='flex items-center space-x-3 p-2 transition-all opacity-80 overflow-auto'>
+            <div className='flex items-center space-x-3 p-2 transition-all opacity-80 overflow-auto scrollbar-none'>
                {
                   checkedCheckbox.map((ccb, idx) => <p className='btn uppercase text-xs' key={idx}>{ccb}
                      <button onClick={() => deleteFromChecklist(idx)} className='cursor-pointer'><FaCircleXmark className='size-4' /></button> </p>)

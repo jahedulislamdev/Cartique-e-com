@@ -22,7 +22,7 @@ const App = () => {
         <p className='uppercase border-b border-gray-700 text-center p-3 md:p-5 text-xl md:text-3xl font-medium my-2'>new arrivals</p>
         <NewArrival />
       </div>
-      <ToastContainer transition={Slide} />
+      <ToastContainer transition={Slide} theme='light' />
     </div>
   );
 };
