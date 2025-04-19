@@ -8,7 +8,7 @@ import { Slide, toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-   const { loginUser, setUser, loginWithGoogle, handleResetPassword } = useContext(contextProvider);
+   const { loginUser, setUser, loginWithGoogle, handleResetPassword, loginWithFacebook } = useContext(contextProvider);
    const [showPass, setShowPass] = useState(false);
    const navigate = useNavigate()
    const handleFormSubmit = (e) => {
@@ -40,8 +40,11 @@ const Login = () => {
                toast.error("Login Faild!", { autoClose: 500 })
             }
          });
-
+      // login with facebook 
    }
+
+
+
    // forget password functionality
    const emailRef = useRef(null);
    const [err, setErr] = useState(null);
@@ -124,7 +127,7 @@ const Login = () => {
                <div className="divider opacity-50">Or Login with</div>
                <div className='flex w-full space-x-5'>
                   <button onClick={() => loginWithGoogle(navigate)} className='flex rounded-sm cursor-pointer items-center justify-center border border-orange-400 py-2 w-full px-4'><FcGoogle className='size-5 me-1' /> Google</button>
-                  <button className='flex rounded-sm cursor-pointer items-center justify-center border border-blue-500 py-2 w-full px-4'><FaFacebook className='size-5 me-1 text-blue-400' /> Facebook</button>
+                  <button onClick={() => loginWithFacebook(navigate)} className='flex rounded-sm cursor-pointer items-center justify-center border border-blue-500 py-2 w-full px-4'><FaFacebook className='size-5 me-1 text-blue-400' /> Facebook</button>
                </div>
             </div>
          </div>

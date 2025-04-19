@@ -42,19 +42,19 @@ const FavouriteItmes = () => {
                className="w-24 h-24 mb-4 opacity-60"
             />
             <p className="text-lg font-semibold text-gray-600">Your wishlist is empty</p>
-            <p className="text-sm text-gray-500 mt-1"><Link to={'//shop/products'}>Browse products</Link> and add your favorites ❤️</p>
+            <p className="text-sm text-gray-500 mt-1"><Link to={'/shop/products'} className='font-medium text-md text-blue-400'>Browse products</Link> and add your favorites ❤️</p>
          </div>
       );
    }
    return (
-      <div className='py-3 px-7'>
+      <div className='py-3 sm:px-7 px-1'>
          {/* sroting start */}
          <div className='flex justify-between items-center'>
             <p className='uppercase font-medium text-xs @max-xs:font-semibold '>Favourite Products</p>
-            <select defaultValue="Pick a text editor" className="select w-28 h-8 P-0 focus:outline-0">
-               <option disabled={true}>Pick a text editor</option>
-               <option>Price High to Low</option>
-               <option>Price Low to High</option>
+            <select defaultValue="Pick a text editor" className="select select-sm w-32 P-0 focus:outline-0">
+               <option className='text-xs' disabled={true}>Pick a text editor</option>
+               <option className='text-xs'>Price High to Low</option>
+               <option className='text-xs'>Price Low to High</option>
             </select>
          </div>
          {/* sroting end */}
@@ -73,7 +73,7 @@ const FavouriteItmes = () => {
                               <p className=''>Stock: {i.stock}</p>
                            </div>
                         </Link>
-                        <button onClick={() => handleRemoveItem(i.model)} className=" p-0.5 rounded border-0 bg-red-600 text-white absolute top-1 right-1 cursor-pointer"><MdOutlineDelete className='size-4' /></button>
+                        <button onClick={() => handleRemoveItem(i.model)} className=" p-0.5 rounded border-0 bg-red-600 text-white absolute top-1 right-1 cursor-pointer"><MdOutlineDelete className='size-5' /></button>
                      </div>
                   ))
                }

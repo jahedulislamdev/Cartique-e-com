@@ -128,7 +128,7 @@ const Searchbar = () => {
                   </div>
                )}
 
-               <Link to={'/favourite'} className="hidden md:block cursor-pointer">
+               <Link to={'/favourite'} className="cursor-pointer">
                   <CiHeart className="size-6" />
                </Link>
                <Link to="/cart" className="indicator">

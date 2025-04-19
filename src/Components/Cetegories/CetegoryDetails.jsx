@@ -137,7 +137,7 @@ const CetegoryDetails = () => {
                </div>
             )}
          </div>
-         <div className="col-span-4 scrollbar-none overflow-auto h-screen">
+         <div className="col-span-4 scrollbar-none md:overflow-auto md:h-screen">
             {/* show checked sub-categoy top start*/}
             <div className='flex items-center space-x-3 p-2 transition-all opacity-80 overflow-auto scrollbar-none'>
                {

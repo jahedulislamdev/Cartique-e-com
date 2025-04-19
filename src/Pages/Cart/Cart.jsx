@@ -8,6 +8,7 @@ import Spin from '../../Components/Loader/Spin';
 
 const Cart = () => {
    const { cartItems, setCartItems, products, loading, setLoading } = useContext(contextProvider);
+
    // load local storage data to state
    useEffect(() => {
       const cartData = getItemFromLocalStorage();
@@ -49,6 +50,7 @@ const Cart = () => {
       localStorage.setItem("cartItems", JSON.stringify(updatedModels));
       setCartItems(prev => prev.map(item => item.model === model ? { ...item, quantity } : item));
    }
+
    // calculate amount
    const subtotal = parseFloat(cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2));
    const gift = 0;
@@ -78,11 +80,11 @@ const Cart = () => {
 
    return (
       <div className='font-display'>
-         <h1 className='font-semibold px-2'>🛒 Cart Items ({cartItems?.length})</h1>
-         <div className='sm:grid grid-cols-6 sm:px-5 px-2 gap-x-2'>
-            <div className='sm:col-span-3 md:col-span-4 overflow-x-auto border border-base-content/5 bg-base-100'>
+         <h1 className='font-semibold ps-2 my-3 md:mt-0'>🛒 Cart Items ({cartItems?.length})</h1>
+         <div className='sm:grid grid-cols-6 sm:px-5 gap-x-2'>
+            <div className='sm:col-span-3 md:col-span-4 overflow-x-auto scrollbar-none border border-base-content/5 bg-base-100'>
                {loading || products.length === 0 ? <Spin /> :
-                  <table className='table'>
+                  <table className='table border border-gray-600'>
                      <thead>
                         <tr className='uppercase '>
                            <th>Product Name</th>
@@ -129,10 +131,10 @@ const Cart = () => {
                      </tbody>
                   </table>}
             </div>
-            <div className="sm:col-span-3 md:col-span-2 border-s-base-content shadow-sm p-2 mt-7 sm:mt-0">
-               <p className='opacity-70 font-semibold uppercase'>What would you like to do next?</p>
+            <div className="sm:col-span-3 md:col-span-2 border-s-base-content shadow-sm sm:p-2 mt-7 sm:mt-0">
+               <p className='opacity-70 font-semibold uppercase mb-3'>What would you like to do next?</p>
                <div className=" collapse collapse-plus bg-base-100 border border-base-300">
-                  <input type="checkbox" name="cartiquePaymentStatus" defaultChecked />
+                  <input type="checkbox" name="cartiquePaymentStatus" />
                   <div className="collapse-title font-medium uppercase text-xs m-0">Use Copon Code</div>
                   <div className="join collapse-content text-sm">
                      <input className="input join-item focus:outline-0" placeholder="coupon code here" />

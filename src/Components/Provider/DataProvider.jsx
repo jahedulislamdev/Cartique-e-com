@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useRef, useState } from 'react';
 export const contextProvider = createContext();
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile, updateEmail, updatePhoneNumber, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, updateProfile, updateEmail, updatePhoneNumber, sendEmailVerification, sendPasswordResetEmail, FacebookAuthProvider } from "firebase/auth";
 import { toast } from 'react-toastify';
 import { getItemFromLocalStorage, setItemToLocalStorage } from './../Hooks/SaveCartModels';
 import app from './../../Firebase/Firebase.config';
@@ -166,6 +166,30 @@ const DataProvider = ({ children }) => {
          });
    }
 
+   // login with facebook 
+   const fProvider = new FacebookAuthProvider();
+   const loginWithFacebook = async (navigate) => {
+      if (user) {
+         return toast.warning("You are already Logged In", { autoClose: 1000 })
+      }
+      setLoading(true)
+      signInWithPopup(auth, fProvider)
+         .then(res => {
+            setUser(res.user)
+            toast.success("Login Successfull!", { autoClose: 1000 });
+            // console.log(res.user)
+         })
+         .catch((err) => {
+            toast.error("Login faild")
+            console.log(err);
+         })
+         .finally(() => {
+            setLoading(false)
+            navigate('/')
+         })
+   }
+
+
    // update user profile
    const profileUpdate = async (userName, userEmail, number) => {
       try {
@@ -221,7 +245,7 @@ const DataProvider = ({ children }) => {
       console.log(model, qty, selectedSize);
 
       if (!selectedSize) {
-         toast.error("Please select size", { autoClose: 3000 });
+         toast.error("Please select size before add to bag", { autoClose: 3000 });
          return;
       }
       setItemToLocalStorage(model, qty, selectedSize); // set model to local storage
@@ -240,6 +264,7 @@ const DataProvider = ({ children }) => {
       handleResetPassword,
       profileUpdate,
       loginWithGoogle,
+      loginWithFacebook,
       setLoading,
       handleSubmenuClick,
       handleMenuClick,
