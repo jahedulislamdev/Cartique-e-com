@@ -8,7 +8,7 @@ import { IoEyeOutline } from 'react-icons/io5';
 import { BsCartPlus } from 'react-icons/bs';
 import { Slide, ToastContainer } from 'react-toastify';
 const Products = () => {
-   const { products, setLoading, setOverviewProduct, overviewProduct, productCategories } = useContext(contextProvider);
+   const { products, setLoading, setOverviewProduct, productCategories } = useContext(contextProvider);
    // products.length = 0;
 
    const showOverviewProduct = (id) => {
@@ -19,9 +19,9 @@ const Products = () => {
          document.getElementById('overView').showModal();
       }
       setLoading(false);
-   }
+   };
 
-
+   showOverviewProduct();
 
 
 

@@ -21,6 +21,9 @@ const NewArrival = () => {
       }
       setLoading(false);
    }
+   if (!products || products.length === 0) {
+      return <div className='capitalize flex justify-center items-center'>Sorry no product avilable in this moment!</div>
+   }
    return (
       <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-2 gap-y-10 sm:gap-y-20 md:gap-y-18 py-4 px-3 '>
          {

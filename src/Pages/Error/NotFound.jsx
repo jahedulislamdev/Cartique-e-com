@@ -13,7 +13,7 @@ const NotFound = () => {
                </div> :
                <div className="bg-[#0F172A] h-screen flex justify-center items-center space-x-2">
                   <p className="text-2xl font-bold border-e pe-4">{listenErr.status}</p>
-                  <p className="text-xs sm:text-lg md:text-xl font-semibold text-red-600">An Unexpected Application Error occared</p>
+                  <p className="text-xs sm:text-lg md:text-xl font-semibold text-red-600">Application error: a client-side exception has occurred (see the browser console for more information).</p>
                </div>
          }
       </>
