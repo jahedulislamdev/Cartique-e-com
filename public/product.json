@@ -44,7 +44,7 @@
         "price": 899,
         "stock": 35,
         "stock_status": "in_stock",
-        "size": ["S", "M", "L"],
+        "size": ["S", "M", "L", "XXL"],
         "color": "Wine Red",
         "variant": [
             {

@@ -9,6 +9,7 @@ const Shop = () => {
    const { products } = useContext(contextProvider);
    const [selectedOption, setSelectedOption] = useState([]);
    const [filterdProducts, setFilterdProducts] = useState([]);
+
    useEffect(() => {
       if (products.length) {
          setFilterdProducts(products)
@@ -20,7 +21,7 @@ const Shop = () => {
    const filterOptions = [
       {
          title: "Category",
-         options: ["BOISHAKH COLLECTION/2025", "LATEST COLLECTION/25", "MEN", "WOMEN", "KID'S", "NEWBORN", "FOOTWEAR", "ACCESSORIES", "SPRING 2025", "FESTIVE SPOT LIGHT", "KING COLLECTION"]
+         options: ["BOISHAKH COLLECTION/2025", "LATEST COLLECTION/25", "MEN", "WOMEN", "KIDS", "NEWBORN", "FOOTWEAR", "ACCESSORIES", "SPRING 2025", "FESTIVE SPOT LIGHT", "KING COLLECTION"]
       },
       {
          title: "Size",
@@ -42,18 +43,28 @@ const Shop = () => {
 
    // handle select category
    const handlefilterProducts = (option) => {
-      const updated = [...selectedOption];
-      if (updated.includes(option)) {
-         updated.filter(i => i !== option);
+      let updatedOption = option.toLowerCase();
+      let updated = [...selectedOption];
+      if (updated.includes(updatedOption)) {
+         updated = updated.filter(i => i !== updatedOption);
       } else {
-         updated.push(option);
+         updated.push(updatedOption);
       }
       setSelectedOption(updated);
    }
-   const sortedProducts = products.filter(p => selectedOption?.includes(p.category));
-   console.log(sortedProducts)
 
-
+   // filter data (everythig will be lowercase for safe matching)
+   const sortedProducts = filterdProducts.filter(p => {
+      return selectedOption.length === 0 || selectedOption.some(option =>
+         [
+            p.category?.toLowerCase(),
+            p.color?.toLowerCase(),
+            p.brand?.toLowerCase(),
+            p.fits?.toLowerCase(),
+            ...(p.size?.map(s => s.toLowerCase()) || []) // here use spread operator for flat the parameter 
+         ].includes(option)
+      );
+   });
 
    // fallback
    if (!filterOptions || filterOptions.length === 0) {
@@ -75,8 +86,7 @@ const Shop = () => {
    }
 
    return (
-      <div className='h-screen flex'>
-         {/* Left Sidebar - Sticky */}
+      <div className='flex justify-center'>
          <div className='hidden md:block'>
             {
                filterOptions?.map((i, index) =>
@@ -88,6 +98,7 @@ const Shop = () => {
                            <label className="fieldset-label py-1" key={i}>
                               <input type="checkbox"
                                  onChange={() => handlefilterProducts(option)}
+                                 checked={selectedOption.includes(option.toLowerCase())}
                                  className="checkbox checkbox-xs checkbox-primary" />
                               <span className='uppercase text-sm'>{option}</span>
                            </label>
@@ -99,7 +110,7 @@ const Shop = () => {
          </div>
 
          {/* Right Side - Scrollable */}
-         <div className='flex-1 overflow-y-auto md:p-4 scrollbar-none'>
+         <div className='flex-1 overflow-y-auto md:p-4 scrollbar-none h-screen'>
             {/* Header and Sorting */}
             <div className='flex md:flex-row justify-between items-center md:items-center mb-3'>
                <h1 className="text-lg uppercase font-bold opacity-50 hidden md:block">Your perfect pick is waiting</h1>
@@ -119,36 +130,39 @@ const Shop = () => {
 
             {/* Product Grid */}
             <div>
-               {filterdProducts.length < 0 ? <div>No product found</div> :
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 gap-x-4">
-                     {filterdProducts.map((p) => (
-                        <div key={p.id} className='cursor-pointer transition-all relative'>
-                           <button onClick={() => saveFavouriteItems(p.model)} className='rounded-full absolute top-1.5 right-1.5 hover:bg-white p-0.5 transition-colors'>
-                              <CiHeart className='text-black hover:text-red-500 size-5' />
-                           </button>
-                           <Link to={`/product_details/${p.id}`}>
-                              <img
-                                 className='h-[210px] sm:h-[300px] md:h-[300px] rounded w-full object-cover object-top'
-                                 src={p.product_img}
-                                 alt={p.title}
-                              />
-                           </Link>
-                           <div className='ps-1'>
-                              <p className='text-xs mt-1 md:uppercase hover:opacity-50 transition-colors'>{p.title}</p>
-                              <p className='text-sm md:text-md'>৳ {p.price}</p>
+               {sortedProducts.length === 0 ? <div className='alert alert-error alert-soft flex justify-center'>No product found</div> :
+                  <div>
+                     <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-4">
+                        {sortedProducts.map((p) => (
+                           <div key={p.id} className='cursor-pointer transition-all relative'>
+                              <button onClick={() => saveFavouriteItems(p.model)} className='rounded-full absolute top-1.5 right-1.5 hover:bg-white p-0.5 transition-colors'>
+                                 <CiHeart className='text-black hover:text-red-500 size-5' />
+                              </button>
+                              <Link to={`/product_details/${p.id}`}>
+                                 <img
+                                    className='h-[210px] sm:h-[280px] rounded w-full object-cover object-top'
+                                    src={p.product_img}
+                                    alt={p.title}
+                                 />
+                              </Link>
+                              <div className='ps-1'>
+                                 <p className='text-xs mt-1 md:uppercase hover:opacity-50 transition-colors'>{p.title}</p>
+                                 <p className='text-sm md:text-md'>৳ {p.price}</p>
+                              </div>
                            </div>
+                        ))}
+                     </div>
+
+                     {/* Pagination */}
+                     <div className='mt-12'>
+                        <div className="join flex justify-center items-center gap-2">
+                           <button className="join-item btn btn-md">«</button>
+                           <button className="join-item btn btn-md">Page 1</button>
+                           <button className="join-item btn btn-md">»</button>
                         </div>
-                     ))}
+                     </div>
                   </div>}
 
-               {/* Pagination */}
-               <div className='mt-12'>
-                  <div className="join flex justify-center items-center gap-2">
-                     <button className="join-item btn btn-md">«</button>
-                     <button className="join-item btn btn-md">Page 1</button>
-                     <button className="join-item btn btn-md">»</button>
-                  </div>
-               </div>
             </div>
             <ToastContainer transition={Slide} theme='light' />
          </div>
