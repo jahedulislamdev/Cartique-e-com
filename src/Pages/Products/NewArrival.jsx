@@ -12,8 +12,6 @@ const NewArrival = () => {
    const { products, overviewProduct, setOverviewProduct, setLoading } = useContext(contextProvider);
    // load favourite items form local storage 
 
-
-
    const showOverviewProduct = (id) => {
       setLoading(true);
       const checkedProduct = products.find(p => p.id === id);

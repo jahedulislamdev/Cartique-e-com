@@ -68,7 +68,7 @@ const Cart = () => {
                   <BsCartX className="w-16 h-16" />
                </div>
                <h1 className="text-lg text-gray-700"> Your cart is empty.{" "}
-                  <Link to="/" className="text-violet-800 underline hover:text-violet-600 transition">
+                  <Link to="/shop/products" className="text-violet-800 underline hover:text-violet-600 transition">
                      Browse products
                   </Link>{" "}
                   and find something you love!

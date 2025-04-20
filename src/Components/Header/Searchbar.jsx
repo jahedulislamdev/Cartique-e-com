@@ -5,12 +5,13 @@ import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 import { contextProvider } from "../Provider/DataProvider";
-import { useContext, useState, } from "react";
+import { useContext, useRef, useState, } from "react";
 import Fuse from "fuse.js";
 
 const Searchbar = () => {
    const { dialogColsingRef, user, logOutUser, cartItems, products } = useContext(contextProvider);
    const [query, setQuery] = useState(null);
+   const modelColseRef = useRef()
    const handleSearch = (e) => {
       const input = e.target.value.trim().toLowerCase(); // trim() remove the extra space 
       if (!input) return setQuery(null);
@@ -19,17 +20,13 @@ const Searchbar = () => {
          keys: ["title", "category", "sub_category"],
          threshold: 0.6,
       }
-      const fuse = new Fuse(products, options)
+      const fuse = new Fuse(products, options) // use fuse.js for fuzzy search
       const result = fuse.search(input).map(i => i.item)
       setQuery(result);
-
-      // const filterdElem = products.filter(p =>
-      //    p.category.toLowerCase().includes(input) ||
-      //    p.sub_category.toLowerCase().includes(input) ||
-      //    p.title.toLowerCase().includes(input)
-      // );
-
-      // setQuery(filterdElem);
+   }
+   const handleModal = () => {
+      setQuery(null)
+      modelColseRef.current.close();
    }
    return (
       <div className={`sticky top-0 left-0 w-full z-50 bg-base-100 shadow transition-all duration-300 ease-in-out`}>
@@ -63,11 +60,15 @@ const Searchbar = () => {
                      <IoSearch className="size-4 lg:size-6" />
                   </button>
                </div>
-               {/* search result  */}
+               {/* search result form desktop */}
                <div className="absolute w-full max-h-80 overflow-scroll bg-[#000000d1] z-1000 rounded scrollbar-none">
                   <div className={`${query && "p-2"} space-y-1`}>
                      {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
-                        : query?.map(r => <Link onClick={() => setQuery(null)} to={`/product_details/${r.id}`} key={r.model} className="alert alert-info alert-soft">{r.title}</Link>)
+                        : query?.map(r =>
+                           <Link onClick={handleModal} to={`/product_details/${r.id}`} key={r.model} className="alert alert-info alert-soft">
+                              <img src={r.product_img} className="w-10 h-12 object-cover object-top" />
+                              <p>{r.title}</p>
+                           </Link>)
                      }
                   </div>
                </div>
@@ -79,24 +80,35 @@ const Searchbar = () => {
                <button onClick={() => document.getElementById('searchbarModal').showModal()} className="md:hidden">
                   <CiSearch className="size-6" />
                </button>
-
-               <dialog id="searchbarModal" className="modal modal-top">
-                  <div className="modal-box h-1/2 w-full">
+               <dialog ref={modelColseRef} id="searchbarModal" className="modal modal-top">
+                  <div className="modal-box h-3/5 w-full overflow-auto scrollbar-none border-b-3">
                      <form method="dialog" className="mb-3 flex justify-end">
                         <button className="text-sm text-gray-400 hover:bg-base-100 p-1 rounded">✕</button>
                      </form>
                      <div className="join w-full border border-base-300 rounded">
-                        <input type="text" className="input input-sm border-0 w-full focus:outline-none join-item" placeholder="Search Your Products" />
+                        <input onChange={handleSearch} type="text" className="input input-sm w-full focus:outline-0 join-item" placeholder="Search Your Products" />
                         <button className="join-item bg-indigo-400 p-2 cursor-pointer">
                            <IoSearch className="size-4 lg:size-6" />
                         </button>
+                        {/* search result form Mobile */}
                      </div>
-                     <div className="text-gray-400 mt-2">
+                     <div className="absolute w-full max-h-80 overflow-scroll bg-[#000000d1] z-1000 rounded scrollbar-none">
+                        <div className={`${query && "p-2"} space-y-1`}>
+                           {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
+                              : query?.map(r =>
+                                 <Link onClick={handleModal} to={`/product_details/${r.id}`} key={r.model} className="alert alert-info alert-soft">
+                                    <img src={r.product_img} className="w-10 h-12 object-cover object-top" />
+                                    <p>{r.title}</p>
+                                 </Link>)
+                           }
+                        </div>
+                     </div>
+                     {/* <div className="text-gray-400 mt-2">
                         <div role="alert" className="alert justify-around items-center">
                            <CiWarning className="size-5" />
                            <span className="text-yellow-500">No products were found matching your selection.</span>
                         </div>
-                     </div>
+                     </div> */}
                   </div>
                </dialog>
 
