@@ -27,7 +27,7 @@ const OverviewModal = ({ overviewProduct }) => {
             <form method="dialog">
                 <button className="cursor-pointer w-8 h-8 rounded-full indicator-item indicator-center badge bg-red-900 border-0 text-white">✕</button>
             </form>
-            <div className="modal-box p-0 font-display sm:max-w-2xl sm:w-full scrollbar-none">
+            <div className="modal-box p-0 font-display sm:max-w-3xl sm:w-full scrollbar-none">
                 <div className='sm:grid grid-cols-2 gap-x-3 '>
                     <div>
                         <img className='sm:w-full' src={overviewProduct?.product_img} alt="" />

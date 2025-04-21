@@ -141,7 +141,7 @@ const CetegoryDetails = () => {
                   {/* show checked sub-categoy top end*/}
                   <div className={`${filteredCategory.length > 0 && "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-20 pb-3 px-2"}`}>
                      {filteredCategory.length < 1 ?
-                        <div className='flex justify-center items-center h-80'>
+                        <div className='flex justify-center items-center h-16'>
                            <span className='text-base-800 font-display antialiased flex items-center text-sm'><RiErrorWarningFill className='me-1 size-5 text-yellow-700' /> No products were found matching your selection !</span>
                         </div> :
                         filteredCategory.map(p => (
