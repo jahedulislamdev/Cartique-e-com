@@ -133,7 +133,7 @@ const DataProvider = ({ children }) => {
    }
 
    // logout user
-   const logOutUser = async () => {
+   const logOutUser = async (navigate) => {
       setLoading(true);
       return signOut(auth)
          .then(() => {
@@ -141,7 +141,10 @@ const DataProvider = ({ children }) => {
             setUser(null);
          })
          .catch(() => toast.error("Logout Faild!", { autoClose: 1000 }))
-         .finally(() => setLoading(false));
+         .finally(() => {
+            setLoading(false)
+            navigate('/')
+         });
    }
 
    //login with google 

@@ -12,6 +12,9 @@ import Compleate from "../../Pages/OrderCompleate/Compleate";
 import FavouriteItmes from "../../Pages/Favourite/FavouriteItmes";
 import Profile from "../../Pages/Profile/Profile";
 import Shop from "../../Pages/Shop/Shop";
+import PersonalInfo from "../../Pages/Profile/Tabs/PersonalInfo";
+import Orders from "../../Pages/Profile/Tabs/Orders";
+import Reviews from "../../Pages/Profile/Tabs/Reviews";
 
 
 const route = createBrowserRouter([
@@ -23,7 +26,6 @@ const route = createBrowserRouter([
          { path: '/', element: <App /> },
          { path: '/product_details/:id', element: <Details /> },
          { path: '/category/:category', element: <CetegoryDetails /> },
-         { path: '', element: <CetegoryDetails /> },
          { path: '/login', element: <Login /> },
          { path: '/Register', element: <Register /> },
          { path: '/cart', element: <Cart /> },
@@ -31,7 +33,15 @@ const route = createBrowserRouter([
          { path: '/checkout', element: <Checkout /> },
          { path: '/order/compleate', element: <Compleate /> },
          { path: '/favourite', element: <FavouriteItmes /> },
-         { path: '/profile', element: <Profile /> }
+
+         { // nasted route (new*)
+            path: '/profile', element: <Profile />,
+            children: [
+               { path: 'personal', element: <PersonalInfo /> },
+               { path: 'orders', element: <Orders /> },
+               { path: 'reviews', element: <Reviews /> },
+            ]
+         }
       ]
    }
 ])
