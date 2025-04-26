@@ -1,5 +1,5 @@
 import { IoSearch } from "react-icons/io5";
-import { CiShoppingCart, CiUser, CiWarning, CiHeart, CiLogout, CiSearch } from "react-icons/ci";
+import { CiShoppingCart, CiUser, CiHeart, CiSearch } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MobileNav from "./MobileNav";
@@ -7,6 +7,7 @@ import DesktopNav from "./DesktopNav";
 import { contextProvider } from "../Provider/DataProvider";
 import { useContext, useRef, useState, } from "react";
 import Fuse from "fuse.js";
+import { RiLogoutCircleLine } from "react-icons/ri";
 
 const Searchbar = () => {
    const { dialogColsingRef, user, logOutUser, cartItems, products } = useContext(contextProvider);
@@ -130,7 +131,7 @@ const Searchbar = () => {
                         <p className="text-lg text-center">{user?.displayName || "Customer Name"}</p>
                         <div className="flex justify-around">
                            <button onClick={logOutUser} className="btn bg-red-700 text-white shadow-sm text-sm">
-                              <CiLogout className="size-5" /> Logout
+                              <RiLogoutCircleLine className="size-5" /> Logout
                            </button>
                            <Link to="/profile" className="btn bg-violet-700 text-white shadow-sm text-sm">
                               <CiUser className="size-5" /> Profile

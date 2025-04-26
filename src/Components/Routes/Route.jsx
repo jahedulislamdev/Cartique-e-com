@@ -15,6 +15,7 @@ import Shop from "../../Pages/Shop/Shop";
 import PersonalInfo from "../../Pages/Profile/Tabs/PersonalInfo";
 import Orders from "../../Pages/Profile/Tabs/Orders";
 import Reviews from "../../Pages/Profile/Tabs/Reviews";
+import ForgetPass from "../Forget Password/ForgetPass";
 
 
 const route = createBrowserRouter([
@@ -40,6 +41,7 @@ const route = createBrowserRouter([
                { path: 'personal', element: <PersonalInfo /> },
                { path: 'orders', element: <Orders /> },
                { path: 'reviews', element: <Reviews /> },
+               { path: 'forget_pass', element: <ForgetPass /> },
             ]
          }
       ]

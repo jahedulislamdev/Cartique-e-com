@@ -143,7 +143,9 @@ const DataProvider = ({ children }) => {
          .catch(() => toast.error("Logout Faild!", { autoClose: 1000 }))
          .finally(() => {
             setLoading(false)
-            navigate('/')
+            setTimeout(() => {
+               navigate('/')
+            }, 300);
          });
    }
 
