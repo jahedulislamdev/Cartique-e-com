@@ -1,11 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaCheckCircle } from 'react-icons/fa';
 
 const Complete = () => {
    return (
       <div className='p-6 md:p-10 bg-base-100 rounded-xl shadow-lg max-w-2xl mx-auto font-display'>
+         <Helmet>
+            <title>Thank You | Your Purchase is Complete</title>
+         </Helmet>
          <p className='text-2xl font-semibold text-center text-green-600 mb-6'>🎉 Order Confirmation</p>
-
          <div className='flex flex-col items-center justify-center space-y-4'>
             <FaCheckCircle className='text-green-500 text-5xl' />
             <p className='text-lg font-medium text-center'>Your order has been successfully placed.</p>

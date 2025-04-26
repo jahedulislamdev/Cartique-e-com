@@ -9,6 +9,7 @@ import { RiErrorWarningFill } from 'react-icons/ri';
 import { Slide, ToastContainer } from 'react-toastify';
 import OverviewModal from '../Hooks/OverviewModal';
 import Spin from '../Loader/Spin';
+import { Helmet } from 'react-helmet-async';
 
 const CetegoryDetails = () => {
    const { productCategories, products, loading, setLoading, overviewProduct, setOverviewProduct } = useContext(contextProvider);
@@ -62,7 +63,8 @@ const CetegoryDetails = () => {
    }
 
    return (
-      <div className='sm:grid grid-cols-5 mt-2 justify-center '>
+      <div className='sm:grid grid-cols-5 mt-2 justify-center'>
+         <Helmet><title>Category | Chartique</title></Helmet>
          <button
             onClick={() => { document.getElementById('openCategory').showModal() }} role="button"
             className="btn btn-ghost sm:hidden">

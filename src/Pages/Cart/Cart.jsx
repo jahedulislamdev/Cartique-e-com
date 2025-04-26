@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { BsCartX } from 'react-icons/bs';
 import { MdOutlineDelete } from 'react-icons/md';
 import Spin from '../../Components/Loader/Spin';
+import { Helmet } from 'react-helmet-async';
 
 const Cart = () => {
    const { cartItems, setCartItems, products, loading, setLoading } = useContext(contextProvider);
@@ -80,6 +81,9 @@ const Cart = () => {
 
    return (
       <div className='font-display'>
+         <Helmet>
+            <title>Your Shopping Cart | Chartique</title>
+         </Helmet>
          <h1 className='font-semibold ps-2 my-3 md:mt-0'>🛒 Cart Items ({cartItems?.length})</h1>
          <div className='sm:grid grid-cols-6 sm:px-5 gap-x-2'>
             <div className='sm:col-span-3 md:col-span-4 overflow-x-auto scrollbar-none border border-base-content/5 bg-base-100'>

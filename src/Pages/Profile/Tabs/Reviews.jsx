@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Reviews = () => {
    const [reviews, setReviews] = useState([]);
@@ -19,6 +20,7 @@ const Reviews = () => {
 
    return (
       <div className="p-6 bg-base-100 rounded-lg shadow-md">
+         <Helmet>Customer Review | Chartique</Helmet>
          <h2 className="text-2xl font-bold mb-4">User Reviews</h2>
          {reviews.length > 0 ? (
             <div className="space-y-4">

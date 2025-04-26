@@ -36,7 +36,7 @@ const Profile = () => {
          </div>
 
          {/* Animated Outlet Section */}
-         <div className='col-span-3 md:p-3'>
+         <div className='col-span-3 md:px-3'>
             <AnimatePresence mode="wait">
                <motion.div
                   key={location.pathname}

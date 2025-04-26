@@ -3,6 +3,7 @@ import { contextProvider } from "../../Components/Provider/DataProvider";
 import { getItemFromLocalStorage } from "../../Components/Hooks/SaveCartModels";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Checkout = () => {
    const { products, setCartItems } = useContext(contextProvider);
@@ -41,6 +42,7 @@ const Checkout = () => {
 
    return (
       <div className="p-7 bg-base-300 px-4 md:px-10 font-display">
+         <Helmet><title>Secure Checkout | Chartique</title></Helmet>
          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Left side: Form */}
             <div className="lg:col-span-2">

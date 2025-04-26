@@ -1,8 +1,10 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Orders = () => {
    return (
       <div className="p-4">
+         <Helmet>Previous Orders | Chartique</Helmet>
          <h1 className="text-2xl font-bold mb-4">My previous Orders</h1>
          <div className="overflow-x-auto">
             <table className="table-auto w-full border-collapse border border-base-300">

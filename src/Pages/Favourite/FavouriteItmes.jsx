@@ -4,6 +4,7 @@ import { getFavouriteItmes } from '../../Components/Hooks/SaveCartModels';
 import { Link } from 'react-router-dom';
 import { MdOutlineDelete } from 'react-icons/md';
 import Spin from '../../Components/Loader/Spin';
+import { Helmet } from 'react-helmet-async';
 
 const FavouriteItmes = () => {
    const { products, setLoading, loading } = useContext(contextProvider);
@@ -66,6 +67,7 @@ const FavouriteItmes = () => {
    }
    return (
       <div className='py-3 sm:px-7 px-1'>
+         <Helmet><title>Your Wishlist | Chartique</title></Helmet>
          {/* sroting start */}
          <div className='flex justify-between items-center'>
             <p className='uppercase font-medium text-xs md:text-lg'>Favourite Products</p>

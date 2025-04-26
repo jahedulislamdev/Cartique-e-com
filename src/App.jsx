@@ -4,15 +4,17 @@ import Display from './Pages/Products/Display';
 import Trendings from './Pages/Products/Trendings';
 import NewArrival from './Pages/Products/NewArrival';
 import { Slide, ToastContainer } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 const App = () => {
   return (
     <div className='mt-2'>
-      {/* DISPLAY PRODUCT */}
+      <Helmet>
+        <title>Welcome | Chartique</title>
+      </Helmet>
       <div>
         <Display />
       </div>
-      {/* Product cetegories */}
       <Cetegory />
       <div>
         <p className='uppercase border-b border-gray-700 text-center p-3 md:p-5 text-xl md:text-3xl font-medium'>trending items</p>

@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { contextProvider } from '../../../Components/Provider/DataProvider';
+import { Helmet } from 'react-helmet-async';
 
 const PersonalInfo = () => {
    const { user } = useContext(contextProvider)
    return (
       <div>
+         <Helmet>Personal Info | Chartique </Helmet>
          <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
          <form className="space-y-4">
             <div>

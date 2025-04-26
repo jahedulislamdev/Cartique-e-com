@@ -141,9 +141,45 @@ const Shop = () => {
          {/* Right Side - Product Display */}
          <div className='flex-1 md:p-4'>
             {/* Header and Sorting Dropdown */}
-            <div className='flex md:flex-row justify-between items-center md:items-center mb-3'>
+            <div className='flex md:flex-row justify-between items-center md:items-center my-3'>
                <h1 className="text-lg uppercase font-bold opacity-50 hidden md:block">Your perfect pick is waiting</h1>
-               <button className='md:hidden btn py-0.5 border-red-800 border-2'>Filter By</button>
+
+               {/* sidebar for shop category */}
+               <button className="border py-2 px-3 rounded text-xs border-gray-500 md:hidden alert alert-soft" onClick={() => document.getElementById('my_modal_1').showModal()}>Filterd By</button>
+               <dialog id="my_modal_1" className="modal modal-start">
+                  <div className="modal-box">
+                     <form method="dialog" className='mb-3 flex justify-between items-center'>
+                        <p className="text-lg font-semibold uppercase">Chartique</p>
+                        <button className="text-gray-400 cursor-pointer">ese</button>
+                     </form>
+                     {filterOptions.map((i, index) =>
+                        <div key={index} className='collapse collapse-arrow border border-base-300 first:mt-3 mt-1'>
+                           <input
+                              type="checkbox"
+                              name="filterOptions"
+                              checked={openCollapse === index}
+                              onChange={() => setOpenCollapse(openCollapse === index ? null : index)}
+                           />
+                           <p className='uppercase font-medium text-sm collapse-title'>{i.title}</p>
+                           <div className='collapse-content'>
+                              {i.options.map((option, i) => (
+                                 <label className="fieldset-label py-1" key={i}>
+                                    <input
+                                       type="checkbox"
+                                       onChange={() => handlefilterProducts(option)}
+                                       checked={selectedOption.includes(option.toLowerCase())}
+                                       className="checkbox checkbox-xs checkbox-primary"
+                                    />
+                                    <span className='uppercase text-sm'>{option}</span>
+                                 </label>
+                              ))}
+                           </div>
+                        </div>
+                     )}
+                  </div>
+               </dialog>
+               {/* sidebar for shop category */}
+
                <select
                   defaultValue=""
                   className="select select-sm w-40 focus:outline-none md:mt-0"

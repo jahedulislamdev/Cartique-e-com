@@ -4,6 +4,7 @@ import { contextProvider } from '../../Components/Provider/DataProvider';
 import { Slide, toast, ToastContainer } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
    const { registerUser, sendVerificationEmail, setLoading, setUser } = useContext(contextProvider);
@@ -60,6 +61,7 @@ const Register = () => {
    }
    return (
       <div className='w-11/12 sm:w-1/2 md:w-2/4 xl:w-1/3 mx-auto border font-display border-[#354c74] shadow-md my-3 md:py-4 rounded-lg'>
+         <Helmet>Register | Chartique</Helmet>
          <form onSubmit={handleFormSubmit} className="card-body space-y-2">
             <p className='px-2 text-violet-300 text-2xl font-semibold'>Registration</p>
             <div className="form-control">

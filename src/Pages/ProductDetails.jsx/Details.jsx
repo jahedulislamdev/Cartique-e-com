@@ -5,6 +5,7 @@ import { CiHeart } from 'react-icons/ci';
 import { motion } from 'framer-motion'; // I don't know why it's happning 
 import { Slide, ToastContainer } from 'react-toastify';
 import { saveFavouriteItems } from '../../Components/Hooks/SaveCartModels';
+import { Helmet } from 'react-helmet-async';
 
 const Details = () => {
    const { products, loading, setLoading, addToCart } = useContext(contextProvider);
@@ -50,6 +51,7 @@ const Details = () => {
    }
    return (
       <div className='container mt-2 md:mt-0 mx-auto md:grid grid-cols-2 space-x-5 mb-4 md:p-5 rounded-lg'>
+         <Helmet><title>Explore Product | Chartique</title></Helmet>
          <div className='grid grid-cols-5'>
             {/* Thumbnail List */}
             <div className='col-span-1 p-0.5'>
