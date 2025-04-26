@@ -151,7 +151,7 @@ const DataProvider = ({ children }) => {
 
    //login with google 
    const gProvider = new GoogleAuthProvider();
-   const loginWithGoogle = async (navigate) => {
+   const loginWithGoogle = async (navigate, location) => {
       if (user) {
          return toast.warning("You are already Logged In", { autoClose: 1000 })
       }
@@ -167,13 +167,13 @@ const DataProvider = ({ children }) => {
          })
          .finally(() => {
             setLoading(false)
-            navigate('/')
+            navigate(location?.state ? location.state : '/')
          });
    }
 
    // login with facebook 
    const fProvider = new FacebookAuthProvider();
-   const loginWithFacebook = async (navigate) => {
+   const loginWithFacebook = async (navigate, location) => {
       if (user) {
          return toast.warning("You are already Logged In", { autoClose: 1000 })
       }
@@ -190,7 +190,7 @@ const DataProvider = ({ children }) => {
          })
          .finally(() => {
             setLoading(false)
-            navigate('/')
+            navigate(location?.state ? location.state : '/')
          })
    }
 

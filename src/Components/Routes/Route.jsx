@@ -16,6 +16,7 @@ import PersonalInfo from "../../Pages/Profile/Tabs/PersonalInfo";
 import Orders from "../../Pages/Profile/Tabs/Orders";
 import Reviews from "../../Pages/Profile/Tabs/Reviews";
 import ForgetPass from "../Forget Password/ForgetPass";
+import Private from "../../Private/Private";
 
 
 const route = createBrowserRouter([
@@ -31,7 +32,7 @@ const route = createBrowserRouter([
          { path: '/Register', element: <Register /> },
          { path: '/cart', element: <Cart /> },
          { path: '/shop/products', element: <Shop /> },
-         { path: '/checkout', element: <Checkout /> },
+         { path: '/checkout', element: <Private><Checkout /> </Private> },
          { path: '/order/compleate', element: <Compleate /> },
          { path: '/favourite', element: <FavouriteItmes /> },
 

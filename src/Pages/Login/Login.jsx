@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { contextProvider } from '../../Components/Provider/DataProvider';
 import { Slide, toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
@@ -12,6 +12,7 @@ import { Helmet } from 'react-helmet-async';
 const Login = () => {
    const { loginUser, setUser, loginWithGoogle, loginWithFacebook } = useContext(contextProvider);
    const [showPass, setShowPass] = useState(false);
+   const location = useLocation();
    const navigate = useNavigate()
    const handleFormSubmit = (e) => {
       e.preventDefault();
@@ -32,7 +33,7 @@ const Login = () => {
             setUser(res.user)
             toast.success("Login successfull", { autoClose: 1000 })
             setTimeout(() => {
-               navigate('/')
+               navigate(location?.state ? location.state : "/")
             }, 400);
          })
          .catch(err => {
@@ -86,8 +87,8 @@ const Login = () => {
             <div className="flex flex-col items-center px-9 mx-auto">
                <div className="divider opacity-50">Or Login with</div>
                <div className='flex w-full space-x-5'>
-                  <button onClick={() => loginWithGoogle(navigate)} className='flex rounded-sm cursor-pointer items-center justify-center border border-orange-400 py-2 w-full px-4'><FcGoogle className='size-5 me-1' /> Google</button>
-                  <button onClick={() => loginWithFacebook(navigate)} className='flex rounded-sm cursor-pointer items-center justify-center border border-blue-500 py-2 w-full px-4'><FaFacebook className='size-5 me-1 text-blue-400' /> Facebook</button>
+                  <button onClick={() => loginWithGoogle(navigate, location)} className='flex rounded-sm cursor-pointer items-center justify-center border border-orange-400 py-2 w-full px-4'><FcGoogle className='size-5 me-1' /> Google</button>
+                  <button onClick={() => loginWithFacebook(navigate, location)} className='flex rounded-sm cursor-pointer items-center justify-center border border-blue-500 py-2 w-full px-4'><FaFacebook className='size-5 me-1 text-blue-400' /> Facebook</button>
                </div>
             </div>
          </div>
