@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { contextProvider } from '../../Components/Provider/DataProvider';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { CiHeart } from 'react-icons/ci';
 import { motion } from 'framer-motion'; // I don't know why it's happning 
 import { Slide, ToastContainer } from 'react-toastify';
@@ -50,175 +50,170 @@ const Details = () => {
       </div>;
    }
    return (
-      <div className='container mt-2 md:mt-0 mx-auto md:grid grid-cols-2 space-x-5 mb-4 md:p-5 rounded-lg'>
-         <Helmet><title>Explore Product | Chartique</title></Helmet>
-         <div className='grid grid-cols-5'>
-            {/* Thumbnail List */}
-            <div className='col-span-1 h-80 md:h-96 overflow-auto scrollbar-none '>
-               {selectedProduct.Product_showcase?.map((img, idx) => (
-                  <img key={idx} onClick={() => setShowcaseImage(img)}
-                     className={`w-16 h-20 object-cover transition-all cursor-pointer p-1 border-2 rounded-md 
-                        ${showcaseImage === img ? "border-red-900" : "border-transparent"}`}
-                     src={img} alt=''>
-                  </img>
-               ))}
-            </div>
-
-            {/* Main Image */}
-            <div className='col-span-4'>
-               < motion.img
+      <div className='px-2 md:px-6'>
+         <div className='mt-2 md:mt-0  md:grid grid-cols-2 space-x-5 mb-4 md:p-5 rounded-lg'>
+            <Helmet><title>Explore Product | Chartique</title></Helmet>
+            <div className="flex flex-col items-center space-y-4">
+               {/* Main Image */}
+               <motion.div
                   key={showcaseImage}
-                  src={showcaseImage}
-                  alt="Selected Product"
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: 50, opacity: 0 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className='w-full h-auto object-center object-cover rounded-lg shadow-md'
-               />
-            </div>
-         </div>
+                  className="w-full rounded-lg overflow-hidden shadow-lg"
+               >
+                  <img
+                     src={showcaseImage}
+                     alt="Selected Product"
+                     className="w-full h-[400px] sm:h-[850px] md:h-[550px] lg:h-[650px] object-cover object-center rounded-lg"
+                  />
+               </motion.div>
 
-         {/* Product Details */}
-         <div className='space-y-2 p-2 sm:h-dvh sm:overflow-auto scrollbar-none'>
-            <p className='font-medium text-2xl md:text-3xl'>{selectedProduct.title}</p>
-
-            {/* Price */}
-            <div className="flex items-center">
-               {selectedProduct.old_price && (
-                  <span className="text-gray-400 line-through text-2xl me-3">{selectedProduct.old_price}</span>
-               )}
-               <span className="text-red-600 font-bold text-2xl">৳ {selectedProduct.price}</span>
-            </div>
-
-            {/* Stock Status */}
-            <div className={`font-medium text-lg`}>
-               Availability: <span className={`${selectedProduct.stock_status === "in_stock" ? "text-purple-500" : "text-red-700"}`}>{selectedProduct.stock_status}</span>
-               <p className="badge badge-sm opacity-50">{selectedProduct.stock}</p>
-            </div>
-
-            {/* Color */}
-            <p className='font-medium text-lg'>
-               Color: {selectedProduct.color || "Not Specified"}
-            </p>
-
-            {/* Size Options */}
-            <div>
-               <div className="join space-x-2.5">
-                  {selectedProduct.size.map(size => (
-                     <input onChange={handleSelectedSize} key={size} className="join-item btn rounded-4xl border-0 checked:bg-red-700 checked:text-white"
-                        type="radio" name="size" aria-label={size} />
+               {/* Thumbnail List */}
+               <div className="flex justify-center items-center gap-2 flex-nowrap overflow-auto scrollbar-none">
+                  {selectedProduct.Product_showcase?.map((img, idx) => (
+                     <motion.img
+                        key={idx}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => setShowcaseImage(img)}
+                        className={`w-16 h-20 object-cover cursor-pointer p-1 border-2 rounded-md transition-all duration-300 
+                        ${showcaseImage === img ? "border-red-900 shadow-md" : "border-transparent"}`}
+                        src={img}
+                        alt={`Thumbnail ${idx}`}
+                     />
                   ))}
                </div>
             </div>
+            {/* Product Details */}
+            <div className='space-y-2 p-2'>
+               <p className='font-medium text-2xl md:text-3xl'>{selectedProduct.title}</p>
 
-            {/* Quantity Selector */}
-            <div className="join join-horizontal mt-3">
-               <button onClick={handleQuantityChange} className="btn text-xl border-gray-50 join-item">-</button>
-               <button ref={quantity} className="btn text-xl border-gray-50 cursor-default join-item">1</button>
-               <button onClick={handleQuantityChange} className="btn text-xl border-gray-50 join-item">+</button>
-            </div>
-
-            {/* Add to Cart & Wishlist */}
-            <div className='flex justify-start items-center space-x-3 mt-4'>
-               <button onClick={() => addToCart(selectedProduct.model, quantity.current?.innerText, size && size)} className='uppercase font-display hover:bg-red-950 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
-                  Add to Bag
-               </button>
-               <button onClick={() => { saveFavouriteItems(selectedProduct.model) }} className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
-                  <CiHeart className='size-6 ' />
-               </button>
-            </div>
-
-            {/* Divider */}
-            <div className='flex justify-center items-center space-x-3 mt-5'>
-               <p className='h-4 w-full bg-base-300'></p>
-               <p className='h-4 w-full bg-base-300'></p>
-            </div>
-
-            {/* Measurement Guide */}
-            <div className='my-3'>
-               <img src="https://i.postimg.cc/bYg9MNz2/cloath_measurement.jpg" alt="Measurement Guide" />
-            </div>
-
-            {/* Additional Info */}
-            <div className='space-y-4 ps-4 '>
-               <p className='font-medium text-lg'>Category: <span>{selectedProduct.category}</span></p>
-               <p className='font-medium text-lg'>SKU: {selectedProduct.id}</p>
-               <p className='font-medium text-lg'>Tag: {selectedProduct.tag || 'Adding Soon'}</p>
-               <p className='font-medium text-lg'>Share: Adding Soon</p>
-            </div>
-
-            {/* Description, Shipping & Features */}
-            <div className="join join-vertical bg-base-100">
-               <div className="collapse collapse-arrow join-item border-base-300 border">
-                  <input type="checkbox" />
-                  <div className="collapse-title font-semibold text-lg">Description</div>
-                  <div className="collapse-content text-md">{selectedProduct.description}</div>
+               {/* Price */}
+               <div className="flex items-center">
+                  {selectedProduct.old_price && (
+                     <span className="text-gray-400 line-through text-2xl me-3">{selectedProduct.old_price}</span>
+                  )}
+                  <span className="text-red-600 font-bold text-2xl">৳ {selectedProduct.price}</span>
                </div>
-               <div className="collapse collapse-arrow join-item border-base-300 border">
-                  <input type="checkbox" />
-                  <div className="collapse-title font-semibold text-lg">Shipping and Returns</div>
-                  <div className="collapse-content text-md">
-                     <p><strong>🚚 Shipping & Return Policy</strong></p>
-                     <p> <strong>📦 Shipping Policy</strong></p>
-                     <p><strong>Shipping Time:</strong></p>
-                     All orders are processed within 1–2 business days. Orders placed on weekends or holidays will be processed the next business day.
 
-                     <p><strong>Delivery Estimates:</strong></p>
-                     <ul>
-                        <li>📍 Local Delivery (within city): 2–4 business days</li>
-                        <li>🚚 Nationwide Delivery: 4–7 business days</li>
-                        <li>🌐 International Orders: 7–14 business days</li>
-                     </ul>
-                     <p><strong>Shipping Charges:</strong></p>
-                     <ul>
-                        <li>Orders over $50 qualify for Free Shipping</li>
-                        <li>Orders below $50 will incur a flat shipping fee of $4.99</li>
-                     </ul>
-                     <p><strong>Order Tracking:</strong></p>
-                     Once your order is shipped, you'll receive an email with the tracking number and a link to track your package in real-time.
-                     <p><strong>🔄 Return & Exchange Policy</strong></p>
-                     <p><strong>Return Window:</strong></p>
-                     We accept returns within 7 days of delivery.
-                     <p><strong> Eligibility:</strong></p>
-                     <ul>
-                        <li>Items must be unused, unwashed, and in original packaging.</li>
-                        <li>Products marked as Final Sale are not eligible for return or exchange.</li>
-                     </ul>
-                     <p><strong> Process:</strong></p>
-                     <ol>
-                        <li>Go to the Returns section on our website.</li>
-                        <li>Enter your order number and email address.</li>
-                        <li>Choose the item(s) you wish to return and follow the steps.</li>
-                     </ol>
-                     <p><strong> Refunds:</strong></p>
-                     <p>Refunds are processed to the original payment method within 5–7 business days after we receive the returned item.
-                     </p>
-                     <p><strong> Return Shipping:</strong></p>
-                     <ul>
-                        <li>If the return is due to our error (wrong/damaged item), we cover return shipping.</li>
-                        <li> For all other returns, customers are responsible for shipping costs.</li>
-                     </ul>
-                     <p><strong>  Need Help❓</strong></p>
-                     <p>Contact our support team at 📧 <a href="support@example.com">support@example.com</a> or call us at ☎️ +1 (234) 567-8901.
-                        We’re here to help Monday–Friday, 9 AM – 6 PM.</p>
-                  </div>
+               {/* Stock Status */}
+               <div className={` text-lg`}>
+                  Availability : <span className={`${selectedProduct.stock_status === "in_stock" ? "text-purple-500" : "text-red-700"}`}>{selectedProduct.stock_status}</span>
+                  <p className="badge badge-sm opacity-50">{selectedProduct.stock}</p>
                </div>
-               <div className="collapse collapse-arrow join-item border-base-300 border">
-                  <input type="checkbox" />
-                  <div className="collapse-title font-semibold text-md">Features</div>
-                  <div className="collapse-content">
-                     {selectedProduct.features?.map((feature, i) => (
-                        <ul key={i}>
-                           <li className='mb-3'>{i + 1}. {feature}</li>
-                        </ul>
+
+               {/* Color */}
+               <p className='text-lg'>
+                  Color : {selectedProduct.color || "Not Specified"}
+               </p>
+
+               {/* Size Options */}
+               <div>
+                  <div className="join space-x-2.5">
+                     {selectedProduct.size.map(size => (
+                        <input onChange={handleSelectedSize} key={size} className="join-item btn rounded-4xl border-0 checked:bg-red-700 checked:text-white"
+                           type="radio" name="size" aria-label={size} />
                      ))}
                   </div>
                </div>
+
+               {/* Quantity Selector */}
+               <div className="join join-horizontal mt-3">
+                  <button onClick={handleQuantityChange} className="btn text-xl border-gray-50 join-item">-</button>
+                  <button ref={quantity} className="btn text-xl border-gray-50 cursor-default join-item">1</button>
+                  <button onClick={handleQuantityChange} className="btn text-xl border-gray-50 join-item">+</button>
+               </div>
+
+               {/* Add to Cart & Wishlist */}
+               <div className='flex justify-start items-center space-x-3 mt-4'>
+                  <button onClick={() => addToCart(selectedProduct.model, quantity.current?.innerText, size && size)} className='uppercase font-display hover:bg-red-950 bg-red-800 text-white transition-colors w-full p-2 cursor-pointer'>
+                     Add to Bag
+                  </button>
+                  <button onClick={() => { saveFavouriteItems(selectedProduct.model) }} className='hover:bg-white p-2 hover:text-red-600 rounded-full cursor-pointer transition-colors'>
+                     <CiHeart className='size-6 ' />
+                  </button>
+               </div>
+
+               {/* Divider */}
+               <div className='flex justify-center items-center space-x-3 my-5'>
+                  <p className='h-4 w-full bg-base-300'></p>
+                  <p className='h-4 w-full bg-base-300'></p>
+               </div>
+
+               {/* Additional Info */}
+               <div className='space-y-4'>
+                  <p><span className='text-lg font-semibold'>Category :</span> <span>{selectedProduct.category}</span></p>
+                  <p><span className='text-lg font-semibold'>Sku : </span>{selectedProduct.sku}</p>
+                  <p><span className='text-lg font-semibold'>Tag : </span>{selectedProduct.tags?.map(t => <span className='me-3'>{t},</span>)}</p>
+                  <p><span className='text-lg font-semibold'>Share :</span></p>
+               </div>
+
+               {/* Description, Shipping & Features */}
+               <div className="join join-vertical bg-base-100 w-full">
+                  <div className="collapse collapse-arrow join-item border-b border-base-300">
+                     <input type="checkbox" />
+                     <div className="collapse-title ps-0 font-semibold text-md">Description</div>
+                     <div className="collapse-content text-md">
+                        <p>{selectedProduct.description}</p>
+                        {/* Measurement Guide */}
+                        <div className='my-3'>
+                           <img src="https://i.postimg.cc/bYg9MNz2/cloath_measurement.jpg" alt="Measurement Guide" />
+                        </div>
+                     </div>
+
+                  </div>
+                  <div className="collapse collapse-arrow join-item border-0">
+                     <input type="checkbox" />
+                     <div className="collapse-title ps-0 font-semibold text-md">Features</div>
+                     <div className="collapse-content">
+                        {selectedProduct.features?.map((feature, i) => (
+                           <ul key={i}>
+                              <li className='mb-3'>{i + 1}. {feature}</li>
+                           </ul>
+                        ))}
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <ToastContainer transition={Slide} />
+         </div >
+         {/* recomended products */}
+         <div>
+            <p className='uppercase font-medium my-5'>You May Interested In...</p>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-3 gap-y-5'>
+               {
+                  products?.slice(0, 5).map(p => (<div key={p.model}>
+                     <Link to={`/product_details/${p.id}`} className='transition-all relative'>
+                        <img className='h-[220px] sm:h-[350px] md:h-[300px] w-full object-cover object-top' src={p.product_img} alt={p.title} />
+                        <div>
+                           <p className='text-sm md:text-md mt-1 md:uppercase hover:opacity-50 transition-colors'>{p.title}</p>
+                           <p className='md:text-md '>৳ {p.price}</p>
+                        </div>
+                     </Link>
+                  </div>))
+               }
             </div>
          </div>
-         <ToastContainer transition={Slide} />
-      </div >
+         {/* recently viewed products */}
+         <div className='mt-12'>
+            <p className='uppercase font-medium my-5'>Recently Viewed</p>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-3 gap-y-5'>
+               {
+                  products?.slice(4, 6).map(p => (<div key={p.model}>
+                     <Link to={`/product_details/${p.id}`} className='transition-all relative'>
+                        <img className='h-[220px] sm:h-[350px] md:h-[300px] w-full object-cover object-top' src={p.product_img} alt={p.title} />
+                        <div>
+                           <p className='text-sm md:text-md mt-1 md:uppercase hover:opacity-50 transition-colors'>{p.title}</p>
+                           <p className='md:text-md '>৳ {p.price}</p>
+                        </div>
+                     </Link>
+                  </div>))
+               }
+            </div>
+         </div>
+      </div>
    );
 };
 
