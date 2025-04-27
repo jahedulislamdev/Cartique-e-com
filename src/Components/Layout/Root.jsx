@@ -17,7 +17,7 @@ const Root = () => {
       </div>;
    }
    return (
-      <div data-scroll-container>
+      <div>
          <UseScrollToTop />
          <Searchbar />
          <Outlet />

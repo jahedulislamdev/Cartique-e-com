@@ -84,7 +84,7 @@ const Cart = () => {
          <Helmet>
             <title>Your Shopping Cart | Chartique</title>
          </Helmet>
-         <h1 className='font-semibold ps-2 my-3 md:mt-0'>🛒 Cart Items ({cartItems?.length})</h1>
+         <h1 className='font-semibold ps-2 my-6 md:mt-0'>🛒 Cart Items ({cartItems?.length})</h1>
          <div className='sm:grid grid-cols-6 sm:px-5 gap-x-2'>
             <div className='sm:col-span-3 md:col-span-4 overflow-x-auto scrollbar-none border border-base-content/5 bg-base-100'>
                {loading || products.length === 0 ? <Spin /> :

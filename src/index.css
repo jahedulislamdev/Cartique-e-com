@@ -10,3 +10,6 @@
 .scrollbar-none {
     scrollbar-width: none;
 }
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
