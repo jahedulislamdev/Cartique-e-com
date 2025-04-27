@@ -71,21 +71,22 @@
         "id": "P002",
         "model": "W-TEE-SLIM-2024",
         "sku": "TEE-WOM-SLIM-002",
-        "product_img": "https://i.postimg.cc/cHQxNw4n/ws-1.jpg",
-        "title": "WOMEN'S KNIT ESSENTIAL SHIRT",
+        "product_img": "https://mainsailorimagebucket.s3.ap-southeast-1.amazonaws.com/uploads/all/Du6NRDCAWENnZLP63j0TJww7lBzaxXSDTqSMOpcp.jpg",
+        "title": "WOMENS CASUAL BALLERINA SHOE",
         "category": "Women",
-        "sub_category": "shirt",
+        "sub_category": "shoe",
         "description": "Ultra-soft slim-fit T-shirt with stretch comfort.",
         "price": 899,
         "stock": 35,
         "stock_status": "in_stock",
-        "size": ["S", "M", "L", "XXL", "XXXL"],
-        "color": "white peach",
+        "size": ["35", "36", "38", "42"],
+        "color": "jeans",
         "features": ["95% Cotton, 5% Spandex", "Slim Fit", "Regular fit"],
         "tags": ["fitted", "casual"],
         "Product_showcase": [
-            "https://i.postimg.cc/cHQxNw4n/ws-1.jpg",
-            "https://mainsailorimagebucket.s3.ap-southeast-1.amazonaws.com/uploads/all/MhWHxzOIV9adn5UtT9HRfmEWdXxE0118wwEoUZ0P.jpg"
+            "https://mainsailorimagebucket.s3.ap-southeast-1.amazonaws.com/uploads/all/Du6NRDCAWENnZLP63j0TJww7lBzaxXSDTqSMOpcp.jpg",
+            "https://mainsailorimagebucket.s3.ap-southeast-1.amazonaws.com/uploads/all/Du6NRDCAWENnZLP63j0TJww7lBzaxXSDTqSMOpcp.jpg",
+            "https://mainsailorimagebucket.s3.ap-southeast-1.amazonaws.com/uploads/all/kdOjkkQApz5DHpWniOWhcI1twTw99p28dW1b4CoI.jpg"
         ]
     },
     {
@@ -185,7 +186,6 @@
         "color": "deep coral",
         "features": ["2% Elastane", "Stretchable"],
         "Product_showcase": [
-            "https://mainsailorimagebucket.s3.ap-southeast-1.amazonaws.com/uploads/all/nGqgZksPHO8ZjeaHrUP0UwEEIjuOpNBQKaLkGYXp.jpg",
             "https://mainsailorimagebucket.s3.ap-southeast-1.amazonaws.com/uploads/all/9PSA9XJRmOPuALRTZeabAxm3SYvBqejx5liBV8Hv.jpg",
             "https://mainsailorimagebucket.s3.ap-southeast-1.amazonaws.com/uploads/all/nGqgZksPHO8ZjeaHrUP0UwEEIjuOpNBQKaLkGYXp.jpg"
         ]

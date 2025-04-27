@@ -78,11 +78,11 @@ const Searchbar = () => {
             {/* Navbar End */}
             <div className="navbar-end space-x-4 sm:space-x-7">
                {/* Mobile Search Modal */}
-               <button onClick={() => document.getElementById('searchbarModal').showModal()} className="md:hidden">
+               <button onClick={() => document.getElementById('searchbarModalMobile').showModal()} className="md:hidden">
                   <CiSearch className="size-6" />
                </button>
-               <dialog ref={modelColseRef} id="searchbarModal" className="modal modal-top">
-                  <div className="modal-box h-3/5 w-full overflow-auto scrollbar-none border-b-3">
+               <dialog ref={modelColseRef} id="searchbarModalMobile" className="modal modal-top">
+                  <div className="modal-box h-3/5 w-full overflow-auto scrollbar-none border-b-3 relative">
                      <form method="dialog" className="mb-3 flex justify-end">
                         <button className="text-sm text-gray-400 hover:bg-base-100 p-1 rounded">✕</button>
                      </form>
@@ -93,7 +93,7 @@ const Searchbar = () => {
                         </button>
                         {/* search result form Mobile */}
                      </div>
-                     <div className="absolute w-full max-h-80 overflow-scroll bg-base-300 z-1000 rounded scrollbar-none">
+                     <div className="w-80 absolute max-h-80 overflow-scroll bg-base-300 z-1000 rounded scrollbar-none">
                         <div className={`${query && "p-2"} space-y-1`}>
                            {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
                               : query?.map(r =>

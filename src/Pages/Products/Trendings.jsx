@@ -39,10 +39,6 @@ const Trendings = () => {
                   <SwiperSlide key={`${slide.id}-${index}`} id="trendingSlide">
                      <Link to={`/product_details/${slide.id}`} className='transition-all relative'>
                         <img className='h-full w-full object-cover object-top' src={slide.product_img} alt={slide.title} />
-                        <div>
-                           <p className='text-sm md:text-md mt-1 md:uppercase hover:opacity-50 transition-colors'>{slide.title}</p>
-                           <p className='md:text-md '>৳ {slide.price}</p>
-                        </div>
                      </Link>
                   </SwiperSlide>
                ))
