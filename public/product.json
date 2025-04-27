@@ -1,5 +1,32 @@
 [
     {
+        "id": "P286",
+        "model": "OY-FL59-GBFK-029Y3",
+        "sku": "TEE-MEN-Blue-001",
+        "product_img": "https://i.postimg.cc/cJzLRQFp/mp-1.jpg",
+        "title": "Men's Classic Cotton Panjabi",
+        "category": "Men",
+        "sub_category": "panjabi",
+        "description": "Premium quality cotton panjabi for ultimate comfort.",
+        "price": 1799,
+        "discount": 15,
+        "stock": 5,
+        "stock_status": "in_stock",
+        "size": ["S", "M", "L", "XL"],
+        "color": "blue",
+        "features": ["100% Cotton", "Regular fit"],
+        "tags": ["casual", "summer"],
+        "Product_showcase": [
+            "https://i.postimg.cc/cJzLRQFp/mp-1.jpg",
+            "https://i.postimg.cc/YS0SLXzN/mp-2.jpg",
+            "https://i.postimg.cc/4NRn2QXZ/mp-3.jpg",
+            "https://i.postimg.cc/6p9qt67m/mp-4.jpg",
+            "https://i.postimg.cc/YqN05LSF/mp-5.jpg",
+            "https://i.postimg.cc/y8vddqcY/mp-6.jpg",
+            "https://i.postimg.cc/8zB1w0W1/m-1.jpg"
+        ]
+    },
+    {
         "id": "P001",
         "model": "OY-FL59-GBFK-0241",
         "sku": "TEE-MEN-BLK-001",
@@ -14,20 +41,6 @@
         "stock_status": "in_stock",
         "size": ["S", "M", "L", "XL"],
         "color": "White",
-        "variant": [
-            {
-                "name": "Black-S",
-                "sku": "TEE-MEN-BLK-S",
-                "price": 799,
-                "stock": 20
-            },
-            {
-                "name": "Navy Blue-M",
-                "sku": "TEE-MEN-NAVY-M",
-                "price": 799,
-                "stock": 15
-            }
-        ],
         "features": ["100% Cotton", "Regular fit"],
         "tags": ["casual", "summer"],
         "Product_showcase": ["https://i.postimg.cc/KYxY22Fk/m-7.jpg"]
@@ -46,22 +59,9 @@
         "stock_status": "in_stock",
         "size": ["S", "M", "L", "XXL"],
         "color": "Wine Red",
-        "variant": [
-            {
-                "name": "Wine Red-S",
-                "sku": "TEE-WOM-WINE-S",
-                "price": 899,
-                "stock": 10
-            },
-            {
-                "name": "Teal-M",
-                "sku": "TEE-WOM-TEAL-M",
-                "price": 899,
-                "stock": 12
-            }
-        ],
         "features": ["95% Cotton, 5% Spandex", "Slim Fit"],
-        "tags": ["fitted", "casual"]
+        "tags": ["fitted", "casual"],
+        "Product_showcase": ["https://i.postimg.cc/FRPhJJs2/W01.jpg"]
     },
     {
         "id": "P003",
@@ -77,15 +77,8 @@
         "stock_status": "in_stock",
         "size": ["2y", "4y", "6y", "8y"],
         "color": "Yellow",
-        "variant": [
-            {
-                "name": "Blue-4y",
-                "sku": "TEE-KIDS-BLUE-4Y",
-                "price": 599,
-                "stock": 15
-            }
-        ],
-        "tags": ["kids", "playwear"]
+        "tags": ["kids", "playwear"],
+        "Product_showcase": ["https://i.postimg.cc/76LkDYMX/KM1.jpg"]
     },
     {
         "id": "P004",
@@ -102,15 +95,8 @@
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
         "color": "Dusty Ash",
-        "variant": [
-            {
-                "name": "Navy Blue-L",
-                "sku": "POLO-MEN-NAVY-L",
-                "price": 1299,
-                "stock": 8
-            }
-        ],
-        "features": ["Ribbed Collar", "Moisture-wicking"]
+        "features": ["Ribbed Collar", "Moisture-wicking"],
+        "Product_showcase": ["https://i.postimg.cc/8k9PCWNV/m-4.jpg"]
     },
     {
         "id": "P005",
@@ -126,15 +112,8 @@
         "stock_status": "out_of_stock",
         "size": ["S", "M", "L"],
         "color": "Teal",
-        "variant": [
-            {
-                "name": "Teal-M",
-                "sku": "KURTI-WOM-TEAL-M",
-                "price": 1499,
-                "stock": 0
-            }
-        ],
-        "tags": ["ethnic", "comfort"]
+        "tags": ["ethnic", "comfort"],
+        "Product_showcase": ["https://i.postimg.cc/90KVL59b/W02.jpg"]
     },
     {
         "id": "P006",
@@ -150,15 +129,8 @@
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
         "color": "Blue",
-        "variant": [
-            {
-                "name": "Blue-L",
-                "sku": "SHIRT-MEN-BLUE-L",
-                "price": 1999,
-                "stock": 5
-            }
-        ],
-        "features": ["Full Sleeves", "Durable Cotton"]
+        "features": ["Full Sleeves", "Durable Cotton"],
+        "Product_showcase": ["https://i.postimg.cc/26FhYD1V/m-10.jpg"]
     },
     {
         "id": "P007",
@@ -174,15 +146,8 @@
         "stock_status": "in_stock",
         "size": ["26", "28", "30"],
         "color": "Light Blue",
-        "variant": [
-            {
-                "name": "Black-28",
-                "sku": "JEANS-WOM-BLK-28",
-                "price": 2499,
-                "stock": 7
-            }
-        ],
-        "features": ["2% Elastane", "Stretchable"]
+        "features": ["2% Elastane", "Stretchable"],
+        "Product_showcase": ["https://i.postimg.cc/dV8vjfVR/W03.jpg"]
     },
     {
         "id": "P008",
@@ -199,15 +164,8 @@
         "stock_status": "in_stock",
         "size": ["S", "M", "L"],
         "color": "Red Floral",
-        "variant": [
-            {
-                "name": "Red Floral-M",
-                "sku": "DRESS-WOM-RED-M",
-                "price": 2699,
-                "stock": 3
-            }
-        ],
-        "tags": ["summer", "boho"]
+        "tags": ["summer", "boho"],
+        "Product_showcase": ["https://i.postimg.cc/gjnmykxr/W04.jpg"]
     },
     {
         "id": "P009",
@@ -223,15 +181,8 @@
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
         "color": "Black",
-        "variant": [
-            {
-                "name": "Black-XL",
-                "sku": "HOODIE-MEN-BLK-XL",
-                "price": 2199,
-                "stock": 4
-            }
-        ],
-        "features": ["Brushed Interior", "Kangaroo Pocket"]
+        "features": ["Brushed Interior", "Kangaroo Pocket"],
+        "Product_showcase": ["https://i.postimg.cc/CxVhGgRP/m-2.jpg"]
     },
     {
         "id": "P010",
@@ -247,15 +198,9 @@
         "stock_status": "in_stock",
         "size": ["3y", "5y", "7y"],
         "color": "Pink",
-        "variant": [
-            {
-                "name": "Pink-5y",
-                "sku": "HOODIE-KIDS-PINK-5Y",
-                "price": 1599,
-                "stock": 8
-            }
-        ],
-        "tags": ["winter", "unisex"]
+
+        "tags": ["winter", "unisex"],
+        "Product_showcase": ["https://i.postimg.cc/V6HcNQKw/KM2.jpg"]
     },
     {
         "id": "P011",
@@ -271,14 +216,6 @@
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
         "color": "Gray",
-        "variant": [
-            {
-                "name": "Gray-L",
-                "sku": "JOGGER-MEN-GRY-L",
-                "price": 1799,
-                "stock": 5
-            }
-        ],
         "features": ["65% Cotton", "Drawstring Waist"]
     },
     {
@@ -295,15 +232,8 @@
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
         "color": "Light Blue",
-        "variant": [
-            {
-                "name": "White-M",
-                "sku": "SHIRT-MEN-WHT-M",
-                "price": 1899,
-                "stock": 10
-            }
-        ],
-        "tags": ["office", "formal"]
+        "tags": ["office", "formal"],
+        "Product_showcase": ["https://i.postimg.cc/7hFxQvmL/m-5.jpg"]
     },
     {
         "id": "P013",
@@ -319,15 +249,8 @@
         "stock_status": "in_stock",
         "size": ["S", "M", "L"],
         "color": "Pink",
-        "variant": [
-            {
-                "name": "Purple-M",
-                "sku": "LEHENGA-WOM-PURP-M",
-                "price": 4999,
-                "stock": 3
-            }
-        ],
-        "tags": ["ethnic", "festive"]
+        "tags": ["ethnic", "festive"],
+        "Product_showcase": ["https://i.postimg.cc/3rcK8pqG/KM3.jpg"]
     },
     {
         "id": "P014",
@@ -343,15 +266,8 @@
         "stock_status": "in_stock",
         "size": ["3y", "5y", "7y"],
         "color": "Blue",
-        "variant": [
-            {
-                "name": "Blue-5y",
-                "sku": "TRACK-KIDS-BLUE-5Y",
-                "price": 899,
-                "stock": 10
-            }
-        ],
-        "features": ["Elastic Waist", "Breathable Fabric"]
+        "features": ["Elastic Waist", "Breathable Fabric"],
+        "Product_showcase": ["https://i.postimg.cc/wMXWnZpV/k-7.jpg"]
     },
     {
         "id": "P015",
@@ -367,14 +283,7 @@
         "stock_status": "in_stock",
         "size": ["M", "L", "XL"],
         "color": "Cream",
-        "variant": [
-            {
-                "name": "Cream-L",
-                "sku": "SWEATER-MEN-CRM-L",
-                "price": 2299,
-                "stock": 4
-            }
-        ],
-        "tags": ["winter", "casual"]
+        "tags": ["winter", "casual"],
+        "Product_showcase": ["https://i.postimg.cc/26FhYD1V/m-10.jpg"]
     }
 ]

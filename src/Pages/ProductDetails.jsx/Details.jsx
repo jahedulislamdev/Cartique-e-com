@@ -54,7 +54,7 @@ const Details = () => {
          <Helmet><title>Explore Product | Chartique</title></Helmet>
          <div className='grid grid-cols-5'>
             {/* Thumbnail List */}
-            <div className='col-span-1 p-0.5'>
+            <div className='col-span-1 h-80 md:h-96 overflow-auto scrollbar-none '>
                {selectedProduct.Product_showcase?.map((img, idx) => (
                   <img key={idx} onClick={() => setShowcaseImage(img)}
                      className={`w-16 h-20 object-cover transition-all cursor-pointer p-1 border-2 rounded-md 

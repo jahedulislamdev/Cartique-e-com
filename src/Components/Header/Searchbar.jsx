@@ -62,11 +62,11 @@ const Searchbar = () => {
                   </button>
                </div>
                {/* search result form desktop */}
-               <div className="absolute w-full max-h-80 overflow-scroll bg-[#000000d1] z-1000 rounded scrollbar-none">
+               <div className="absolute w-full max-h-80 overflow-scroll bg-base-300 z-1000 rounded scrollbar-none">
                   <div className={`${query && "p-2"} space-y-1`}>
                      {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
                         : query?.map(r =>
-                           <Link onClick={handleModal} to={`/product_details/${r.id}`} key={r.model} className="alert alert-info alert-soft">
+                           <Link onClick={handleModal} to={`/product_details/${r.id}`} key={r.model} className="alert">
                               <img src={r.product_img} className="w-10 h-12 object-cover object-top" />
                               <p>{r.title}</p>
                            </Link>)
@@ -93,23 +93,17 @@ const Searchbar = () => {
                         </button>
                         {/* search result form Mobile */}
                      </div>
-                     <div className="absolute w-full max-h-80 overflow-scroll bg-[#000000d1] z-1000 rounded scrollbar-none">
+                     <div className="absolute w-full max-h-80 overflow-scroll bg-base-300 z-1000 rounded scrollbar-none">
                         <div className={`${query && "p-2"} space-y-1`}>
                            {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
                               : query?.map(r =>
-                                 <Link onClick={handleModal} to={`/product_details/${r.id}`} key={r.model} className="alert alert-info alert-soft">
+                                 <Link onClick={handleModal} to={`/product_details/${r.id}`} key={r.model} className="alert">
                                     <img src={r.product_img} className="w-10 h-12 object-cover object-top" />
                                     <p>{r.title}</p>
                                  </Link>)
                            }
                         </div>
                      </div>
-                     {/* <div className="text-gray-400 mt-2">
-                        <div role="alert" className="alert justify-around items-center">
-                           <CiWarning className="size-5" />
-                           <span className="text-yellow-500">No products were found matching your selection.</span>
-                        </div>
-                     </div> */}
                   </div>
                </dialog>
 
