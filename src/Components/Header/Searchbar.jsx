@@ -43,7 +43,7 @@ const Searchbar = () => {
                </button>
 
                <dialog id="sidebarModal" ref={dialogColsingRef} className="modal modal-start">
-                  <div className="modal-box w-full">
+                  <div className="modal-box w-80">
                      <form method="dialog" className="mb-3 flex justify-between items-center">
                         <p className="text-lg font-semibold uppercase">Cartique</p>
                         <button className="text-gray-400">✕</button>
@@ -66,7 +66,7 @@ const Searchbar = () => {
                   <div className={`${query && "p-2"} space-y-1`}>
                      {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
                         : query?.map(r =>
-                           <Link onClick={handleModal} to={`/product_details/${r.id}`} key={r.model} className="alert">
+                           <Link onClick={handleModal} to={`/product_details/${r.id}`} key={r.model} className="alert w-full">
                               <img src={r.product_img} className="w-10 h-12 object-cover object-top" />
                               <p>{r.title}</p>
                            </Link>)
@@ -91,9 +91,9 @@ const Searchbar = () => {
                         <button className="join-item bg-indigo-400 p-2 cursor-pointer">
                            <IoSearch className="size-4 lg:size-6" />
                         </button>
-                        {/* search result form Mobile */}
                      </div>
-                     <div className="w-80 absolute max-h-80 overflow-scroll bg-base-300 z-1000 rounded scrollbar-none">
+                     {/* search result form Mobile */}
+                     <div className="w-90 absolute max-h-80 overflow-scroll bg-base-300 z-1000 rounded scrollbar-none">
                         <div className={`${query && "p-2"} space-y-1`}>
                            {query?.length < 1 ? <div className="text-yellow-5 00 p-4">No Product Found!</div>
                               : query?.map(r =>

@@ -53,7 +53,7 @@ const Details = () => {
       <div className='px-2 md:px-6'>
          <div className='mt-2 md:mt-0  md:grid grid-cols-2 space-x-5 mb-4 md:p-5 rounded-lg'>
             <Helmet><title>Explore Product | Chartique</title></Helmet>
-            <div className="flex flex-col items-center space-y-4">
+            <div className="flex flex-col items-center justify-center">
                {/* Main Image */}
                <motion.div
                   key={showcaseImage}
@@ -71,7 +71,7 @@ const Details = () => {
                </motion.div>
 
                {/* Thumbnail List */}
-               <div className="flex justify-center items-center gap-2 flex-nowrap overflow-auto scrollbar-none">
+               <div className="flex justify-center items-center gap-2 flex-nowrap overflow-auto scrollbar-none mt-2">
                   {selectedProduct.Product_showcase?.map((img, idx) => (
                      <motion.img
                         key={idx}
@@ -121,10 +121,11 @@ const Details = () => {
 
                {/* Quantity Selector */}
                <div className="join join-horizontal mt-3">
-                  <button onClick={handleQuantityChange} className="btn text-xl border-gray-50 join-item">-</button>
-                  <button ref={quantity} className="btn text-xl border-gray-50 cursor-default join-item">1</button>
-                  <button onClick={handleQuantityChange} className="btn text-xl border-gray-50 join-item">+</button>
+                  <button onClick={handleQuantityChange} className="btn text-xl join-item p-4 ">-</button>
+                  <button ref={quantity} className="btn text-xl cursor-default join-item  p-4 ">1</button>
+                  <button onClick={handleQuantityChange} className="btn text-xl join-item p-4 ">+</button>
                </div>
+
 
                {/* Add to Cart & Wishlist */}
                <div className='flex justify-start items-center space-x-3 mt-4'>

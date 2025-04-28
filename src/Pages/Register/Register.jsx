@@ -60,36 +60,87 @@ const Register = () => {
          .finally(() => setLoading(false));
    }
    return (
-      <div className='w-11/12 sm:w-1/2 md:w-2/4 xl:w-1/3 mx-auto border font-display border-[#354c74] shadow-md my-3 md:py-4 rounded-lg'>
-         <Helmet>Register | Chartique</Helmet>
-         <form onSubmit={handleFormSubmit} className="card-body space-y-2">
-            <p className='px-2 text-violet-300 text-2xl font-semibold'>Registration</p>
-            <div className="form-control">
-               <input name='number' type="number" placeholder="018XXXXXXXX" className="input focus:outline-0 w-full" required />
-            </div>
-            <div className="form-control">
-               <input name='name' type="text" placeholder="Username" className="input focus:outline-0 w-full" required />
-            </div>
-            <div className="form-control">
-               <input name='email' type="email" placeholder="example@email.com" className="input focus:outline-0 w-full" required />
-            </div>
-            <div className="form-control">
-               <input name='password' type="password" placeholder="password" className="input focus:outline-0 w-full" required />
-               {err && <p className='m-1 text-xs text-red-600'>{err}</p>}
-            </div>
-            <div className="form-control">
-               <label className="cursor-pointer justify-start label">
-                  <input name='terms' type="checkbox" className="checkbox checkbox-xs rounded-box checkbox-primary" />
-                  <span className="label-text text-xs">Accept our <Link to={''} className='text-violet-300'>Terms and Conditions</Link></span>
-               </label>
-            </div>
-            <div className="form-control">
-               <button className="btn bg-purple-700 w-full">Register</button>
-               <p className='text-sm font-light mt-2 ps-1'>Don&apos;t have an Account? <Link to={"/login"} className='font-medium text-violet-300'>Login</Link></p>
-            </div>
-         </form>
-         <ToastContainer transition={Slide} />
+      <div className="relative w-full max-w-md mx-auto my-6 p-0.5 rounded-2xl md:bg-gradient-to-r from-cyan-900 via-purple-700 to-blue-900 shadow-xl">
+         <div className="rounded-2xl px-2 py-4 md:py-8 bg-base-100 border border-[#353535] shadow-[0_0_0_2px_rgba(255,255,255,0.05)]">
+            <Helmet>Register | Chartique</Helmet>
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+               <p className="text-center text-violet-300 text-3xl font-bold mb-4">Register</p>
+
+               <div className="form-control">
+                  <input
+                     name="number"
+                     type="number"
+                     placeholder="018XXXXXXXX"
+                     className="w-full px-4 py-3 rounded-lg bg-base-200 border border-transparent placeholder-gray-400 focus:outline-none"
+                     required
+                  />
+               </div>
+
+               <div className="form-control">
+                  <input
+                     name="name"
+                     type="text"
+                     placeholder="Username"
+                     className="w-full px-4 py-3 rounded-lg bg-base-200 border border-transparent placeholder-gray-400 focus:outline-none"
+                     required
+                  />
+               </div>
+
+               <div className="form-control">
+                  <input
+                     name="email"
+                     type="email"
+                     placeholder="example@email.com"
+                     className="w-full px-4 py-3 rounded-lg bg-base-200 border border-transparent placeholder-gray-400 focus:outline-none"
+                     required
+                  />
+               </div>
+
+               <div className="form-control">
+                  <input
+                     name="password"
+                     type="password"
+                     placeholder="Password"
+                     className=" w-full px-4 py-3 rounded-lg bg-base-200 border border-transparent placeholder-gray-400 focus:outline-none"
+                     required
+                  />
+                  {err && <p className="m-1 text-xs text-red-500">{err}</p>}
+               </div>
+
+               <div className="flex items-center space-x-2 text-sm">
+                  <input
+                     name="terms"
+                     type="checkbox"
+                     className="checkbox checkbox-xs rounded-md border-pink-500 "
+                     required
+                  />
+                  <span className="text-gray-300">
+                     Accept our{" "}
+                     <Link to={'/terms'} className="text-violet-300 underline hover:text-pink-400">
+                        Terms and Conditions
+                     </Link>
+                  </span>
+               </div>
+
+               <div className="form-control">
+                  {/* <button className="w-full py-3 rounded-lg bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:opacity-90  font-semibold transition-all">
+                     Register
+                  </button> */}
+                  <button className="btn bg-violet-700 w-full text-white rounded ">Register</button>
+                  <p className="text-sm font-light mt-3 text-center text-gray-400">
+                     Already have an Account?{" "}
+                     <Link to={"/login"} className="font-medium text-violet-300 hover:underline">
+                        Login
+                     </Link>
+                  </p>
+               </div>
+            </form>
+
+            <ToastContainer transition={Slide} />
+         </div>
       </div>
+
    );
 };
 

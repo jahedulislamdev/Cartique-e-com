@@ -45,55 +45,106 @@ const Login = () => {
          });
    }
    return (
-      <div className='w-11/12 sm:w-1/2 md:w-2/3 lg:w-1/3 mx-auto border font-display border-[#354c74] shadow-md my-3 py-4 rounded-lg'>
-         <Helmet>Login | Chartique</Helmet>
-         <form onSubmit={handleFormSubmit} className='space-y-5 px-5'>
-            <p className='px-2 text-violet-300 text-2xl font-semibold card-title'>Login</p>
-            <div className="form-control border rounded border-gray-400">
-               <input name='email' type="email" placeholder="example@email.com" className="input sm:input-lg w-full border-0 focus:outline-0" required />
-            </div>
-            <div className="form-control mt-1.5">
-               <div className="join items-center w-full border rounded border-gray-400">
-                  <input className="join-item sm:input-lg w-full input focus:outline-none border-0" name='password' type={showPass ? "text" : "password"} placeholder="password" required />
-                  <button onClick={() => setShowPass(!showPass)} type='button' className='cursor-pointer join-item p-2 focus:border-violet-500'>{showPass ? <IoEye className='size-5' /> : <IoEyeOff className='size-5' />}</button>
-               </div>
-            </div>
-            <div className="form-control my-2 flex justify-between items-center">
+      <div className="flex items-center justify-center py-5">
+         <div className="relative w-full max-w-md p-6 rounded-xl border border-[#353535] shadow-[0_0_0_2px_rgba(255,255,255,0.05)]">
+            <Helmet>Login | Chartique</Helmet>
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+               {/* Header */}
+               <h2 className="text-3xl font-bold text-violet-200 text-center">Login</h2>
+
+               {/* Email input */}
                <div>
-                  <label className="cursor-pointer justify-start label">
+                  <label className="text-sm font-medium block p-1">Email</label>
+                  <input
+                     type="email"
+                     name="email"
+                     required
+                     placeholder="Enter your email here"
+                     className="w-full px-4 py-3 bg-base-100 border border-gray-600 rounded-lg focus:outline-none"
+                  />
+               </div>
+
+               {/* Password input */}
+               <div>
+                  <label className="text-sm font-medium p-1 block">Password</label>
+                  <div className="relative">
+                     <input
+                        type={showPass ? "text" : "password"}
+                        name="password"
+                        required
+                        placeholder="Password"
+                        className="w-full px-4 py-3 bg-base-100 border border-gray-600 rounded-lg focus:outline-none"
+                     />
+                     <button
+                        type="button"
+                        onClick={() => setShowPass(!showPass)}
+                        className="absolute right-3 top-3 text-gray-400 hover:text-white"
+                     >
+                        {showPass ? <IoEye className="size-5" /> : <IoEyeOff className="size-5" />}
+                     </button>
+                  </div>
+               </div>
+
+               {/* Remember Me and Forgot Password */}
+               <div className="flex justify-between items-center">
+                  <label className="flex items-center gap-2 text-sm text-gray-400">
                      <input type="checkbox" className="checkbox checkbox-xs checkbox-primary" />
-                     <span className="label-text text-xs sm:text-md">Remember me</span>
+                     Remember Me
                   </label>
+                  <button
+                     type="button"
+                     onClick={() => document.getElementById('showForgotPasswordModal').showModal()}
+                     className="text-xs text-violet-400 hover:underline"
+                  >
+                     Forgot Password?
+                  </button>
                </div>
-               <button type='button' onClick={() => document.getElementById('showForgotPasswordModal').showModal()} className='opacity-60 text-xs sm:text-md cursor-pointer'>Forget Password?</button>
-            </div>
-            <div className="form-control">
-               <button className="btn bg-purple-700 w-full shadow-none">Login</button>
-               <p className='text-sm font-light mt-2 ps-1'>Don&apos;t have an Account? <Link to={'/register'} className='font-medium text-violet-300'>Register</Link></p>
-            </div>
-         </form>
-         {/* forget password modal enterd here because form cann't stay in a form (start)*/}
-         <dialog id="showForgotPasswordModal" className="modal p-2">
-            <div className="modal-box">
-               <form method="dialog">
-                  <button className="btn btn-sm btn-circle btn-ghost hover:bg-red-700 absolute right-2 top-2">✕</button>
-               </form>
-               <p className='text-xl'>Loss your Password?</p>
-               <ForgetPass />
-            </div>
-         </dialog>
-         {/* forget password modal enterd here because form cann't stay in a form  (end)*/}
-         <div>
-            <div className="flex flex-col items-center px-9 mx-auto">
-               <div className="divider opacity-50">Or Login with</div>
-               <div className='flex w-full space-x-5'>
-                  <button onClick={() => loginWithGoogle(navigate, location)} className='flex rounded-sm cursor-pointer items-center justify-center border border-orange-400 py-2 w-full px-4'><FcGoogle className='size-5 me-1' /> Google</button>
-                  <button onClick={() => loginWithFacebook(navigate, location)} className='flex rounded-sm cursor-pointer items-center justify-center border border-blue-500 py-2 w-full px-4'><FaFacebook className='size-5 me-1 text-blue-400' /> Facebook</button>
+
+               {/* Login Button */}
+               <div className="space-y-3">
+                  <button className="w-full py-3 bg-violet-600 hover:bg-violet-700 rounded-lg text-white font-semibold">
+                     Sign In
+                  </button>
+                  <p className="text-center text-sm text-gray-400">
+                     Don’t have an account? <Link to={'/register'} className="text-violet-300 hover:underline font-medium">Register</Link>
+                  </p>
                </div>
+            </form>
+
+            {/* Divider */}
+            <div className="divider opacity-30">OR Login With</div>
+
+            {/* Social Login */}
+            <div className="flex gap-4">
+               <button
+                  onClick={() => loginWithGoogle(navigate, location)}
+                  className="flex items-center justify-center w-full py-2 border border-gray-600 rounded-lg hover:bg-gray-700"
+               >
+                  <FcGoogle className="size-5 mr-2" /> Google
+               </button>
+               <button
+                  onClick={() => loginWithFacebook(navigate, location)}
+                  className="flex items-center justify-center w-full py-2 border border-gray-600 rounded-lg hover:bg-gray-700"
+               >
+                  <FaFacebook className="size-5 mr-2 text-blue-400" /> Facebook
+               </button>
             </div>
+
+            {/* Toast and Modal */}
+            <ToastContainer transition={Slide} />
+            <dialog id="showForgotPasswordModal" className="modal p-2">
+               <div className="modal-box">
+                  <form method="dialog">
+                     <button className="btn btn-sm btn-circle btn-ghost hover:bg-red-700 absolute right-2 top-2">✕</button>
+                  </form>
+                  <p className="text-xl">Lost your Password?</p>
+                  <ForgetPass />
+               </div>
+            </dialog>
          </div>
-         <ToastContainer transition={Slide} />
       </div>
+
    );
 };
 

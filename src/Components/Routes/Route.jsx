@@ -17,6 +17,7 @@ import Orders from "../../Pages/Profile/Tabs/Orders";
 import Reviews from "../../Pages/Profile/Tabs/Reviews";
 import ForgetPass from "../Forget Password/ForgetPass";
 import Private from "../../Private/Private";
+import Terms from "../Footer/Support/Terms";
 
 
 const route = createBrowserRouter([
@@ -35,6 +36,7 @@ const route = createBrowserRouter([
          { path: '/checkout', element: <Private><Checkout /> </Private> },
          { path: '/order/compleate', element: <Compleate /> },
          { path: '/favourite', element: <FavouriteItmes /> },
+         { path: '/terms', element: <Terms /> },
 
          { // nasted route (new*)
             path: '/profile', element: <Profile />,

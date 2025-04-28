@@ -17,7 +17,7 @@ const MobileNav = () => {
             <li key={idx} className="border-b border-x first:border-t border-gray-700 cursor-pointer">
                {/* Main Menu */}
                <div
-                  className="flex justify-between items-center"
+                  className={`flex justify-between items-center`}
                   onClick={() => {
                      handleToggle(idx);
                      handleMenuClick(item.submenu);
@@ -25,7 +25,7 @@ const MobileNav = () => {
                >
                   <Link
                      to={item.direct_path}
-                     className={`${openMenu === idx && "font-semibold transition-all opacity-50"} p-3 uppercase text-sm`}
+                     className={` ${openMenu === idx && "font-semibold transition-all text-violet-300"} p-3 uppercase text-sm`}
                   >
                      {item.title}
                   </Link>

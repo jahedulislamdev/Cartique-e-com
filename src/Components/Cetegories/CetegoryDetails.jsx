@@ -72,7 +72,7 @@ const CetegoryDetails = () => {
          </button>
          {/* sidebar category start */}
          <dialog id="openCategory" className="modal flex modal-start">
-            <div className="modal-box w-full">
+            <div className="modal-box w-80">
                <form method="dialog" className='mb-3 flex justify-between items-center'>
                   <p className="text-lg font-semibold uppercase">Chartique</p>
                   <button className="text-gray-400 cursor-pointer">ese</button>

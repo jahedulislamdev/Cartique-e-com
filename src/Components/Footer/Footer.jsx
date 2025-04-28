@@ -54,7 +54,7 @@ const Footer = () => {
 
          {/* Bottom Footer */}
          <div className="border-t mt-10 pt-6 pb-4 text-center text-sm text-gray-500">
-            © {new Date().getFullYear()} Your Company Name. All rights reserved.
+            © {new Date().getFullYear()} <Link to={''} className='text-violet-200'> Jahedulislamdev</Link> All rights reserved.
          </div>
       </footer>
 

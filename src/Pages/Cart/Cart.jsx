@@ -203,9 +203,9 @@ const Cart = () => {
                      </tbody>
                   </table>
                </div>
-               <div className='sm:grid grid-cols-2 gap-2 my-2 uppercase '>
-                  <Link to={'/shop/products'} className='btn text-xs w-full'>continue shopping</Link>
-                  <Link to={'/checkout'} className='btn text-xs w-full mt-2 sm:mt-0'>Checkout</Link>
+               <div className='sm:grid grid-cols-2 gap-2 my-2 uppercase'>
+                  <Link to={'/shop/products'} className='btn text-xs w-full bg-black text-white'>continue shopping</Link>
+                  <Link to={'/checkout'} className='btn text-xs w-full mt-2 sm:mt-0 bg-pink-900 text-white'>Checkout</Link>
                </div>
             </div>
          </div >
