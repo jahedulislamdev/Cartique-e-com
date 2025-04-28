@@ -10,7 +10,6 @@ const DataProvider = ({ children }) => {
    const [user, setUser] = useState();
    // navdata
    const navData = [
-      { id: 1, title: "Home" },
       {
          id: 2, title: "Attar",
          submenu: [
@@ -104,18 +103,10 @@ const DataProvider = ({ children }) => {
       }
    }
 
-   const handleSubmenuClick = () => {
+   const handleModalClose = () => {
       setTimeout(() => {
          closeModal();
       }, 300);
-   };
-
-   const handleMenuClick = (hasSubmenu) => {
-      if (!hasSubmenu) {
-         setTimeout(() => {
-            closeModal();
-         }, 500);
-      }
    };
 
    // registration with email and password
@@ -271,8 +262,7 @@ const DataProvider = ({ children }) => {
       loginWithGoogle,
       loginWithFacebook,
       setLoading,
-      handleSubmenuClick,
-      handleMenuClick,
+      handleModalClose,
       registerUser,
       loginUser,
       setUser,
