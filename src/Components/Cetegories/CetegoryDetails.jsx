@@ -43,7 +43,7 @@ const CetegoryDetails = () => {
       // gimme some time to update State
       setTimeout(() => {
          setLoading(false);
-      }, 300);
+      }, 100);
    }, [category, products, setLoading, checkedCheckbox]);
 
 
@@ -51,6 +51,7 @@ const CetegoryDetails = () => {
    const deleteFromChecklist = (idx) => {
       setcheckedCheckbox((prev) => prev.filter((_, i) => i !== idx));
    }
+
    // show product overview modal
    const showProductOverview = (id) => {
       setLoading(true);
@@ -63,7 +64,7 @@ const CetegoryDetails = () => {
    }
 
    return (
-      <div className='sm:grid grid-cols-5 mt-2 justify-center'>
+      <div className='sm:grid grid-cols-5 mt-2 justify-center text-gray-800'>
          <Helmet><title>Category | Chartique</title></Helmet>
          <button
             onClick={() => { document.getElementById('openCategory').showModal() }} role="button"
@@ -94,7 +95,7 @@ const CetegoryDetails = () => {
                                     checked={checkedCheckbox.includes(sc)}
                                     onChange={() => observeChange(sc)}
                                     className="checkbox checkbox-sm checkbox-primary my-2" />
-                                 <span className='uppercase text-sm'>{sc}</span>
+                                 <span className='uppercase text-sm text-gray-800'>{sc}</span>
                               </label>
                            ))}
                         </div>
@@ -106,9 +107,9 @@ const CetegoryDetails = () => {
          {/* sidebar category end */}
 
 
-         <div className="col-span-1 hidden sm:block">
+         <div className="col-span-1 hidden sm:block shadow p-3 space-y-2">
             {productCategories.map((pc, index) =>
-               <div className="collapse collapse-arrow border border-base-300" key={index}>
+               <div className="collapse collapse-arrow bg-gray-200/40" key={index}>
                   <input
                      type="checkbox"
                      checked={openCategory === index}
@@ -116,14 +117,14 @@ const CetegoryDetails = () => {
                      onChange={() => setOpenCategory(openCategory === index ? null : index)}
                   />
                   <div className="collapse-title font-semibold uppercase">{pc.category}</div>
-                  <div className="collapse-content">
+                  <div className="collapse-content space-y-2">
                      {pc.sub_category.map((sc, subIndex) => (
                         <label className="fieldset-label" key={subIndex}>
                            <input type="checkbox"
                               checked={checkedCheckbox.includes(sc)}
                               onChange={() => observeChange(sc)}
-                              className="checkbox checkbox-sm checkbox-primary my-2" />
-                           <span className='uppercase text-sm'>{sc}</span>
+                              className="checkbox checkbox-xs checkbox-neutral my-2" />
+                           <span className='uppercase text-sm text-gray-800'>{sc}</span>
                         </label>
                      ))}
                   </div>
@@ -136,7 +137,7 @@ const CetegoryDetails = () => {
                   {/* show checked sub-categoy top start*/}
                   <div className='flex items-center space-x-3 p-2 transition-all opacity-80 overflow-auto scrollbar-none'>
                      {
-                        checkedCheckbox.map((ccb, idx) => <p className='btn uppercase text-xs' key={idx}>{ccb}
+                        checkedCheckbox.map((ccb, idx) => <p className='btn btn-sm bg-gray-200/40 text-gray-800 uppercase text-xs shadow-none' key={idx}>{ccb}
                            <button onClick={() => deleteFromChecklist(idx)} className='cursor-pointer'><FaCircleXmark className='size-4' /></button> </p>)
                      }
                   </div>
@@ -144,7 +145,7 @@ const CetegoryDetails = () => {
                   <div className={`${filteredCategory.length > 0 && "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-2 gap-y-20 pb-3 px-2"}`}>
                      {filteredCategory.length < 1 ?
                         <div className='flex justify-center items-center h-16'>
-                           <span className='text-base-800 font-display antialiased flex items-center text-sm'><RiErrorWarningFill className='me-1 size-5 text-yellow-700' /> No products were found matching your selection !</span>
+                           <span className='text-gray-800 font-display antialiased flex items-center text-sm md:text-lg'><RiErrorWarningFill className='me-1 size-5 text-black' /> No products were found matching your selection </span>
                         </div> :
                         filteredCategory.map(p => (
                            <div id='productCard' key={p.id} className='h-56 cursor-pointer md:h-64 transition-all relative'>

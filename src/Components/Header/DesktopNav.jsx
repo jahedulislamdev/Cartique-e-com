@@ -13,9 +13,9 @@ const DesktopNav = () => {
                   <Link to={item.direct_path ? item.direct_path : ''}>{item.title}</Link>
                   {item.submenu && <MdOutlineKeyboardArrowDown className="ms-1" />}
                   {item.submenu && (
-                     <ul className="absolute transition-all left-0 top-full hidden bg-gray-100 shadow-lg rounded-b-lg p-5 min-w-100 group-hover:block">
+                     <ul className="absolute transition-all left-0 top-full hidden bg-gray-100 shadow-lg rounded-b-lg py-5 px-3 min-w-2xl group-hover:block">
                         {item.submenu.map((subItem, subIndex) => (
-                           <li key={subIndex} className=" hover:bg-gray-200 transition-all duration-100 ps-3 pe-5 py-2 cursor-pointer">
+                           <li key={subIndex} className=" hover:bg-gray-200 hover:rounded-lg transition-all duration-100 ps-3 pe-5 py-2 cursor-pointer">
                               <Link className="" to={`/category/${subItem.name}`}>{subItem.name}</Link>
                            </li>
                         ))}

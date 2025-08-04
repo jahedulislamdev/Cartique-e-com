@@ -70,13 +70,7 @@ const DataProvider = ({ children }) => {
       { id: "M25", category: "Men's 25", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] },
       { id: "W25", category: "Wemen's 25", sub_category: ["sub-category-1", "sub-category-2", "sub-category-3", "sub-category-4", "sub-category-5"] }
    ];
-   // product display img
-   const displayImg = [
-      "https://i.pinimg.com/1200x/c9/4b/80/c94b80778cc44b28a45fe4aea8415e52.jpg",
-      "https://i.pinimg.com/1200x/a4/e8/7f/a4e87f77a37610077e81af5287f95163.jpg",
-      "https://i.pinimg.com/736x/33/7b/4a/337b4aa916147c24d8ff1e8d214e2074.jpg",
 
-   ]
    //load products data 
    const [products, setProducts] = useState([]);
    useEffect(() => {
@@ -274,7 +268,6 @@ const DataProvider = ({ children }) => {
       navData,
       productCategories,
       products,
-      displayImg,
       loading,
    };
 

@@ -45,7 +45,7 @@ const Details = () => {
       setSize(selectedSize);
    }
    if (loading || !selectedProduct) {
-      return <div className="flex items-center justify-center min-h-screen">
+      return <div className="flex items-center justify-center min-h-screen bg-transparent">
          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-600"></div>
       </div>;
    }
@@ -53,7 +53,7 @@ const Details = () => {
       <div className='px-2 md:px-6'>
          <div className='mt-2 md:mt-0  md:grid grid-cols-2 space-x-5 mb-4 md:p-5 rounded-lg'>
             <Helmet><title>Explore Product | Chartique</title></Helmet>
-            <div className="flex flex-col items-center justify-center">
+            <div className="">
                {/* Main Image */}
                <motion.div
                   key={showcaseImage}
@@ -66,7 +66,7 @@ const Details = () => {
                   <img
                      src={showcaseImage}
                      alt="Selected Product"
-                     className="w-full h-[400px] sm:h-[850px] md:h-[550px] lg:h-[650px] object-cover object-center rounded-lg"
+                     className="w-full h-[400px] sm:h-[850px] md:h-[550px] lg:h-[500px] object-cover object-top rounded-lg"
                   />
                </motion.div>
 
@@ -100,8 +100,8 @@ const Details = () => {
 
                {/* Stock Status */}
                <div className={` text-lg`}>
-                  Availability : <span className={`${selectedProduct.stock_status === "in_stock" ? "text-purple-500" : "text-red-700"}`}>{selectedProduct.stock_status}</span>
-                  <p className="badge badge-sm opacity-50">{selectedProduct.stock}</p>
+                  Availability : <span className={`${selectedProduct.stock_status === "in_stock" ? "text-purple-500" : "text-red-700"}`}>In Stock </span>
+                  <p className="badge badge-xs ms-1 opacity-50">{selectedProduct.stock}</p>
                </div>
 
                {/* Color */}
@@ -113,17 +113,17 @@ const Details = () => {
                <div>
                   <div className="join space-x-2.5">
                      {selectedProduct.size.map(size => (
-                        <input onChange={handleSelectedSize} key={size} className="join-item btn rounded-4xl border-0 checked:bg-red-700 checked:text-white"
+                        <input onChange={handleSelectedSize} key={size} className="join-item btn bg-gray-100 text-gray-800 shadow-xs rounded-4xl border-0 checked:bg-red-700 checked:text-white"
                            type="radio" name="size" aria-label={size} />
                      ))}
                   </div>
                </div>
 
                {/* Quantity Selector */}
-               <div className="join join-horizontal mt-3">
-                  <button onClick={handleQuantityChange} className="btn text-xl join-item p-4 ">-</button>
-                  <button ref={quantity} className="btn text-xl cursor-default join-item  p-4 ">1</button>
-                  <button onClick={handleQuantityChange} className="btn text-xl join-item p-4 ">+</button>
+               <div className="join join-horizontal mt-3 bg-white border border-gray-400 rounded px-3 space-x-5 text-lg">
+                  <button onClick={handleQuantityChange} className='p-1 join-item cursor-pointer'>-</button>
+                  <button ref={quantity} className="join-item p-1">1</button>
+                  <button onClick={handleQuantityChange} className='p-1 join-item cursor-pointer'>+</button>
                </div>
 
 

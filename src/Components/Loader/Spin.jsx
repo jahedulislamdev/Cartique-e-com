@@ -1,12 +1,10 @@
-import React from 'react';
-
 const Spin = () => {
    return (
       <div className="flex justify-center items-center h-96">
-         <button className="btn btn-primary hover:bg-blue-950 btn-soft">
-            <span className="animate-spin rounded-full h-5 w-5 border-t-4 border-blue-500 border-solid"></span>
-            Loading..
-         </button>
+         <div className="flex items-center space-x-2 bg-white px-4 py-2 rounded-md shadow">
+            <span className="animate-spin h-5 w-5 border-4 border-blue-500 border-t-transparent rounded-full"></span>
+            <span className="text-blue-600 font-medium">Loading...</span>
+         </div>
       </div>
    );
 };
