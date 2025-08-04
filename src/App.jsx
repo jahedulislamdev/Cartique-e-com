@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async';
 
 const App = () => {
   return (
-    <div className='mt-2'>
+    <div className='mt-2 bg-white text-gray-800 '>
       <Helmet>
         <title>Welcome | Chartique</title>
       </Helmet>

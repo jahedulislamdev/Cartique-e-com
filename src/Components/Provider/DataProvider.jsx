@@ -72,10 +72,10 @@ const DataProvider = ({ children }) => {
    ];
    // product display img
    const displayImg = [
-      "https://i.postimg.cc/D08m8kCv/b-1.jpg",
-      "https://i.postimg.cc/c4PT1dDJ/b-2.jpg",
-      "https://i.postimg.cc/HLg25B1D/b-3.jpg",
-      "https://i.postimg.cc/MpR5vg4m/b-4.jpg",
+      "https://i.pinimg.com/1200x/c9/4b/80/c94b80778cc44b28a45fe4aea8415e52.jpg",
+      "https://i.pinimg.com/1200x/a4/e8/7f/a4e87f77a37610077e81af5287f95163.jpg",
+      "https://i.pinimg.com/736x/33/7b/4a/337b4aa916147c24d8ff1e8d214e2074.jpg",
+
    ]
    //load products data 
    const [products, setProducts] = useState([]);

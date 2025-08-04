@@ -30,8 +30,8 @@ const Searchbar = () => {
       modelColseRef.current.close();
    }
    return (
-      <div className={`sticky top-0 left-0 w-full z-50 bg-base-100 shadow transition-all duration-300 ease-in-out`}>
-         <div className="navbar border-b border-gray-300 px-2 md:px-4 lg:px-8">
+      <div className={`bg-white text-gray-800 sticky top-0 left-0 w-full z-50 shadow transition-all duration-300 ease-in-out`}>
+         <div className="navbar border-b border-gray-300 px-2 md:px-4 lg:px-8 ">
             {/* Navbar Start */}
             <div className="navbar-start">
                {/* Sidebar Modal for Mobile */}
@@ -45,13 +45,13 @@ const Searchbar = () => {
                <dialog id="sidebarModal" ref={dialogColsingRef} className="modal modal-start">
                   <div className="modal-box w-80">
                      <form method="dialog" className="mb-3 flex justify-between items-center">
-                        <p className="text-lg font-semibold uppercase">Cartique</p>
+                        <p className="text-lg font-semibold uppercase">Levara</p>
                         <button className="text-gray-400">✕</button>
                      </form>
                      <MobileNav />
                   </div>
                </dialog>
-               <Link to="/" className="text-lg md:text-2xl font-semibold uppercase">Cartique</Link>
+               <Link to="/" className="h-16 w-32 flex justify-center items-center"><img src="https://i.postimg.cc/SRqHtD9v/Screenshot-2025-08-04-210242.png" alt="" /></Link>
             </div>
             {/* Navbar Center */}
             <div className="w-full relative">

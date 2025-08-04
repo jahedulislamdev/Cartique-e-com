@@ -11,7 +11,7 @@ const MobileNav = () => {
    };
 
    return (
-      <div>
+      <div className="bg-base-100 text-gray-800">
          <Link onClick={handleModalClose} to={'/'} className="collapse bg-base-100 border border-base-300">
             <input type="radio" name="my-accordion-2" defaultChecked />
             <div className="collapse-title font-semibold">Home</div>
