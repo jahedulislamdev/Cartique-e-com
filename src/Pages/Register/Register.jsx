@@ -60,86 +60,93 @@ const Register = () => {
          .finally(() => setLoading(false));
    }
    return (
-      <div className="relative w-full max-w-md mx-auto my-6 p-0.5 rounded-2xl md:bg-gradient-to-r from-cyan-900 via-purple-700 to-blue-900 shadow-xl">
-         <div className="rounded-2xl px-2 py-4 md:py-8 bg-base-100 border border-[#353535] shadow-[0_0_0_2px_rgba(255,255,255,0.05)]">
-            <Helmet>Register | Chartique</Helmet>
+      <div className="rounded-2xl my-8 max-w-md mx-auto px-4 py-8 bg-white border border-gray-200 shadow-lg">
+         <Helmet>
+            <title>Register | Chartique</title>
+         </Helmet>
 
-            <form onSubmit={handleFormSubmit} className="space-y-4">
-               <p className="text-center text-violet-300 text-3xl font-bold mb-4">Register</p>
+         <form onSubmit={handleFormSubmit} className="space-y-5">
+            <p className="text-center text-3xl font-semibold text-gray-800">Create an Account</p>
 
-               <div className="form-control">
-                  <input
-                     name="number"
-                     type="number"
-                     placeholder="018XXXXXXXX"
-                     className="w-full px-4 py-3 rounded-lg bg-base-200 border border-transparent placeholder-gray-400 focus:outline-none"
-                     required
-                  />
-               </div>
+            <div className="form-control">
+               <label className="block text-sm text-gray-600 mb-1">Phone Number</label>
+               <input
+                  name="number"
+                  type="number"
+                  placeholder="018XXXXXXXX"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                  required
+               />
+            </div>
 
-               <div className="form-control">
-                  <input
-                     name="name"
-                     type="text"
-                     placeholder="Username"
-                     className="w-full px-4 py-3 rounded-lg bg-base-200 border border-transparent placeholder-gray-400 focus:outline-none"
-                     required
-                  />
-               </div>
+            <div className="form-control">
+               <label className="block text-sm text-gray-600 mb-1">Username</label>
+               <input
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                  required
+               />
+            </div>
 
-               <div className="form-control">
-                  <input
-                     name="email"
-                     type="email"
-                     placeholder="example@email.com"
-                     className="w-full px-4 py-3 rounded-lg bg-base-200 border border-transparent placeholder-gray-400 focus:outline-none"
-                     required
-                  />
-               </div>
+            <div className="form-control">
+               <label className="block text-sm text-gray-600 mb-1">Email Address</label>
+               <input
+                  name="email"
+                  type="email"
+                  placeholder="example@email.com"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                  required
+               />
+            </div>
 
-               <div className="form-control">
-                  <input
-                     name="password"
-                     type="password"
-                     placeholder="Password"
-                     className=" w-full px-4 py-3 rounded-lg bg-base-200 border border-transparent placeholder-gray-400 focus:outline-none"
-                     required
-                  />
-                  {err && <p className="m-1 text-xs text-red-500">{err}</p>}
-               </div>
+            <div className="form-control">
+               <label className="block text-sm text-gray-600 mb-1">Password</label>
+               <input
+                  name="password"
+                  type="password"
+                  placeholder="••••••••"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-500"
+                  required
+               />
+               {err && <p className="mt-1 text-xs text-red-500">{err}</p>}
+            </div>
 
-               <div className="flex items-center space-x-2 text-sm">
-                  <input
-                     name="terms"
-                     type="checkbox"
-                     className="checkbox checkbox-xs rounded-md border-pink-500 "
-                     required
-                  />
-                  <span className="text-gray-300">
-                     Accept our{" "}
-                     <Link to={'/terms'} className="text-violet-300 underline hover:text-pink-400">
-                        Terms and Conditions
-                     </Link>
-                  </span>
-               </div>
+            <div className="flex items-start text-sm space-x-2">
+               <input
+                  name="terms"
+                  type="checkbox"
+                  className="mt-1 checkbox checkbox-sm border-violet-500 focus:ring-violet-500"
+                  required
+               />
+               <span className="text-gray-700">
+                  I agree to the{" "}
+                  <Link to="/terms" className="text-violet-600 underline hover:text-violet-800">
+                     Terms & Conditions
+                  </Link>
+               </span>
+            </div>
 
-               <div className="form-control">
-                  {/* <button className="w-full py-3 rounded-lg bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:opacity-90  font-semibold transition-all">
-                     Register
-                  </button> */}
-                  <button className="btn bg-violet-700 w-full text-white rounded ">Register</button>
-                  <p className="text-sm font-light mt-3 text-center text-gray-400">
-                     Already have an Account?{" "}
-                     <Link to={"/login"} className="font-medium text-violet-300 hover:underline">
-                        Login
-                     </Link>
-                  </p>
-               </div>
-            </form>
+            <div className="form-control">
+               <button
+                  type="submit"
+                  className="w-full py-3 rounded-lg bg-violet-700 hover:bg-violet-800 text-white font-medium transition duration-300"
+               >
+                  Register
+               </button>
+               <p className="text-sm text-center text-gray-600 mt-3">
+                  Already have an account?{" "}
+                  <Link to="/login" className="text-violet-600 font-medium hover:underline">
+                     Login
+                  </Link>
+               </p>
+            </div>
+         </form>
 
-            <ToastContainer transition={Slide} />
-         </div>
+         <ToastContainer transition={Slide} />
       </div>
+
 
    );
 };

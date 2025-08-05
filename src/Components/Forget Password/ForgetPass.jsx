@@ -40,8 +40,8 @@ const ForgetPass = () => {
    }
    return (
       <form className="py-5">
-         <label htmlFor="email" className='text-sm'>Enter your registered email address. We will send you a link that will allow you to change your password via email.</label>
-         <input type="email" ref={emailRef} name='email' required placeholder="example@gmail.com" className="input mt-2 w-full focus:outline-0 focus:border-purple-700" />
+         <label htmlFor="email" className='font-Poppins py-4'>Enter your registered email address. We will send you a link that will allow you to change your password via email.</label>
+         <input type="email" ref={emailRef} name='email' required placeholder="example@gmail.com" className="input bg-white mt-4 w-full border border-black" />
          <p className='text-sm mt-2 text-red-600'>{err}</p>
          <button onClick={handleForgotPassword} className='btn bg-purple-950 w-full my-3'>Reset Password</button>
       </form>

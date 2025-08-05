@@ -14,7 +14,7 @@ const OverviewModal = ({ overviewProduct }) => {
     }
     const handleAddToCart = () => {
         if (!size) {
-            toast.error("Please select a size before adding!", { position: "bottom-right" });
+            toast.error("Please select a size before adding!", { position: "top-right" });
             return;
         }
         addToCart(overviewProduct?.model, overviewProduct?.quantity, size);
@@ -27,7 +27,7 @@ const OverviewModal = ({ overviewProduct }) => {
             <form method="dialog">
                 <button className="cursor-pointer w-8 h-8 rounded-full indicator-item indicator-center badge bg-red-900 border-0 text-white">✕</button>
             </form>
-            <div className="modal-box p-0 font-display sm:max-w-3xl sm:w-full scrollbar-none">
+            <div className="modal-box bg-white p-0 font-display sm:max-w-3xl sm:w-full scrollbar-none">
                 <div className='sm:grid grid-cols-2 gap-x-3 '>
                     <div>
                         <img className='sm:w-full' src={overviewProduct?.product_img} alt="" />
@@ -43,7 +43,7 @@ const OverviewModal = ({ overviewProduct }) => {
                             </div>
                         </div>
                         <p className='text-xl font-medium'>৳ {overviewProduct?.price}</p>
-                        <p>Color: <span className='bg-zinc-700 p-1 rounded-3xl text-xs text-base-300'>{overviewProduct?.color}</span></p>
+                        <p>Color: <span className='bg-gray-200 px-2 py-1 rounded-3xl text-xs text-base-300'>{overviewProduct?.color}</span></p>
                         <div className='mt-3'>
                             Size :
                             <div className="join space-x-2.5 ms-1">

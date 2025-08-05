@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
@@ -46,12 +46,12 @@ const Login = () => {
    }
    return (
       <div className="flex items-center justify-center py-5">
-         <div className="relative w-full max-w-md p-6 rounded-xl border border-[#353535] shadow-[0_0_0_2px_rgba(255,255,255,0.05)]">
+         <div className="relative w-full max-w-md p-6 rounded-xl border border-gray-300 bg-gray-50 ">
             <Helmet>Login | Chartique</Helmet>
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
                {/* Header */}
-               <h2 className="text-3xl font-bold text-violet-200 text-center">Login</h2>
+               <h2 className="text-3xl font-bold text-violet-400 text-center">Login</h2>
 
                {/* Email input */}
                <div>
@@ -61,7 +61,7 @@ const Login = () => {
                      name="email"
                      required
                      placeholder="Enter your email here"
-                     className="w-full px-4 py-3 bg-base-100 border border-gray-600 rounded-lg focus:outline-none"
+                     className="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none"
                   />
                </div>
 
@@ -74,12 +74,12 @@ const Login = () => {
                         name="password"
                         required
                         placeholder="Password"
-                        className="w-full px-4 py-3 bg-base-100 border border-gray-600 rounded-lg focus:outline-none"
+                        className="w-full px-4 py-3 border border-gray-400 rounded-lg focus:outline-none"
                      />
                      <button
                         type="button"
                         onClick={() => setShowPass(!showPass)}
-                        className="absolute right-3 top-3 text-gray-400 hover:text-white"
+                        className="absolute right-3 top-3  "
                      >
                         {showPass ? <IoEye className="size-5" /> : <IoEyeOff className="size-5" />}
                      </button>
@@ -95,7 +95,7 @@ const Login = () => {
                   <button
                      type="button"
                      onClick={() => document.getElementById('showForgotPasswordModal').showModal()}
-                     className="text-xs text-violet-400 hover:underline"
+                     className="text-xs text-violet-400 hover:underline cursor-pointer "
                   >
                      Forgot Password?
                   </button>
@@ -103,29 +103,29 @@ const Login = () => {
 
                {/* Login Button */}
                <div className="space-y-3">
-                  <button className="w-full py-3 bg-violet-600 hover:bg-violet-700 rounded-lg text-white font-semibold">
+                  <button className="w-full py-3 bg-violet-600 hover:bg-violet-700 duration-100  rounded-lg text-white font-semibold">
                      Sign In
                   </button>
                   <p className="text-center text-sm text-gray-400">
-                     Don’t have an account? <Link to={'/register'} className="text-violet-300 hover:underline font-medium">Register</Link>
+                     Don’t have an account? <Link to={'/register'} className="text-violet-500 hover:underline font-medium">Register</Link>
                   </p>
                </div>
             </form>
 
             {/* Divider */}
-            <div className="divider opacity-30">OR Login With</div>
+            <div className="divider opacity-30"> OR Login With </div>
 
             {/* Social Login */}
             <div className="flex gap-4">
                <button
                   onClick={() => loginWithGoogle(navigate, location)}
-                  className="flex items-center justify-center w-full py-2 border border-gray-600 rounded-lg hover:bg-gray-700"
+                  className="flex items-center justify-center w-full py-2 shadow rounded-lg hover:bg-gray-200"
                >
                   <FcGoogle className="size-5 mr-2" /> Google
                </button>
                <button
                   onClick={() => loginWithFacebook(navigate, location)}
-                  className="flex items-center justify-center w-full py-2 border border-gray-600 rounded-lg hover:bg-gray-700"
+                  className="flex items-center justify-center w-full py-2 shadow rounded-lg hover:bg-gray-200"
                >
                   <FaFacebook className="size-5 mr-2 text-blue-400" /> Facebook
                </button>
@@ -134,7 +134,7 @@ const Login = () => {
             {/* Toast and Modal */}
             <ToastContainer transition={Slide} />
             <dialog id="showForgotPasswordModal" className="modal p-2">
-               <div className="modal-box">
+               <div className="modal-box bg-gray-50 p-5 relative">
                   <form method="dialog">
                      <button className="btn btn-sm btn-circle btn-ghost hover:bg-red-700 absolute right-2 top-2">✕</button>
                   </form>

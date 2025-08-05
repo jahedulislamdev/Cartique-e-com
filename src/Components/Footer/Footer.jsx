@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
    return (
-      <footer className="bg-base-200 text-base-content mt-16">
+      <footer className=" bg-[#3b3048]  text-white  mt-16">
          <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
             {/* Services */}
             <div>
                <h6 className="footer-title text-lg font-semibold mb-4">Services</h6>
-               <ul className="space-y-2 text-sm">
+               <ul className="space-y-2 ">
                   <li><Link className="hover:underline" to={''}>Branding</Link></li>
                   <li><Link className="hover:underline" to={''}>Design</Link></li>
                   <li><Link className="hover:underline" to={''}>Marketing</Link></li>
