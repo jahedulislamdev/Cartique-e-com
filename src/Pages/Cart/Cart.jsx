@@ -84,7 +84,7 @@ const Cart = () => {
          <Helmet>
             <title>Your Shopping Cart | Chartique</title>
          </Helmet>
-         <h1 className='font-semibold ps-2 my-6 md:mt-0'>🛒 Cart Items ({cartItems?.length})</h1>
+         <h1 className='font-semibold ps-2 my-6 md:mt-2'>🛒 Cart Items ({cartItems?.length})</h1>
          <div className='sm:grid grid-cols-6 sm:px-5 gap-x-2'>
             <div className='sm:col-span-3 md:col-span-4 overflow-x-auto scrollbar-none border border-base-content/5 bg-base-100'>
                {loading || products.length === 0 ? <Spin /> :
@@ -100,7 +100,7 @@ const Cart = () => {
                      </thead>
                      <tbody>
                         {cartItems?.map((item) => (
-                           <tr key={item.model} className='align-top'>
+                           <tr key={item.model} className='align-top hover:bg-gray-50'>
                               <td className="w-[300px] min-w-[200px] max-w-[350px]">
                                  <div className="flex items-center gap-2 ">
                                     <img className='w-17 h-20 rounded object-cover object-top' src={item.product_img} alt='img' />

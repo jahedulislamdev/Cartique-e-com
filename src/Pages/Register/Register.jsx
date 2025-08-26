@@ -66,7 +66,7 @@ const Register = () => {
          </Helmet>
 
          <form onSubmit={handleFormSubmit} className="space-y-5">
-            <p className="text-center text-3xl font-semibold text-gray-800">Create an Account</p>
+            <p className="text-center text-3xl font-semibold text-blue-800">Create an Account</p>
 
             <div className="form-control">
                <label className="block text-sm text-gray-600 mb-1">Phone Number</label>

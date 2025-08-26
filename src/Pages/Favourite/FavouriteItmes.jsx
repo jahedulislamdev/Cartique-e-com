@@ -30,9 +30,7 @@ const FavouriteItmes = () => {
       // Filter matched product with real objects
       const updatedMatchedItems = products.filter(p => updatedFavouriteModels.includes(p.model))
       setFaouriteItems(updatedMatchedItems);
-      setTimeout(() => {
-         setLoading(false)
-      }, 700);
+      setLoading(false)
    }
 
    // SORTING FAVOURITE PRODUCTS 
@@ -82,8 +80,8 @@ const FavouriteItmes = () => {
             <div className='mt-3 grid @min-xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4'>
                {
                   favouriteItems?.map(i => (
-                     <div key={i.id} className='relative'>
-                        <Link to={`/product_details/${i.id}`} className='flex alert alert-soft p-2'>
+                     <div key={i.id} className='relative bg-white'>
+                        <Link to={`/product_details/${i.id}`} className='flex alert alert-soft p-2 bg-white'>
                            <div>
                               <img className='h-32 object-cover object-top border-e-3 border-red-500' src={i?.product_img} alt="" />
                            </div>
